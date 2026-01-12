@@ -1,7 +1,7 @@
-<div class="card-group mt-2">
-
+<div class="row mt-2">
   {% for post in site.posts %}
-    {% include blog/post-card.html %}
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      {% include blog/post-card.html %}
+    </div>
   {% endfor %}
-  
 </div>

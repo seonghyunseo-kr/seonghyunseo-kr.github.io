@@ -3,9 +3,30 @@
     {% for item in site.data.timeline %}
       <div class="timeline-item">
         <div class="content">
-          <h2>{{ item.title }}</h2>
-          <h6 class="date">{{ item.from }} — {{ item.to }}</h6>
-          <p>{{ item.description }}</p>
+
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div class="flex-grow-1">
+              <h4 class="mb-1">{{ item.position }}</h4>
+              {% if item.org %}
+                <div class="text-muted mb-2">{{ item.org }}</div>
+              {% endif %}
+            </div>
+
+            <div class="date text-end text-nowrap">
+              {{ item.from }} — {{ item.to }}
+            </div>
+          </div>
+
+          {% if item.details %}
+            <ul class="mb-0">
+              {% for d in item.details %}
+                <li>{{ d }}</li>
+              {% endfor %}
+            </ul>
+          {% elsif item.description %}
+            <p class="mb-0">{{ item.description }}</p>
+          {% endif %}
+
         </div>
       </div>
     {% endfor %}

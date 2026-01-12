@@ -1,0 +1,54 @@
+// Shared vertical line + dot style for Timeline/Education blocks
+.vertical-timeline {
+  position: relative;
+  border-radius: 0 $rounded-borders $rounded-borders 0;
+  padding: 10px 0;
+
+  // tweak these 3 to unify everything
+  --vt-line-width: 3px;
+  --vt-dot-size: 14px;
+  --vt-content-indent: 24px;
+
+  &:after {
+    content: "";
+    width: var(--vt-line-width);
+    height: 100%;
+    background-color: $primary;
+    position: absolute;
+    left: calc(-1 * var(--vt-line-width));
+    top: 0;
+    opacity: 0.6;
+  }
+
+  .vt-item {
+    position: relative;
+
+    &:after {
+      content: "";
+      width: var(--vt-dot-size);
+      height: var(--vt-dot-size);
+      border-radius: 50%;
+      border: 3px solid $primary;
+      background-color: $light;
+      position: absolute;
+      left: calc(-1 * (var(--vt-dot-size) / 2) - (var(--vt-line-width) / 2));
+      top: 10px;
+      z-index: 10;
+    }
+
+    .content {
+      margin: var(--vt-content-indent);
+      padding-bottom: 16px;
+      border-bottom: 1px dashed rgba($dark, 0.5);
+
+      .date {
+        color: #6c757d;
+      }
+    }
+
+    &:last-child .content {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}

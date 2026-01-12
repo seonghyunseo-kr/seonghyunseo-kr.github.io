@@ -1,0 +1,21 @@
+- kind: education
+  sort: "2025-08"
+  degree: "M.S. in Industrial Engineering"
+  school: "Sungkyunkwan University (SKKU)"
+  school_url: "https://www.skku.edu/eng/"
+  focus: "Autonomous AI/ML Operations"
+  from: "Sep 2022"
+  to: "Aug 2025"
+  thesis: "Autonomous Online Learning With Feature Store and Data Store Updates: A Case Study of Virtual Metrology in Steel Manufacturing."
+  thesis_url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5209544"
+  advisor_name: "Prof. D.-J. Lim"
+  advisor_url: "https://technometrics.org"
+
+- kind: education
+  sort: "2024-02"
+  degree: "B.S. in Data Science & Systems Management Engineering"
+  school: "Sungkyunkwan University (SKKU)"
+  school_url: "https://www.skku.edu/eng/"
+  focus: "Double Major"
+  from: "Mar 2020"
+  to: "Feb 2024"

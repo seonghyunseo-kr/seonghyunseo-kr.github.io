@@ -1,15 +1,164 @@
-<div class="row justify-content-center align-items-center p-4">
-  <div class="col-lg-4 col-md-6 text-center mt-4">
+<div class="container py-5">
 
-    <!-- Fine Circle Responsive Image -->
-    <div id="container" class="my-2">
-      <div id="dummy"></div>
-      <div id="element">
-        <img src="{{ site.author.image }}" alt="{{ site.title }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+  <!-- HERO: photo left, intro right -->
+  <div class="row align-items-center">
+    <!-- Left: Photo -->
+    <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+      <div id="container" class="my-2">
+        <div id="dummy"></div>
+        <div id="element">
+          <img src="{{ site.author.image }}" alt="{{ site.title }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+        </div>
       </div>
     </div>
 
-    <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">{{ site.description }}</p>
+    <!-- Right: Name / Short Intro / Contacts / CTA -->
+    <div class="col-12 col-md-8">
+      <h1 class="mb-2 wow animated fadeIn" data-wow-delay=".1s">{{ site.author.name }}</h1>
 
+      <p class="text-muted mb-3 wow animated fadeIn" data-wow-delay=".15s">
+        {{ site.description }}
+      </p>
+
+      <p class="mb-3 wow animated fadeIn" data-wow-delay=".2s">
+        I build reliable industrial AI/ML systems—time-series forecasting, causal discovery, and sustainable MLOps.
+        <br>
+        Currently, I’m an AI/ML Researcher Intern at Boeing AI (BKETC, Seoul).
+      </p>
+
+      <!-- Contacts from _config.yml author -->
+      <div class="mb-3 wow animated fadeIn" data-wow-delay=".25s">
+        {% if site.author.email %}
+          <a class="mr-3" href="mailto:{{ site.author.email }}">Email</a>
+        {% endif %}
+
+        {% if site.author.linkedin %}
+          <a class="mr-3" href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        {% endif %}
+
+        {% if site.author.github %}
+          <a class="mr-3" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+        {% endif %}
+      </div>
+      {% comment %}
+      <!-- CTA buttons
+      <div class="wow animated fadeIn" data-wow-delay=".3s">
+        <a class="btn btn-primary m-1" href="{{ site.baseurl }}/about/">About</a>
+        <a class="btn btn-outline-primary m-1" href="{{ site.baseurl }}/projects/">Projects</a>
+        <a class="btn btn-dark m-1" href="{{ site.baseurl }}/cv/">CV</a>
+      </div>
+      -->
+      {% endcomment %}
+
+    </div>
   </div>
+
+  <!-- Highlights Timeline -->
+  <div class="mt-5 wow animated slideInUp" data-wow-delay=".18s">
+    <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
+      <h3 class="mb-0">Timeline</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/about/">More →</a>
+    </div>
+    {% include home-horizontal-timeline.html %}
+  </div>
+
+  <div class="wow animated slideInUp" data-wow-delay=".19s">
+    <hr class="section-divider">
+  </div>
+
+  <!-- Featured Projects -->
+  <div class="mt-5 wow animated slideInUp" data-wow-delay=".2s">
+    <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
+      <h3 class="mb-0">Featured Projects</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/projects/">View all →</a>
+    </div>
+
+    {% assign projects_page = site.pages | where: "permalink", "/projects/" | first %}
+    {% assign featured_local = site.projects | where: "featured", true | slice: 0, 3 %}
+
+    <div class="row justify-content-center">
+
+      <!-- Featured Remote Projects (first 2 from Projects page) -->
+      {% if projects_page and projects_page.remote_projects %}
+        {% assign featured_remote = projects_page.remote_projects | slice: 0, 2 %}
+        {% for remote_project in featured_remote %}
+
+          {%- for repo in site.github.public_repositories -%}
+            {%- if remote_project == repo.name -%}
+
+              {%- assign project = repo -%}
+              {%- assign words = project.name | split: '-' -%}
+              {%- capture titlecase -%}
+                {%- for word in words -%}
+                  {{ word | capitalize | append: ' ' }}
+                {%- endfor -%}
+              {%- endcapture -%}
+
+              {%- assign project_type  = "remote" -%}
+              {%- assign project_id    = project.name -%}
+              {%- assign project_img   = false -%}
+              {%- assign project_name  = titlecase | strip -%}
+              {%- assign project_desc  = project.description -%}
+              {%- assign project_url   = project.html_url -%}
+              {%- assign project_tools = project.topics -%}
+              {%- assign external      = true -%}
+
+              <div class="col-12 col-md-6 col-lg-4 mb-4">
+                {% include projects/project-card.html %}
+              </div>
+
+            {%- endif -%}
+          {%- endfor -%}
+
+        {% endfor %}
+      {% endif %}
+
+      <!-- Featured Local Projects -->
+      {% for project in featured_local %}
+
+        {%- assign project_type  = "local" -%}
+        {%- assign project_id    = project.name | slugify -%}
+        {%- assign project_img   = project.image -%}
+        {%- assign project_name  = project.name -%}
+        {%- assign project_desc  = project.description -%}
+        {%- assign project_tools = project.tools -%}
+
+        {%- if project.external_url -%}
+          {%- assign project_url = project.external_url -%}
+          {%- assign external    = true -%}
+        {%- else -%}
+          {%- assign project_url = project.url | relative_url -%}
+          {%- assign external    = false -%}
+        {%- endif -%}
+
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          {% include projects/project-card.html %}
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <!-- Latest Posts -->
+  <div class="mt-5 wow animated slideInUp" data-wow-delay=".25s">
+    <hr class="section-divider">
+    <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
+      <h3 class="mb-0">Latest Posts</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/blog/">View all →</a>
+    </div>
+
+    {% assign latest_posts = site.posts | slice: 0, 3 %}
+
+    <div class="row justify-content-center">
+      {% for post in latest_posts %}
+        {%- assign post_url = post.external_url | default: post.url | relative_url -%}
+
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          {% include blog/post-card.html %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>

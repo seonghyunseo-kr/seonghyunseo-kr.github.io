@@ -1,0 +1,7 @@
+.education-body {
+  @extend .vertical-timeline;
+}
+
+.education-item {
+  @extend .vt-item;
+}

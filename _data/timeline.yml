@@ -1,17 +1,32 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- kind: experience
+  sort: "2025-08"
+  position: "AI/ML Researcher Intern"
+  org: "Boeing AI"
+  from: "Aug 2025"
+  to: "Present"
+  details:
+    - "Built time series forecasting models to predict future quality risks and detect early warning signals in aircraft manufacturing."
+    - "Developed causal inference / causal discovery analyses to identify root causes of warning-level events."
+    - "Collaborated with global teammates to prototype an automated reporting system and iteratively improve it with stakeholder feedback."
 
-- title: Software Engineer, Google, UK
-  from: 2018
-  to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- kind: experience
+  sort: "2022-09-01"
+  position: "Graduate Research Student"
+  org: "Technometrics Lab"
+  from: "Sep 2022"
+  to: "Aug 2025"
+  details:
+    - "Researched concept drift detection and adaptive retraining strategies for production ML systems (MLOps)."
+    - "Presented at multiple international conferences; submitted journal papers."
+    - "Filed a patent on AI model retraining through feature store and data store updates."
+
+- kind: experience
+  sort: "2022-09-02"
+  position: "Research Assistant"
+  org: "Hyundai Research Institute"
+  from: "Sep 2022"
+  to: "Feb 2023"
+  details:
+    - "Analyzed and forecasted social/economic impacts of the Korean art fair market."
+    - "Used Google Trends and Naver Data Lab to build word clouds and run network analysis on key topics."
+    - "Summarized findings into report-ready deliverables."
