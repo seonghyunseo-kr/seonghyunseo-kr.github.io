@@ -1,24 +1,36 @@
-- sort: 2025
+- category: scholarship
+  sort: 2025
   year: "2024–2025"
-  title: "Hyundai Motors CMK Foundation Scholarship"
+  title: "Hyundai Motor Chung Mong-Koo Foundation"
+  title_url: "https://www.hyundai-cmkfoundation.org/en/main"
   role: "Scholarship Recipient / Alumni"
+  amount: "Tuition + ₩2.4M/semester (3 semesters)"
 
-- sort: 2023
+- category: scholarship
+  sort: 2023
   year: "2021–2023"
-  title: "Lotte Scholarship"
+  title: "Lotte Scholarship Foundation"
+  title_url: "https://www.lotte.co.kr/global/en/business/compDetail.do?compCd=L417"
   role: "Scholarship Recipient"
+  amount: "₩4.0M/semester (5 semesters)"
 
-- sort: 2023
+- category: award
+  sort: 2023.3
   year: "2023"
-  title: "3rd Prize, SKKU Comprehensive Engineering Design Contest"
+  place: "3rd Prize"
+  event: "SKKU Comprehensive Engineering Design Contest"
   role: "Team Member"
 
-- sort: 2023
+- category: award
+  sort: 2023.2
   year: "2023"
-  title: "3rd Prize, SKKU (DNA-Hero) Capstone Design Contest"
+  place: "3rd Prize"
+  event: "SKKU (DNA-Hero) Capstone Design Contest"
   role: "Team Lead"
 
-- sort: 2022
+- category: award
+  sort: 2022
   year: "2022"
-  title: "2nd Prize, KB Financial Group Solveathon"
+  place: "2nd Prize"
+  event: "KB Financial Group Solveathon"
   role: "Team Lead"

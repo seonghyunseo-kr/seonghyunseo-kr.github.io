@@ -1,0 +1,12 @@
+{% assign items = site.data.patents | sort: "sort" | reverse %}
+<ul>
+  {% for p in items %}
+    <li class="mb-2">
+      <span class="text-muted small">({{ p.year }})</span>
+      <span class="font-weight-bold">{{ p.title }}</span>
+      <div class="text-muted small">
+        {{ p.inventors }} · {{ p.id }}{% if p.status %} · {{ p.status }}{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

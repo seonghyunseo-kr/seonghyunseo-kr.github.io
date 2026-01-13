@@ -1,0 +1,14 @@
+{% assign items = site.data.talks | sort: "sort" | reverse %}
+<ul>
+  {% for t in items %}
+    <li class="mb-2">
+      <span class="text-muted small">({{ t.year }})</span>
+      <span class="badge badge-pill badge-outline-gray mr-2">{{ t.type }}</span>
+      <span class="font-weight-bold">{{ t.title }}</span>
+      <div class="text-muted small">
+        {{ t.event }}{% if t.location %} · {{ t.location }}{% endif %}
+        {% if t.slides_url %} · <a href="{{ t.slides_url }}" target="_blank" rel="noopener">slides</a>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

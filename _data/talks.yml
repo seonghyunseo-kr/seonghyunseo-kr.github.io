@@ -1,0 +1,14 @@
+- sort: 2025.1
+  year: "2025"
+  title: "Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing"
+  event: "UKC 2025"
+  location: "Atlanta, GA"
+  type: "Talk"
+  slides_url: ""   # 있으면 채우기
+
+- sort: 2024.2
+  year: "2024"
+  title: "Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates"
+  event: "INFORMS Annual Meeting 2024"
+  location: "Seattle, WA"
+  type: "Talk"

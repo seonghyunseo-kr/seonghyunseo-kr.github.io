@@ -1,0 +1,10 @@
+- name: "Korean"
+  level: "Native"
+
+- name: "English"
+  level: "Advanced"
+  details: "TOEIC 950 · OPIc AL"
+
+- name: "Mandarin"
+  level: "Beginner"
+  details: "HSK Level 2"

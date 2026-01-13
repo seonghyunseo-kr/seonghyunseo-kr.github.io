@@ -54,6 +54,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name
+  academic:
+    output: true
+    permalink: /academic/:name 
 
 
 ### Disqus ### (comments)

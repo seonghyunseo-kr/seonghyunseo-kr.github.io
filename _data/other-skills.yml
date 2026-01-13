@@ -1,7 +1,11 @@
-- name: Adobe Photoshop
-  percentage: 95
+- name: Korean (Native)
+  percentage: 100
   color: info
 
-- name: Adobe Illustrator
+- name: English (Advanced)
   percentage: 90
   color: success
+
+- name: Chinese/Mandarin (Beginner)
+  percentage: 20
+  color: 

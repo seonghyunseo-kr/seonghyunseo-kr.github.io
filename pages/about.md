@@ -7,7 +7,7 @@ weight: 1
 
 # About
 
-Hi, I’m **{{ site.author.name }}**.
+Hi, I’m **{{ site.author.name }}**!
 
 Through multiple projects in the manufacturing sector, I’ve become deeply motivated by solving real-world problems with field-generated data. This has been the main driver of my professional growth.
 
@@ -31,7 +31,17 @@ Check out my latest [CV (PDF)](/assets/pdf/cv.pdf)
   {% include about/timeline.html %}
 </div>
 
-## Sponsorships / Honors and Awards 
+## Publications & Patents
+
+<div class="row">
+  {% include about/publications-patent.html %}
+</div>
+
+<div class="d-flex justify-content-end">
+  <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/">For More Academic Info →</a>
+</div>
+
+## Honors and Awards
 
 <div class="row">
   {% include about/honors-awards.html %}
@@ -39,5 +49,5 @@ Check out my latest [CV (PDF)](/assets/pdf/cv.pdf)
 
 <div class="row">
   {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
-  {% include about/skills.html title="Other Skills" source=site.data.other-skills %}
+  {% include about/languages-certifications.html %}
 </div>
