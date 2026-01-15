@@ -1,45 +1,34 @@
-{% assign items = site.academic | sort: "year" | reverse %}
+{% assign pubs = site.academic | where: "type", "publication" | sort: "year" | reverse %}
+{% assign talks = site.academic | where: "type", "talk" | sort: "year" | reverse %}
+{% assign posters = site.academic | where: "type", "poster" | sort: "year" | reverse %}
 
-{% for item in items %}
-<div class="mb-4">
-
-  <div class="d-flex justify-content-between align-items-start gap-3">
-    <h5 class="mb-1">
-
-      {% if item.type %}
-        {% assign t = item.type | downcase %}
-        {% if t == "publication" %}
-          {% assign type_badge = "badge-outline-green" %}
-        {% elsif t == "talk" %}
-          {% assign type_badge = "badge-outline-blue" %}
-        {% elsif t == "poster" %}
-          {% assign type_badge = "badge-outline-yellow" %}
-        {% else %}
-          {% assign type_badge = "badge-outline-red" %}
-        {% endif %}
-
-        <span class="badge badge-pill {{ type_badge }} mr-3">{{ item.type | capitalize }}</span>
-      {% endif %}
-
-      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-    </h5>
-
-    {% if item.year %}
-      <div class="text-muted text-nowrap">{{ item.year }}</div>
-    {% endif %}
-  </div>
-
-  {% if item.venue or item.event %}
-    <div class="text-muted small mt-1">
-      {% if item.venue %}{{ item.venue }}{% endif %}
-      {% if item.venue and item.event %} · {% endif %}
-      {% if item.event %}{{ item.event }}{% endif %}
+<h3 class="mb-3">Publications</h3>
+<div class="row">
+  {% for doc in pubs %}
+    <div class="col-12 col-md-6 col-lg-6 mb-4">
+      {% include academic/card.html doc=doc %}
     </div>
-  {% endif %}
-
-  {% if item.description %}
-    <div class="text-muted mt-2">{{ item.description }}</div>
-  {% endif %}
-
+  {% endfor %}
 </div>
-{% endfor %}
+
+<hr class="bg-light my-4">
+
+<h3 class="mb-3">Talks</h3>
+<div class="row">
+  {% for doc in talks %}
+    <div class="col-12 col-md-6 col-lg-6 mb-4">
+      {% include academic/card.html doc=doc %}
+    </div>
+  {% endfor %}
+</div>
+
+<hr class="bg-light my-4">
+
+<h3 class="mb-3">Posters</h3>
+<div class="row">
+  {% for doc in posters %}
+    <div class="col-12 col-md-6 col-lg-6 mb-4">
+      {% include academic/card.html doc=doc %}
+    </div>
+  {% endfor %}
+</div>

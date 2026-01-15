@@ -1,0 +1,44 @@
+---
+layout: page
+---
+
+<h1><b>{{ page.title }}</b></h1>
+
+<p class="post-metadata text-muted">
+
+  {%- if page.year -%}
+    {{ page.year }}
+  {%- endif -%}
+
+  {%- assign words = content | number_of_words -%}
+  {%- if words and words > 0 -%}
+    &nbsp; - &nbsp;
+    <b>
+      {%- if words < 360 -%}
+        less than 1 min read time
+      {%- else -%}
+        {{ words | divided_by: 180 }} mins read time
+      {%- endif -%}
+    </b>
+  {%- endif -%}
+
+  <br>
+
+  {%- if page.type -%}
+    Type:
+    <span class="tag badge badge-pill text-primary border border-primary">{{ page.type | capitalize }}</span>
+  {%- endif -%}
+
+  {%- if page.tags != empty -%}
+    <br>
+    Tags:
+    {% for tag in page.tags %}
+      <a class="text-decoration-none no-underline" href="{{ tag | slugify | prepend:'/academic/tags#' | relative_url }}">
+        <span class="tag badge badge-pill text-primary border border-primary">{{ tag }}</span>
+      </a>
+    {% endfor %}
+  {%- endif -%}
+
+</p>
+
+{{ content }}

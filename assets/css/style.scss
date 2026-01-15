@@ -124,23 +124,14 @@
   overflow: hidden;
 }
 
-/* Default clamp rules (compact) */
-.home-ht .ht-title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 0.95rem;
-  line-height: 1.25;
-}
-
+/* Home timeline: do NOT truncate with ellipsis */
+.home-ht .ht-title,
 .home-ht .ht-subtitle {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 0.85rem;
-  line-height: 1.2;
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  overflow: visible !important;
+  white-space: normal !important;
 }
 
 /* Education degree MUST be fully visible (no clamp) */
@@ -365,4 +356,12 @@
   background: transparent;
   color: #0d6efd;
   border: 1px solid rgba(13, 110, 253, 0.7);
+}
+
+/* Academic card description clamp */
+.academic-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

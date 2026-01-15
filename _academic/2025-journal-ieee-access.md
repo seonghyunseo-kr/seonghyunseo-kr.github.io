@@ -1,16 +1,22 @@
 ---
-layout: post 
+layout: post
 type: publication
 year: 2025
 title: "Sustainable maintenance of virtual engineering assets: A Case Study on Virtual Metrology in Steel Manufacturing"
-tags: [virtual-metrology, mlops, manufacturing]
 authors: "Seo, S.; Lim, D.-J."
 venue: "Reliability Engineering & System Safety (under review)"
 paper_url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5209544"
+# description: "Virtual metrology case study and sustainable maintenance strategy via feature-store/data-store updates."
+tags: [virtual-metrology, manufacturing, mlops]
+comments: false
+toc: true
 ---
 
 ## Abstract
-(여기에 abstract)
+(TBD)
 
 ## Notes
-- (추가로 강조하고 싶은 contribution, dataset, method 등)
+- (TBD)
+
+## Links
+- Slides: (TBD)
