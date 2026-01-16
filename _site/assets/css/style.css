@@ -589,3 +589,18 @@ body { font-family: "Poppins", sans-serif; }
 
 /* Academic card description clamp */
 .academic-desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Blog title and list styles (no bullets, title links look like normal text) */
+.blog-title { font-size: 1.05rem; font-weight: 700; line-height: 1.25; }
+
+.blog-list { list-style: none; padding-left: 0; margin-bottom: 0; }
+
+.blog-list li { margin-bottom: 0.75rem; }
+
+.blog-list a.blog-title-link { color: inherit !important; text-decoration: none !important; transition: opacity 0.15s ease-in-out; }
+
+.blog-list a.blog-title-link:hover { opacity: 0.75; }
+
+.blog-list-indent { padding-left: 1.25rem; border-left: 2px solid rgba(0, 0, 0, 0.08); margin-left: 0.25rem; }
+
+.project.card .card-footer { font-size: 14px; }

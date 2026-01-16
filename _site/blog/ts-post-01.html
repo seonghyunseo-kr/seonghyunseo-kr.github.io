@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates">
-  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <meta property="og:title" content="Paper Review: N-BEATS (Neural basis expansion analysis)">
+  <meta property="og:description" content="A quick review of N-BEATS: an interpretable deep learning model for univariate time-series forecasting.">
   <meta property="og:image" content="/assets/img/profile.jpg">
 
-  <title>Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates</title>
-  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <title>Paper Review: N-BEATS (Neural basis expansion analysis)</title>
+  <meta name="description" content="A quick review of N-BEATS: an interpretable deep learning model for univariate time-series forecasting.">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -64,11 +64,11 @@
 
       <a class="nav-item nav-link " href="/about/">About</a>
 
-      <a class="nav-item nav-link active" href="/academic/">Academic</a>
+      <a class="nav-item nav-link " href="/academic/">Academic</a>
 
       <a class="nav-item nav-link " href="/projects/">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
       <a class="nav-item nav-link " href="/cv/">CV</a>
 
@@ -80,38 +80,75 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1><b>Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates</b></h1>
+  <h1><b>Paper Review: N-BEATS (Neural basis expansion analysis)</b></h1>
 
 <p class="post-metadata text-muted">
-   -  
+  15 January 2026 -  
   <b>less than 1 min read time</b>
 
   <br>Tags: 
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#mlops">
-      <span class="tag badge badge-pill text-primary border border-primary">mlops</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#time-series">
+      <span class="tag badge badge-pill text-primary border border-primary">time-series</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#workflow-orchestration">
-      <span class="tag badge badge-pill text-primary border border-primary">workflow-orchestration</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#paper-review">
+      <span class="tag badge badge-pill text-primary border border-primary">paper-review</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#model-updates">
-      <span class="tag badge badge-pill text-primary border border-primary">model-updates</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#forecasting">
+      <span class="tag badge badge-pill text-primary border border-primary">forecasting</span>
     </a>
     </p>
 
-<h2 id="abstract">Abstract</h2>
-<p>(TBD)</p>
-
-<h2 id="notes">Notes</h2>
+<h2 id="tldr">TL;DR</h2>
 <ul>
-  <li>(TBD)</li>
+  <li>N-BEATS is a pure feed-forward architecture that repeatedly models residuals (backcast/forecast).</li>
+  <li>Strong performance on univariate forecasting without specialized time-series components.</li>
+  <li>Interpretable variant uses basis expansions (trend/seasonality).</li>
 </ul>
 
-<h2 id="links">Links</h2>
+<h2 id="paper--resources">Paper / Resources</h2>
 <ul>
-  <li>Slides: (TBD)</li>
+  <li>Paper: https://arxiv.org/abs/1905.10437</li>
+  <li>Code: (add link)</li>
+</ul>
+
+<h2 id="key-idea">Key Idea</h2>
+<p>A stack of blocks predicts:</p>
+<ul>
+  <li><strong>Backcast</strong>: what portion of the past the block explains</li>
+  <li><strong>Forecast</strong>: the future prediction contribution</li>
+</ul>
+
+<p>Residual learning:</p>
+<ul>
+  <li>Update residual input by subtracting backcast</li>
+  <li>Sum forecasts across blocks for final prediction</li>
+</ul>
+
+<h2 id="what-i-found-important">What I found important</h2>
+<ul>
+  <li>Works surprisingly well for a “simple” MLP-based model</li>
+  <li>Structured variant gives interpretability via basis functions</li>
+  <li>Good baseline for univariate forecasting</li>
+</ul>
+
+<h2 id="my-takeaways">My Takeaways</h2>
+<ul>
+  <li>Always compare against N-BEATS when evaluating new univariate forecasting models</li>
+  <li>Residual stacking is a powerful design pattern</li>
+</ul>
+
+<h2 id="questions">Questions</h2>
+<ul>
+  <li>How does it compare under covariates / multivariate settings?</li>
+  <li>When do transformers beat it for forecasting?</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li>Related deep forecasting models (DeepAR, TFT, etc.)</li>
 </ul>
 
 

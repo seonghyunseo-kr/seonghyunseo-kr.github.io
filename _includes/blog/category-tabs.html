@@ -1,0 +1,15 @@
+{% assign cats = site.data.blog-categories %}
+
+<div class="mt-4 mb-4">
+  {% for c in cats %}
+    {% if page.cat == c.slug %}
+      {% assign btn_class = "btn btn-primary rounded-pill px-4 mr-2 mb-2 d-inline-block" %}
+    {% else %}
+      {% assign btn_class = "btn btn-outline-primary rounded-pill px-4 mr-2 mb-2 d-inline-block" %}
+    {% endif %}
+
+    <a class="{{ btn_class }}" href="{{ '/blog/category/' | append: c.slug | append: '/' | relative_url }}">
+      {{ c.title }}
+    </a>
+  {% endfor %}
+</div>

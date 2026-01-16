@@ -1,0 +1,27 @@
+{% assign cat = page.cat %}
+
+{% include blog/category-tabs.html %}
+
+<div class="blog-list-indent">
+  <ul class="blog-list">
+    {% assign filtered = site.posts | where_exp: "p", "p.tags contains cat" | sort: "date" | reverse %}
+    {% for post in filtered %}
+      {%- if post.external_url -%}
+        {%- assign url = post.external_url -%}
+      {%- else -%}
+        {%- assign url = post.url | relative_url -%}
+      {%- endif -%}
+
+      <li>
+        <div class="d-flex justify-content-between align-items-start gap-3">
+          <a class="blog-title-link blog-title" href="{{ url }}">{{ post.title }}</a>
+          <span class="text-muted small text-nowrap">{{ post.date | date_to_string }}</span>
+        </div>
+
+        {% if post.description %}
+          <div class="text-muted small">{{ post.description }}</div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

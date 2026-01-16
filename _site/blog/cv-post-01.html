@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates">
-  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <meta property="og:title" content="Paper Review: An Image is Worth 16x16 Words (ViT)">
+  <meta property="og:description" content="A quick review of Vision Transformer (ViT): core idea, architecture, and practical takeaways.">
   <meta property="og:image" content="/assets/img/profile.jpg">
 
-  <title>Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates</title>
-  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <title>Paper Review: An Image is Worth 16x16 Words (ViT)</title>
+  <meta name="description" content="A quick review of Vision Transformer (ViT): core idea, architecture, and practical takeaways.">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -64,11 +64,11 @@
 
       <a class="nav-item nav-link " href="/about/">About</a>
 
-      <a class="nav-item nav-link active" href="/academic/">Academic</a>
+      <a class="nav-item nav-link " href="/academic/">Academic</a>
 
       <a class="nav-item nav-link " href="/projects/">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
       <a class="nav-item nav-link " href="/cv/">CV</a>
 
@@ -80,38 +80,73 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1><b>Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates</b></h1>
+  <h1><b>Paper Review: An Image is Worth 16x16 Words (ViT)</b></h1>
 
 <p class="post-metadata text-muted">
-   -  
+  16 January 2026 -  
   <b>less than 1 min read time</b>
 
   <br>Tags: 
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#mlops">
-      <span class="tag badge badge-pill text-primary border border-primary">mlops</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#computer-vision">
+      <span class="tag badge badge-pill text-primary border border-primary">computer-vision</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#workflow-orchestration">
-      <span class="tag badge badge-pill text-primary border border-primary">workflow-orchestration</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#paper-review">
+      <span class="tag badge badge-pill text-primary border border-primary">paper-review</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#model-updates">
-      <span class="tag badge badge-pill text-primary border border-primary">model-updates</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#transformer">
+      <span class="tag badge badge-pill text-primary border border-primary">transformer</span>
     </a>
     </p>
 
-<h2 id="abstract">Abstract</h2>
-<p>(TBD)</p>
+<h2 id="overview">Overview</h2>
+<p>ViT reframes image classification as a <strong>sequence modeling</strong> problem: split an image into fixed-size patches, embed them as tokens, and apply a standard Transformer encoder.</p>
 
-<h2 id="notes">Notes</h2>
+<h2 id="paper--resources">Paper / Resources</h2>
 <ul>
-  <li>(TBD)</li>
+  <li>Paper: https://arxiv.org/abs/2010.11929</li>
+  <li>Code (official): https://github.com/google-research/vision_transformer</li>
 </ul>
 
-<h2 id="links">Links</h2>
+<h2 id="key-idea">Key Idea</h2>
+<ol>
+  <li><strong>Patchify</strong> an image into \(N\) patches of size \(P \times P\)</li>
+  <li><strong>Linear projection</strong>: each patch → token embedding</li>
+  <li>Add <strong>positional embeddings</strong> (+ optional <code class="language-plaintext highlighter-rouge">[CLS]</code> token)</li>
+  <li>Feed into a <strong>Transformer encoder</strong></li>
+  <li>Use <code class="language-plaintext highlighter-rouge">[CLS]</code> (or pooling) for classification</li>
+</ol>
+
+<h2 id="why-it-works-in-practice">Why it works (in practice)</h2>
 <ul>
-  <li>Slides: (TBD)</li>
+  <li>With <strong>large-scale pretraining</strong>, ViT can match or outperform strong CNN baselines.</li>
+  <li>Attention can capture <strong>global interactions</strong> between patches early (vs. local receptive fields in CNNs).</li>
+</ul>
+
+<h2 id="notes-i-want-to-remember">Notes I want to remember</h2>
+<ul>
+  <li>Data scale matters a lot; without it, CNN inductive biases can still be beneficial.</li>
+  <li>Patch size is a compute/accuracy trade-off:
+    <ul>
+      <li>smaller patches → longer sequence → more compute</li>
+      <li>larger patches → less detail, cheaper</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="questions">Questions</h2>
+<ul>
+  <li>What’s the most effective way to make ViTs <strong>data-efficient</strong>? (distillation, augmentation, hybrid models)</li>
+  <li>What are good defaults for patch size and model size under limited compute?</li>
+</ul>
+
+<h2 id="optional-experiments">(Optional) Experiments</h2>
+<ul>
+  <li>Setup:</li>
+  <li>Results:</li>
+  <li>Takeaways:</li>
 </ul>
 
 

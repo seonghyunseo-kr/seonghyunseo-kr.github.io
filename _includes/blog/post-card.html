@@ -28,13 +28,7 @@
 <div class="my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ post_url }}" class="post card {{ card_style }}" {%- if post.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>
     <div class="card-body {{ text_style }}">
-      <h3 class="card-title">{{ post.title }}</h3>
-
-      <p class="card-text">
-        {% for tag in post.tags %}
-          <span class="badge {{ badge_style }}">{{ tag }}</span>
-        {% endfor %}
-      </p>
+      <h4 class="card-title">{{ post.title }}</h4>
 
       <p class="card-text post-desc">
         {%- if post.description -%}
@@ -43,6 +37,13 @@
           {{ post.content | truncatewords: 25, "<small><i>  read more...</i></small>" }}
         {%- endif -%}
       </p>
+
+      <p class="card-text">
+        {% for tag in post.tags %}
+          <span class="badge badge-pill {{ badge_style }}">{{ tag }}</span>
+        {% endfor %}
+      </p>
+      
     </div>
 
     <div class="card-footer {{ text_style }}">

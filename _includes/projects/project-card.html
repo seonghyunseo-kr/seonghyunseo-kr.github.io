@@ -1,21 +1,60 @@
+{%- comment -%} Default Styles (force border-only cards) {%- endcomment -%}
+{%- assign card_style  = 'border border-primary' -%}
+{%- assign text_style  = 'text-themed' -%}
+
+{%- if post.color -%}
+  {%- assign card_style = post.color | prepend: 'border border-' -%}
+{%- endif -%}
+
+{%- comment -%} Apply style/color from front matter {%- endcomment -%}
+{%- if project_style == 'fill' -%}
+  {%- assign card_style = project_color | prepend: 'bg-' -%}
+  {%- if project_color and project_color != 'light' -%}
+    {%- assign text_style = 'text-white' -%}
+  {%- endif -%}
+{%- elsif project_style == 'border' -%}
+  {%- assign card_style = project_color | prepend: 'border border-' -%}
+{%- endif -%}
+
 <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="{{ project_url }}" class="project card text-themed" {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
+  <a href="{{ project_url }}"
+     class="project card {{ card_style }} {{ text_style }}"
+     style="text-decoration: none;"
+     {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
+
     {%- if project_img -%}
-    <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}" />
+      <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}" />
     {%- endif -%}
+
     <div class="card-body">
-      <h5 id="{{ project_id }}-name" class="card-title">
-          {%- if project_type == "remote" -%}
-          <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i> |&nbsp;
-          {%- endif -%}
+
+      <h4 id="{{ project_id }}-name" class="card-title mb-2">
+        {%- if project_type == "remote" -%}
+          <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i>
+          <span>&nbsp;|&nbsp;</span>
+        {%- endif -%}
         {{ project_name }}
-      </h5>
-      <p id="{{ project_id }}-desc" class="card-text project-desc">{{ project_desc }}</p>
-      <p id="{{ project_id }}-tools" class="card-text">
-        {%- for tool in project_tools -%}
-        <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
-        {%- endfor -%}
-      </p>
+      </h4>
+
+      {% if project_category %}
+        <p class="card-text mb-1">
+          <span class="badge badge-pill badge-outline-blue">{{ project_category }}</span>
+        </p>
+      {% endif %}
+
+      {% if project_topic %}
+        <p class="card-text mb-2">
+          <span class="badge badge-pill badge-outline-green">{{ project_topic }}</span>
+        </p>
+      {% endif %}
+
     </div>
+
+    {% if project_period %}
+      <div class="card-footer {{ text_style }}">
+        {{ project_period }}
+      </div>
+    {% endif %}
+
   </a>
 </div>

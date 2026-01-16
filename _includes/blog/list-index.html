@@ -1,0 +1,38 @@
+{% assign categories = site.data.blog-categories %}
+
+{% for cat in categories %}
+  {% assign slug = cat.slug %}
+  {% assign title = cat.title %}
+
+  <div class="mt-5 mb-3">
+    <a class="btn btn-outline-primary btn-lg d-inline-block rounded-pill" href="{{ '/blog/category/' | append: slug | append: '/' | relative_url }}">
+      {{ title }}
+    </a>
+  </div>
+
+  {% assign filtered = site.posts | where_exp: "p", "p.tags contains slug" %}
+  {% assign latest5 = filtered | sort: "date" | reverse | slice: 0, 5 %}
+
+  <div class="blog-list-indent">
+    <ul class="blog-list">
+      {% for post in latest5 %}
+        {%- if post.external_url -%}
+          {%- assign url = post.external_url -%}
+        {%- else -%}
+          {%- assign url = post.url | relative_url -%}
+        {%- endif -%}
+
+        <li>
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <a class="blog-title-link blog-title" href="{{ url }}">{{ post.title }}</a>
+            <span class="text-muted small text-nowrap">{{ post.date | date_to_string }}</span>
+          </div>
+
+          {% if post.description %}
+            <div class="text-muted small">{{ post.description }}</div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
