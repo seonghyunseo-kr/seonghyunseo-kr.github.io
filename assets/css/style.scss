@@ -168,8 +168,8 @@
 /* Home profile image: 4:5 portrait (e.g., 200x250) */
 #container,
 #element {
-  width: 200px;
-  height: 250px;
+  width: 220px;
+  height: 275px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 12px;
@@ -401,4 +401,48 @@
 
 .project.card .card-footer {
   font-size: 14px;
+}
+
+.home-card-grid > [class*="col-"] {
+  display: flex;
+}
+
+.home-card-grid .project.card,
+.home-card-grid .post.card {
+  height: 100%;
+  width: 100%;
+}
+
+.home-card-grid .project.card,
+.home-card-grid .post.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card-grid .post.card .card-body,
+.home-card-grid .project.card .card-body {
+  padding: 1.5rem;
+  flex: 1 1 auto;
+}
+
+.home-card-grid .post.card .card-footer,
+.home-card-grid .project.card .card-footer {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+.home-card-grid .post.card .card-title,
+.home-card-grid .project.card .card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Clamp ONLY blog description */
+.home-card-grid .post.card .post-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
