@@ -619,3 +619,5 @@ body { font-family: "Poppins", sans-serif; }
 
 /* Clamp ONLY blog description */
 .home-card-grid .post.card .post-desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+.markdown-body blockquote { color: inherit; }
