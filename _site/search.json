@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Tooling] GitLab / Hugging Face / arXiv",
+      "category" : "",
+      "tags"     : "etc, study, tooling",
+      "url"      : "/blog/study-tech-tools",
+      "date"     : "2026-02-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[CV] Obtaining Images",
       "category" : "",
       "tags"     : "computer-vision, study",
