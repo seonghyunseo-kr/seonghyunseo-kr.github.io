@@ -1,0 +1,100 @@
+{%- assign doc = include.item -%}
+
+{%- comment -%} Read URL (title link): prefer internal page, fallback to external_url {%- endcomment -%}
+{%- assign read_url = doc.url | relative_url -%}
+{%- assign read_external = false -%}
+{%- if doc.external_url -%}
+  {%- assign read_url = doc.external_url -%}
+  {%- assign read_external = true -%}
+{%- endif -%}
+
+{%- comment -%} Card style (border-only) {%- endcomment -%}
+{%- assign card_style = 'border border-primary' -%}
+{%- assign text_style = 'text-themed' -%}
+{%- if doc.color -%}
+  {%- assign card_style = doc.color | prepend: 'border border-' -%}
+{%- endif -%}
+
+{%- comment -%} Type badge mapping (your convention) {%- endcomment -%}
+{%- assign t = doc.type | downcase -%}
+{%- if t == "publication" -%}
+  {%- assign type_badge = "badge-outline-blue" -%}
+{%- elsif t == "talk" -%}
+  {%- assign type_badge = "badge-outline-green" -%}
+{%- elsif t == "poster" -%}
+  {%- assign type_badge = "badge-outline-yellow" -%}
+{%- else -%}
+  {%- assign type_badge = "badge-outline-red" -%}
+{%- endif -%}
+
+{%- assign type_label = doc.type | default: 'academic' | upcase -%}
+
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+  <div class="project card {{ card_style }} {{ text_style }}">
+
+    <div class="card-body">
+
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <span class="badge badge-pill {{ type_badge }}">{{ type_label }}</span>
+      </div>
+
+      <h4 class="card-title mb-4"
+          style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
+        <a href="{{ read_url }}"
+          style="text-decoration: none; color: inherit;"
+          {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          {{ doc.title }}
+        </a>
+      </h4>
+
+      {%- if doc.venue or doc.event -%}
+        <p class="card-text mb-2">
+          <b>
+            {%- if doc.venue -%}{{ doc.venue }}{%- else -%}{{ doc.event }}{%- endif -%}
+          </b>
+          {%- if doc.location -%}
+            <span>&nbsp;|&nbsp;</span>{{ doc.location }}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+
+      {%- if doc.description -%}
+        <p class="card-text mb-2">{{ doc.description }}</p>
+      {%- endif -%}
+
+    <div class="d-flex flex-wrap">
+      {%- if doc.paper_url -%}
+        <a class="btn btn-sm btn-outline-secondary mr-2 mb-1"
+          href="{{ doc.paper_url }}"
+          {%- if site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          Paper
+        </a>
+      {%- endif -%}
+
+      {%- if doc.slides_url -%}
+        <a class="btn btn-sm btn-outline-secondary mr-2 mb-1"
+          href="{{ doc.slides_url }}"
+          {%- if site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          Slides
+        </a>
+      {%- endif -%}
+
+      {%- if doc.poster_url -%}
+        <a class="btn btn-sm btn-outline-secondary mr-2 mb-1"
+          href="{{ doc.poster_url }}"
+          {%- if site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          Poster
+        </a>
+      {%- endif -%}
+    </div>
+
+    </div>
+
+    {%- if doc.year -%}
+      <div class="card-footer {{ text_style }}">
+        {{ doc.year }}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>

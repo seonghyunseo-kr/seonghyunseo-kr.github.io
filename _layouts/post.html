@@ -5,27 +5,23 @@ layout: page
 <h1><b>{{ page.title }}</b></h1>
 
 <p class="post-metadata text-muted">
-  {{ page.date | date_to_long_string }} -  
-  <b>
-  {%- assign words = content | number_of_words -%}
-  {%- if words < 360 -%}
-    less than 1 min read time
-  {%- else -%}
-    {{ words | divided_by: 180 }} mins read time
+  {%- if page.date -%}
+    {{ page.date | date_to_long_string }}
   {%- endif -%}
-  </b>
 
   <br>
 
-  {%- if page.tags != empty -%}
-    Tags: 
-    {% for tag in page.tags %}
-    <a class="text-decoration-none no-underline" href="{{ tag | slugify | prepend:'/blog/tags#' | relative_url }}">
-      <span class="tag badge badge-pill text-primary border border-primary">{{ tag }}</span>
-    </a>
-    {% endfor %}
-  {%- endif -%}
-
+  {%- unless page.collection == "academic" -%}
+    {%- if page.tags and page.tags.size > 0 -%}
+      Tags:
+      {% for tag in page.tags %}
+        <a class="text-decoration-none no-underline" href="{{ tag | slugify | prepend:'/blog/tags#' | relative_url }}">
+          <span class="tag badge badge-pill text-primary border border-primary">{{ tag }}</span>
+        </a>
+      {% endfor %}
+    {%- endif -%}
+  {%- endunless -%}
+  
 </p>
 
 {{ content }}

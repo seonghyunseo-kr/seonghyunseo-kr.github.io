@@ -56,7 +56,8 @@
         <span>Research interests:</span>
         <ul class="mb-2">
           <li>Time-series forecasting (incl. multimodal time series)</li>
-          <li>Statistical process control and planning (incl. VLMs)</li>
+          <li>Statistical process control and planning</li>
+          <li>Operations Research & Optimization</li>
           <li>Post-deployment model maintenance (monitoring, retraining, MLOps)</li>
         </ul>
       </div>
@@ -152,6 +153,34 @@
 
       {% endfor %}
 
+    </div>
+  </div>
+
+  <div class="wow animated slideInUp" data-wow-delay=".19s">
+    <hr class="section-divider">
+  </div>
+  
+  <!-- Academic -->
+  <div class="mt-5 wow animated slideInUp" data-wow-delay=".23s">
+    <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
+      <h3 class="mb-0">Publications & Presentations</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/">View all →</a>
+    </div>
+
+    {% assign pubs = site.academic | where: "type", "publication" %}
+    {% assign talks = site.academic | where: "type", "talk" %}
+    {% assign posters = site.academic | where: "type", "poster" %}
+
+    {% assign academic = pubs | concat: talks | concat: posters %}
+    {% assign academic_sorted = academic | sort: "year" | reverse %}
+    {% assign latest_academic = academic_sorted | slice: 0, 3 %}
+
+    <div class="row justify-content-center home-card-grid">
+      {% for post in latest_academic %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          {% include academic/academic-card.html item=post %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 

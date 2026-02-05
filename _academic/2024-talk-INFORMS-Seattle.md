@@ -7,7 +7,9 @@ event: "INFORMS Annual Meeting 2024"
 location: "Seattle, WA"
 slides_url: "https://YOUR-SLIDES-LINK"
 # description: "Talk on automating ML workflow orchestration and strategies for autonomous post-deployment model updates."
-tags: [mlops, workflow-orchestration, model-updates]
+# tags: [mlops, workflow-orchestration, model-updates]
+style: border
+color: primary
 comments: false
 toc: true
 ---

@@ -7,7 +7,9 @@ event: "UKC 2025"
 location: "Atlanta, GA"
 slides_url: "https://YOUR-SLIDES-LINK"
 # description: "Talk on autonomous post-deployment updates using feature/data store changes, with a virtual metrology case study."
-tags: [mlops, autonomous-ml, manufacturing]
+# tags: [mlops, autonomous-ml, manufacturing]
+style: border
+color: primary
 comments: false
 toc: true
 ---

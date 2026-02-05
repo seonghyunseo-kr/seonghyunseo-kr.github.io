@@ -7,7 +7,9 @@ event: "INFORMS Annual Meeting 2024"
 location: "Seattle, WA"
 poster_url: "https://YOUR-POSTER-PDF-LINK"
 # description: "Poster presentation on a steel manufacturing case study: problem framing, methodology, and key findings."
-tags: [manufacturing, time-series, quality]
+# tags: [manufacturing, time-series, quality]
+style: border
+color: primary
 comments: false
 toc: true
 ---

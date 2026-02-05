@@ -32,7 +32,7 @@ GitLab is a DevOps platform that bundles:
  - Code review via Merge Requests (MR)
  - Team documentation (Wiki / README)
 
-\
+
 
 #### Key functions
 1. Issue
