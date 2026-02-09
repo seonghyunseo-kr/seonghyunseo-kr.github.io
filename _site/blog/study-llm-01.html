@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[LLM] Technical methods for Prompt Engineering and Optimizations">
+  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <meta property="og:image" content="/assets/img/profile.jpg">
+
+  <title>[LLM] Technical methods for Prompt Engineering and Optimizations</title>
+  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$$', '$$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>HYUN-TOPIA</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="/academic/">Academic</a>
+
+      <a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/cv/">CV</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1><b>[LLM] Technical methods for Prompt Engineering and Optimizations</b></h1>
+
+<p class="post-metadata text-muted">05 February 2026<br>Tags:
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#llm">
+          <span class="tag badge badge-pill text-primary border border-primary">LLM</span>
+        </a>
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#study">
+          <span class="tag badge badge-pill text-primary border border-primary">study</span>
+        </a>
+      </p>
+
+
+
+<h4 id="research-questions">Research Questions</h4>
+<blockquote>
+  <ul>
+    <li>What is system and user prompt?
+      <ul>
+        <li>Zero-shot? Few-shot?</li>
+        <li>How to deal with Hallucination?</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p>Prompt engineering: overview and guide
+Last Updated: 01/14/2026</p>
+
+<p>The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. This burgeoning field focuses on crafting effective prompts that unlock the capabilities of LLMs, enabling them to understand intent, follow instructions, and generate desired outputs. As we increasingly interact with AI in various applications, prompt engineering plays a vital role in ensuring accurate, relevant, and safe interactions.</p>
+
+<p>prompt engineer
+1:53
+Tips to becoming a world-class Prompt Engineer
+What is prompt engineering?
+Prompt engineering is the art and science of designing and optimizing prompts to guide AI models, particularly LLMs, towards generating the desired responses. By carefully crafting prompts, you provide the model with context, instructions, and examples that help it understand your intent and respond in a meaningful way. Think of it as providing a roadmap for the AI, steering it towards the specific output you have in mind.</p>
+
+<p>To dive deeper into the world of prompt design and explore its applications, check out the Introduction to Prompt Design on Google Cloud.</p>
+
+<p>Ready to experiment with LLMs and prompt engineering firsthand? Try the  Vertex AI free trial and experience the power of this technology.</p>
+
+<p>What is a prompt for AI?
+In the context of AI, a prompt is the input you provide to the model to elicit a specific response. This can take various forms, ranging from simple questions or keywords to complex instructions, code snippets, or even creative writing samples. The effectiveness of your prompt directly influences the quality and relevance of the AI’s output.</p>
+
+<p>What do you need for prompt engineering?
+Several key elements contribute to effective prompt engineering. Mastering these allows you to communicate effectively with AI models and unlock their full potential.</p>
+
+<p>Prompt format
+The structure and style of your prompt play a significant role in guiding the AI’s response. Different models may respond better to specific formats, such as:</p>
+
+<p>The format of your prompt plays a significant role in how the AI interprets your request. Different models may respond better to specific formats, such as natural language questions, direct commands, or structured inputs with specific fields. Understanding the model’s capabilities and preferred format is essential for crafting effective prompts.</p>
+
+<p>Context and examples
+Providing context and relevant examples within your prompt helps the AI understand the desired task and generate more accurate and relevant outputs. For instance, if you’re looking for a creative story, including a few sentences describing the desired tone or theme can significantly improve the results.</p>
+
+<p>Fine-tuning and adapting
+Fine-tuning the AI model on specific tasks or domains using tailored prompts can enhance its performance. Additionally, adapting prompts based on user feedback or model outputs can further improve the model’s responses over time.</p>
+
+<p>Multi-turn conversations
+Designing prompts for multi-turn conversations allows users to engage in continuous and context-aware interactions with the AI model, enhancing the overall user experience.</p>
+
+<p>Types of prompts
+There are various types of prompts used in AI, each serving a specific purpose:</p>
+
+<p>Direct prompts (Zero-shot)
+Zero-shot prompting involves providing the model with a direct instruction or question without any additional context or examples.</p>
+
+<p>An example of this is idea generation, where the model is prompted to generate creative ideas or brainstorming solutions. Another example is summarization, or translation, where the model is asked to summarize or translate some piece of content.</p>
+
+<p>One-, few- and multi-shot prompts
+This method involves providing the model with one or more examples of the desired input-output pairs before presenting the actual prompt. This can help the model better understand the task and generate more accurate responses.</p>
+
+<p>Chain of Thought Prompts
+CoT prompting encourages the model to break down complex reasoning into a series of intermediate steps, leading to a more comprehensive and well-structured final output.</p>
+
+<p>Zero-shot CoT Prompts
+Combines chain of thought prompting with zero-shot prompting by asking the model to perform reasoning steps, which may often produce better output.</p>
+
+<p>Use cases and examples of prompt engineering
+Here are some specific examples and use cases showing how prompt engineering helps produce customized and relevant output.</p>
+
+<p>Language and Text Generation
+Scenario</p>
+
+<p>Instructions</p>
+
+<p>Example Prompt</p>
+
+<p>Creative Writing</p>
+
+<p>Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.</p>
+
+<p>“Write a short story about a young woman who discovers a magical portal in her attic.”</p>
+
+<p>Summarization</p>
+
+<p>Provide the AI with text and instruct it to generate concise summaries that capture key information.</p>
+
+<p>“Summarize the main points of the following news article on climate change.”</p>
+
+<p>Translation</p>
+
+<p>Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.</p>
+
+<p>“Translate the following text from English to Spanish: ‘The quick brown fox jumps over the lazy dog.’”</p>
+
+<p>Dialogue</p>
+
+<p>Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.</p>
+
+<p>“You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user’s query: ‘My computer won’t turn on.’”</p>
+
+<p>Question Answering
+Scenario</p>
+
+<p>Instructions</p>
+
+<p>Example Prompt</p>
+
+<p>Open-Ended Questions</p>
+
+<p>Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.</p>
+
+<p>“Explain the concept of quantum computing and its potential impact on the future of technology.”</p>
+
+<p>Specific Questions</p>
+
+<p>Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.</p>
+
+<p>“What is the capital of France?” or “According to the provided text, what are the main causes of deforestation?”</p>
+
+<p>Multiple Choice Questions</p>
+
+<p>Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.</p>
+
+<p>“Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King”</p>
+
+<p>Hypothetical Questions</p>
+
+<p>Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.</p>
+
+<p>“What would happen if humans could travel at the speed of light?”</p>
+
+<p>Opinion-Based Questions</p>
+
+<p>Design prompts that elicit the AI’s perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.</p>
+
+<p>“Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?”</p>
+
+<p>Code Generation
+Scenario</p>
+
+<p>Instructions</p>
+
+<p>Example Prompt</p>
+
+<p>Code Completion</p>
+
+<p>Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.</p>
+
+<p>“Write a Python function to calculate the factorial of a given number.”</p>
+
+<p>Code Translation</p>
+
+<p>Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.</p>
+
+<p>“Translate the following Python code to JavaScript: def greet(name): print(‘Hello,’, name)”</p>
+
+<p>Code Optimization</p>
+
+<p>Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.</p>
+
+<p>“Optimize the following Python code to reduce its execution time.”</p>
+
+<p>Code Debugging</p>
+
+<p>Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.</p>
+
+<p>“Debug the following Java code and explain why it is throwing a NullPointerException.”</p>
+
+<p>Image Generation
+Scenario</p>
+
+<p>Instructions</p>
+
+<p>Example Prompt</p>
+
+<p>Photorealistic Images</p>
+
+<p>Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.</p>
+
+<p>“A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.”</p>
+
+<p>Artistic Images</p>
+
+<p>Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.</p>
+
+<p>“An impressionist painting of a bustling city street with people walking under umbrellas in the rain.”</p>
+
+<p>Abstract Images</p>
+
+<p>Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.</p>
+
+<p>“An abstract image representing the concept of hope, using bright colors and flowing shapes.”</p>
+
+<p>Image Editing</p>
+
+<p>Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.</p>
+
+<p>“Change the background of this photo to a starry night sky and add a full moon.” or “Remove the person from this image and replace them with a cat.”</p>
+
+<p>Strategies for writing better prompts
+Developing effective prompts requires a strategic approach. Consider these strategies to enhance your prompt engineering skills:</p>
+
+<ol>
+  <li>Set Clear Goals and Objectives:
+Tactic</li>
+</ol>
+
+<p>Prompt Example</p>
+
+<p>Use action verbs to specify the desired action</p>
+
+<p>“Write a bulleted list that summarizes the key findings of the attached research paper”</p>
+
+<p>Define the desired length and format of the output</p>
+
+<p>“Compose a 500-word essay discussing the impact of climate change on coastal communities.”</p>
+
+<p>Specify the target audience</p>
+
+<p>“Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability.”</p>
+
+<ol>
+  <li>Provide Context and Background Information:
+Tactic</li>
+</ol>
+
+<p>Prompt Example</p>
+
+<p>Include relevant facts and data</p>
+
+<p>“Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise.”</p>
+
+<p>Reference specific sources or documents</p>
+
+<p>“Based on the attached financial report, analyze the company’s profitability over the past five years.”</p>
+
+<p>Define key terms and concepts</p>
+
+<p>“Explain the concept of quantum computing in simple terms, suitable for a non-technical audience.”</p>
+
+<ol>
+  <li>Use Few-Shot Prompting:
+Tactic</li>
+</ol>
+
+<p>Prompt Example</p>
+
+<p>Provide a few examples of desired input-output pairs</p>
+
+<p>Input: “Cat” Output: “A small furry mammal with whiskers.” Input: “Dog” Output: “A domesticated canine known for its loyalty.” Prompt: “Elephant”</p>
+
+<p>Demonstrate the desired style or tone</p>
+
+<p>Example 1 (humorous): “The politician’s speech was so dull, it could cure insomnia.” Example 2 (formal): “The dignitary delivered an address that was both informative and engaging.” Prompt: “Write a sentence describing the comedian’s stand-up routine.”</p>
+
+<p>Show the desired level of detail</p>
+
+<p>Example 1 (brief): “The movie was about a young boy who befriends an alien.” Example 2 (detailed): “The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth.” Prompt: “Summarize the plot of the novel you just finished reading.”</p>
+
+<ol>
+  <li>Be Specific:
+Tactic</li>
+</ol>
+
+<p>Prompt Example</p>
+
+<p>Use precise language and avoid ambiguity</p>
+
+<p>Instead of: “Write something about climate change,” use: “Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.”</p>
+
+<p>Quantify your requests whenever possible</p>
+
+<p>Instead of: “Write a long poem,” use: “Write a sonnet with 14 lines that explores themes of love and loss.”</p>
+
+<p>Break down complex tasks into smaller steps</p>
+
+<p>Instead of: “Create a marketing plan,” use: “1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.”</p>
+
+<ol>
+  <li>Iterate and Experiment:
+Tactic</li>
+</ol>
+
+<p>Action</p>
+
+<p>Try different phrasings and keywords</p>
+
+<p>Rephrase your prompt using synonyms or alternative sentence structures.</p>
+
+<p>Adjust the level of detail and specificity</p>
+
+<p>Add or remove information to fine-tune the output.</p>
+
+<p>Test different prompt lengths</p>
+
+<p>Experiment with both shorter and longer prompts to find the optimal balance.</p>
+
+<ol>
+  <li>Leverage Chain of Thought Prompting:
+Tactic</li>
+</ol>
+
+<p>Prompt Example</p>
+
+<p>Encourage step-by-step reasoning</p>
+
+<p>“Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left.”</p>
+
+<p>Ask the model to explain its reasoning process</p>
+
+<p>“Explain your thought process in determining the sentiment of this movie review: ‘The acting was superb, but the plot was predictable.’”</p>
+
+<p>Guide the model through a logical sequence of thought</p>
+
+<p>“To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?”</p>
+
+<p>For further guidance on prompt engineering best practices, explore the Five Best Practices for Prompt Engineering on Google Cloud.</p>
+
+<hr />
+
+<p>1: Strategic Context Management</p>
+
+<p>Beginners simply input their questions or requests, experts however, methodically provide context that shapes how the models interprets and responds to prompts.</p>
+
+<p>Google’s guide specifically recommends:</p>
+
+<p>Put instructions at the beginning of the prompt and use delimiter like ### or “”” to separate the instruction and context.</p>
+
+<p>This simple technique creates a framework that significantly improves output quality.</p>
+
+<p>Advanced Prompt Engineers don’t just add context, they strategically place it for maximum impact:</p>
+
+<p>Summarize the text below as bullet point list of the most important points.</p>
+
+<p>Text: “””
+{text_input_here}
+“””
+This format provides clear separation between instructions and content, that dramatically improves results compared to mixing them together.</p>
+
+<p>2: Chain-of-Thought Prompting</p>
+
+<p>Beginner prompt writers expect the model to arrive at the correct or desired answer immediately. Expert engineers understand that guiding the model through a reasoning process produces superior result.</p>
+
+<p>The advanced technique of chain-of-thought prompting doesn’t just ask for an answer, it instructs the model to work through its reasoning step by step.</p>
+
+<p>To classify this message as a spam or not spam, consider the following:</p>
+<ol>
+  <li>Is the sender known?</li>
+  <li>Does the subject line contain suspicious keywords?</li>
+  <li>Is the email offering something too good to be true?
+It’s a pseudo-prompt, but to demonstrate by breaking complex tasks into logical sequences, you guide the model toward more accurate and reliable outputs. This technique is especially powerful for analytical tasks and problem-solving scenarios.</li>
+</ol>
+
+<p>3: Parameter Optimization</p>
+
+<p>While beginners use default settings, experts fine-tune AI model parameters for specific output. Google’s whitepaper on prompt engineering emphasizes:</p>
+
+<p>techniques for achieving consistent and predictable outputs by adjusting temperature, top-p, and top-k settings.</p>
+
+<p>Temperature controls randomness: Lower values (0.2-0.5) produce more focused, deterministic responded, while higher values provide more creative outputs. Understanding when to adjust these parameters transforms average outputs into exceptional ones.</p>
+
+<p>Optimization isn’t guesswork, it’s a methodical process of understanding how different parameters affect model behaviour for specific tasks. For instance creative writing will benefit from higher temperature, while more precise tasks require lower settings to avoid hallucinations.</p>
+
+<p>4: Multi-Modal Prompt Design</p>
+
+<p>Beginners limit themselves to text. Experts leverage multiple input types to create comprehensive prompts that outputs richer and more precise responses.</p>
+
+<p>Your prompts an be a combination of text, with image/audio/video/code and more. By combining text instructions with relevant images or code snippets, you create context-rich environment that will dramatically improve model’s understanding.</p>
+
+<p>5: Structural Output Engineering</p>
+
+<p>Beginners accept whatever format the model provides. Experts on the other hand define precisely how they want information to be structured.</p>
+
+<p>Google’s guide teaches us to always craft prompts in a way to define response format. By controlling output format, you make model responses immediately usable without additional processing or data manipulation.</p>
+
+<p>Here’s the good example:</p>
+
+<p>Your task is to extract important entities from the text below and return them as valid JSON based on the following schema:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">company_names</code>: List all company names mentioned.</li>
+  <li><code class="language-plaintext highlighter-rouge">people_names</code>: List all individual names mentioned.</li>
+  <li><code class="language-plaintext highlighter-rouge">specific_topics</code>: List all specific topics or themes discussed.</li>
+</ul>
+
+<p>Text: “””
+{user_input}
+“””</p>
+
+<p>Output:
+Provide a valid JSON object stick to the schema above.
+By explicitly defining the output schema and structure, you transform model from a conversation tool into a reliable data processing machine.</p>
+
+<p>Understanding these techniques isn’t just academic, it’s the difference between basic chatbot interactions and building sophisticated AI agents that deliver consistent value. As AI capabilities expand, the gap between basic and advanced prompt engineering will only widen.</p>
+
+<p>The good news? While prompt engineering is difficult to master, it’s accessible to learn. Unlike traditional programming, which requires years of technical education and experience, prompt engineering can be learned through deliberate practice and understanding of key principles.</p>
+
+<p>Google’s comprehensive guide demonstrates that major tech companies consider this skill crucial enough to invest significant resources in educating developers and users.</p>
+
+<p>Are you ready to move beyond basic prompting to develop expertise that will set your AI agents apart? I regularly share advanced techniques, industry insights and practical prompts.</p>
+
+<h5 id="references">References</h5>
+<p>[1] Google Cloud Post - What is Prompt Engineering? (https://cloud.google.com/discover/what-is-prompt-engineering)</p>
+
+
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>SeongHyun Kristine Seo</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.behance.net/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1769ff'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-behance fa-1x"></i>
+    </a><a class="social mx-1"  href="mailto:seonghyunseo.kr@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/seonghyunseo-kr"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/SeongHyun Seo"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="your_username" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#007bff" data-position="Right" data-x_margin="16" data-y_margin="16"></script></body>
+
+</html>

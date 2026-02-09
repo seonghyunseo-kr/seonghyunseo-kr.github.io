@@ -32,7 +32,7 @@ GitLab is a DevOps platform that bundles:
  - Code review via Merge Requests (MR)
  - Team documentation (Wiki / README)
 
-
+\
 
 #### Key functions
 1. Issue
@@ -41,8 +41,7 @@ A single trackable unit of work: feature, bug, refactor, documentation, experime
 2. Merge Request & Review
 Branch -> push and commit -> merge request -> reviewer assign -> merge
 
-3. Wiki 
-
+3. Wiki
 
 #### Key Commands 
 

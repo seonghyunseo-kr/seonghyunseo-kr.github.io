@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[LLM] Technical methods for Prompt Engineering and Optimizations",
+      "category" : "",
+      "tags"     : "LLM, study",
+      "url"      : "/blog/study-llm-01",
+      "date"     : "2026-02-05 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[Tooling] GitLab / Hugging Face / arXiv",
       "category" : "",
       "tags"     : "etc, study, tooling",

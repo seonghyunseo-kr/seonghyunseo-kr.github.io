@@ -24,6 +24,21 @@ layout: page
   
 </p>
 
+{% if page.summary and page.summary.en %}
+<p class="md-heading">## Summary</p>
+{% if page.summary.en.tldr %}
+<p><strong>TL;DR:</strong> {{ page.summary.en.tldr }}</p>
+{% endif %}
+{% if page.summary.en.bullets %}
+<ul>
+  {% for b in page.summary.en.bullets %}
+    <li>{{ b }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<hr>
+{% endif %}
+
 {{ content }}
 
 {% if page.comments %}
