@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GitLab Workflow and ML Repo Structure">
+  <meta property="og:description" content="Practical notes for GitLab/Github to improve communication, reproducibility, and review workflow.">
+  <meta property="og:image" content="/assets/img/profile.jpg">
+
+  <title>GitLab Workflow and ML Repo Structure</title>
+  <meta name="description" content="Practical notes for GitLab/Github to improve communication, reproducibility, and review workflow.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$$', '$$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>HYUN-TOPIA</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="/academic/">Academic</a>
+
+      <a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/cv/">CV</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1><b>GitLab Workflow and ML Repo Structure</b></h1>
+
+<p class="post-metadata text-muted">04 February 2026<br>Tags:
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#etc">
+          <span class="tag badge badge-pill text-primary border border-primary">etc</span>
+        </a>
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#tooling">
+          <span class="tag badge badge-pill text-primary border border-primary">tooling</span>
+        </a>
+      </p>
+
+
+
+<h2 id="1-git--githubgitlab-how-i-actually-work">1) Git + GitHub/GitLab: how I actually work</h2>
+
+<h3 id="11-what-is-gitlab">1.1 What is GitLab?</h3>
+<p>GitLab is a DevOps platform that bundles:</p>
+
+<ul>
+  <li>Git repository hosting (source control)</li>
+  <li>Issue tracking (planning &amp; coordination)</li>
+  <li>Merge Requests (MR) (code review + merge workflow)</li>
+  <li>CI/CD pipelines (build/test/deploy automation)</li>
+  <li>Wiki/Docs (team knowledge base)</li>
+</ul>
+
+<p>In practice, GitHub and GitLab feel similar at the surface (repos + PR/MR), but GitLab tends to be more “all-in-one” for teams because issues, CI, and permissions are tightly integrated.</p>
+
+<h3 id="12-my-default-workflow">1.2 My default workflow</h3>
+<blockquote>
+  <p><strong>Plan in Issues/Epics → Implement on branches → Review via MR → Verify with CI → Merge &amp; close issues.</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Issues/Epics</strong>: define scope, acceptance criteria, references, and ownership</li>
+  <li><strong>Branches</strong>: isolate changes per issue</li>
+  <li><strong>MR (Merge Request)</strong>: code review + discussion + approvals</li>
+  <li><strong>CI</strong>: sanity check (lint/test/build) before merge</li>
+  <li><strong>Merge</strong>: squash/merge strategy depending on team convention</li>
+</ul>
+
+<h3 id="13-key-gitlab-features-minimal-but-important">1.3 Key GitLab features (minimal but important)</h3>
+
+<h4 id="1-issues">(1) Issues</h4>
+<p>An issue is a single trackable unit of work:</p>
+<ul>
+  <li>feature, bug, refactor, documentation, experiment, etc.</li>
+</ul>
+
+<p>What I try to include:</p>
+<ul>
+  <li>background / why</li>
+  <li>task list</li>
+  <li>definition of done</li>
+  <li>links (docs, tickets, papers)</li>
+</ul>
+
+<h4 id="2-merge-requests-mr--review">(2) Merge Requests (MR) &amp; review</h4>
+<p>Typical flow:</p>
+<ul>
+  <li>branch → commit/push → create MR → assign reviewers → resolve comments → CI passes → merge</li>
+</ul>
+
+<p>Good MR hygiene:</p>
+<ul>
+  <li>small scope (reviewable)</li>
+  <li>clear description + screenshots/logs if relevant</li>
+  <li>link the issue (so planning and code are connected)</li>
+</ul>
+
+<h4 id="3-wiki--docs">(3) Wiki / Docs</h4>
+<p>Use this to avoid tribal knowledge:</p>
+<ul>
+  <li>onboarding steps</li>
+  <li>environment setup</li>
+  <li>runbooks (debugging, deployment, incident notes)</li>
+</ul>
+
+<h3 id="14-git-essentials-commands-i-actually-use">1.4 Git essentials (commands I actually use)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"message"</span>
+git push
+git pull
+
+git branch
+git checkout <span class="nt">-b</span> feature/my-change
+git log <span class="nt">--oneline</span> <span class="nt">--decorate</span> <span class="nt">--graph</span> <span class="nt">--all</span>
+git diff
+
+git clone &lt;repo-url&gt;
+</code></pre></div></div>
+
+<h2 id="2-why-repository-structure-matters-for-ml-work-especially">2) Why repository structure matters (for ML work especially)</h2>
+
+<p>For ML/DL projects, a repo isn’t just “where code lives”—it’s the unit of:</p>
+
+<ul>
+  <li><strong>Collaboration</strong>: reviewable changes, consistent conventions, shared ownership</li>
+  <li><strong>Reproducibility</strong>: the ability to rerun the same experiment with the same code/config</li>
+  <li><strong>Experiment tracking</strong>: understanding what changed and why results changed</li>
+  <li><strong>Future reuse</strong>: turning one-off study code into reusable building blocks</li>
+</ul>
+
+<h3 id="21-a-practical-structure-that-scales">2.1 A practical structure that scales</h3>
+
+<p>I like to split a repo into three roles:</p>
+
+<h4 id="1-src--reusable-library-code">1) <code class="language-plaintext highlighter-rouge">src/</code> = reusable library code</h4>
+<ul>
+  <li>“importable” modules used across experiments</li>
+  <li>less duplication</li>
+  <li>easier refactoring and maintenance</li>
+  <li>easier to test</li>
+</ul>
+
+<h4 id="2-experiments--runnable-scripts">2) <code class="language-plaintext highlighter-rouge">experiments/</code> = runnable scripts</h4>
+<ul>
+  <li>thin entrypoints (small, runnable scripts)</li>
+  <li>parse args, load config, and <strong>call modules in <code class="language-plaintext highlighter-rouge">src/</code></strong></li>
+  <li>easier to reproduce runs and keep a stable CLI interface</li>
+</ul>
+
+<h4 id="3-notesdocs-folders">3) Notes/docs folders</h4>
+<ul>
+  <li>concept notes, references, interview notes</li>
+  <li>link to code/experiments where applicable</li>
+</ul>
+
+<p>A simple mental model:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">experiments/</code> = steering wheel (you drive experiments from here)</li>
+  <li><code class="language-plaintext highlighter-rouge">src/</code> = engine parts (reusable components)</li>
+  <li>notes = driving manual (the knowledge base)</li>
+</ul>
+
+<h3 id="22-common-files-youll-see-in-real-repos-and-why">2.2 Common files you’ll see in real repos (and why)</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.gitignore</code>: prevent committing artifacts, local data, checkpoints, secrets</li>
+  <li><code class="language-plaintext highlighter-rouge">pyproject.toml</code> (or <code class="language-plaintext highlighter-rouge">requirements.txt</code>): dependencies &amp; packaging metadata</li>
+  <li><code class="language-plaintext highlighter-rouge">README.md</code>: entry point for humans (how to run / what it is)</li>
+  <li><code class="language-plaintext highlighter-rouge">tests/</code>: basic automated checks (unit tests for reusable code)</li>
+  <li><code class="language-plaintext highlighter-rouge">Makefile</code> (optional): shortcuts for lint/test/run tasks</li>
+  <li>CI config (<code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code> / GitHub Actions): automated checks on merge requests / pull requests</li>
+</ul>
+
+
+
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>SeongHyun Kristine Seo</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.behance.net/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1769ff'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-behance fa-1x"></i>
+    </a><a class="social mx-1"  href="mailto:seonghyunseo.kr@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/seonghyunseo-kr"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/SeongHyun Seo"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="your_username" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#007bff" data-position="Right" data-x_margin="16" data-y_margin="16"></script></body>
+
+</html>

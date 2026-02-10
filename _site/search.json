@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Hugging Face",
+      "category" : "",
+      "tags"     : "etc, tooling",
+      "url"      : "/blog/study-tech-tools-hugging-face",
+      "date"     : "2026-02-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "[LLM] Technical methods for Prompt Engineering and Optimizations",
       "category" : "",
       "tags"     : "LLM, study",
@@ -9,10 +17,10 @@
     } ,
   
     {
-      "title"    : "[Tooling] GitLab / Hugging Face / arXiv",
+      "title"    : "GitLab Workflow and ML Repo Structure",
       "category" : "",
-      "tags"     : "etc, study, tooling",
-      "url"      : "/blog/study-tech-tools",
+      "tags"     : "etc, tooling",
+      "url"      : "/blog/study-tech-tools-git",
       "date"     : "2026-02-04 00:00:00 +0900"
     } ,
   
