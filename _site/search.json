@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "[Tech Interviews] ",
+      "category" : "",
+      "tags"     : "ML, DS, study",
+      "url"      : "/blog/study-interveiws",
+      "date"     : "2026-02-24 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Hugging Face",
       "category" : "",
       "tags"     : "etc, tooling",

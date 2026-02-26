@@ -1,6 +1,7 @@
 ---
 name: "Early Warning Reporting (Aircraft Manufacturing)"
 category: "Industry — Boeing AI"
+track: "Industry"
 topic: "Forecasting + causal analysis"
 period: "Aug 2025 – Present"
 year: "2025"
@@ -28,4 +29,4 @@ featured: true
 - LLM
 
 ## Notes
-- Public details are limited due to project confidentiality.
+- Public details are limited due to project confidentiality. 

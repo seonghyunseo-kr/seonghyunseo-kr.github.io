@@ -77,89 +77,30 @@
     <hr class="section-divider">
   </div>
 
-  <!-- Featured Projects -->
+
+  <!-- Projects -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".2s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
       <h3 class="mb-0">Projects</h3>
       <a class="btn btn-link p-0" href="{{ site.baseurl }}/projects/">View all →</a>
     </div>
 
-    {% assign projects_page = site.pages | where: "permalink", "/projects/" | first %}
-    {% assign featured_local = site.projects | where: "featured", true | slice: 0, 3 %}
+    {% assign projects_sorted = site.projects | sort: "year" | reverse %}
+    {% assign latest_projects = projects_sorted | slice: 0, 3 %}
 
     <div class="row justify-content-center home-card-grid">
-
-      <!-- Featured Remote Projects (first 2 from Projects page) -->
-      {% if projects_page and projects_page.remote_projects %}
-        {% assign featured_remote = projects_page.remote_projects | slice: 0, 2 %}
-        {% for remote_project in featured_remote %}
-
-          {%- for repo in site.github.public_repositories -%}
-            {%- if remote_project == repo.name -%}
-
-              {%- assign project = repo -%}
-              {%- assign words = project.name | split: '-' -%}
-              {%- capture titlecase -%}
-                {%- for word in words -%}
-                  {{ word | capitalize | append: ' ' }}
-                {%- endfor -%}
-              {%- endcapture -%}
-
-              {%- assign project_type  = "remote" -%}
-              {%- assign project_id    = project.name -%}
-              {%- assign project_img   = false -%}
-              {%- assign project_name  = titlecase | strip -%}
-              {%- assign project_desc  = project.description -%}
-              {%- assign project_url   = project.html_url -%}
-              {%- assign project_tools = project.topics -%}
-              {%- assign external      = true -%}
-
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                {% include projects/project-card.html %}
-              </div>
-
-            {%- endif -%}
-          {%- endfor -%}
-
-        {% endfor %}
-      {% endif %}
-
-      <!-- Featured Local Projects -->
-      {% for project in featured_local %}
-
-        {%- assign project_type  = "local" -%}
-        {%- assign project_id    = project.name | slugify -%}
-        {%- assign project_img   = project.image -%}
-        {%- assign project_name  = project.name -%}
-        {%- assign project_desc  = project.description -%}
-        {%- assign project_tools = project.tools -%}
-        {%- assign project_category = project.category -%}
-        {%- assign project_topic = project.topic -%}
-        {%- assign project_style = project.style -%}
-        {%- assign project_color = project.color -%}
-        {%- assign project_period = project.period -%}
-
-        {%- if project.external_url -%}
-          {%- assign project_url = project.external_url -%}
-          {%- assign external    = true -%}
-        {%- else -%}
-          {%- assign project_url = project.url | relative_url -%}
-          {%- assign external    = false -%}
-        {%- endif -%}
-
+      {% for project in latest_projects %}
         <div class="col-12 col-md-6 col-lg-4 mb-4">
-          {% include projects/project-card.html %}
+          {% include projects/project-card-home.html item=project %}
         </div>
-
       {% endfor %}
-
     </div>
   </div>
 
   <div class="wow animated slideInUp" data-wow-delay=".19s">
     <hr class="section-divider">
   </div>
-  
+
   <!-- Academic -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".23s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
@@ -184,7 +125,7 @@
     </div>
   </div>
 
-  <!-- Latest Posts -->
+  <!-- Latest Posts
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".25s">
     <hr class="section-divider">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
@@ -205,4 +146,4 @@
     </div>
   </div>
 
-</div>
+</div> -->

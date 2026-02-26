@@ -1,40 +1,44 @@
 <!-- Remote Projects -->
-<div class="card-columns m-3 mt-5">
-  {% for remote_project in page.remote_projects %}
-    {%- for repo in site.github.public_repositories -%}
-      {%- if remote_project == repo.name -%}
+{% if page.remote_projects %}
+  <div class="row m-3 mt-5">
+    {% for remote_project in page.remote_projects %}
+      {%- for repo in site.github.public_repositories -%}
+        {%- if remote_project == repo.name -%}
 
-        {%- assign project = repo -%}
-        {%- assign words = project.name | split: '-' -%}
+          {%- assign project = repo -%}
+          {%- assign words = project.name | split: '-' -%}
 
-        {%- capture titlecase -%}
-          {%- for word in words -%}
-            {{ word | capitalize | append: ' ' }}
-          {%- endfor -%}
-        {%- endcapture -%}
+          {%- capture titlecase -%}
+            {%- for word in words -%}
+              {{ word | capitalize | append: ' ' }}
+            {%- endfor -%}
+          {%- endcapture -%}
 
-        {%- assign project_type  = "remote" -%}
-        {%- assign project_id    = project.name -%}
-        {%- assign project_img   = false -%}
-        {%- assign project_name  = titlecase | strip -%}
-        {%- assign project_url   = project.html_url -%}
-        {%- assign external      = true -%}
+          {%- assign project_type  = "remote" -%}
+          {%- assign project_id    = project.name -%}
+          {%- assign project_img   = false -%}
+          {%- assign project_name  = titlecase | strip -%}
+          {%- assign project_url   = project.html_url -%}
+          {%- assign external      = true -%}
 
-        {%- assign project_category = "GitHub" -%}
-        {%- assign project_topic = "" -%}
-        {%- assign project_period = "" -%}
+          {%- assign project_category = "GitHub" -%}
+          {%- assign project_topic = "" -%}
+          {%- assign project_period = "" -%}
 
-        {%- assign project_style = "border" -%}
-        {%- assign project_color = "primary" -%}
+          {%- assign project_style = "border" -%}
+          {%- assign project_color = "primary" -%}
 
-        {% include projects/project-card.html %}
+          <div class="col-12 col-md-6 col-lg-6 mb-4">
+            {% include projects/project-card.html %}
+          </div>
 
-      {%- endif -%}
-    {%- endfor -%}
-  {% endfor %}
-</div>
+        {%- endif -%}
+      {%- endfor -%}
+    {% endfor %}
+  </div>
+{% endif %}
 
-<!-- Local Projects grouped by start year -->
+<!-- Local Projects grouped by year -->
 {% assign projects_sorted = site.projects | sort: "year" | reverse %}
 {% assign current_year = nil %}
 
@@ -43,22 +47,23 @@
   {% if project.year != current_year %}
     {% if current_year != nil %}
       </div>
+      <hr class="bg-light my-4">
     {% endif %}
 
     {% assign current_year = project.year %}
     <h3 class="mt-5 mb-3">{{ current_year }}</h3>
-    <div class="card-columns m-3">
+    <div class="row m-3">
   {% endif %}
 
   {%- assign project_type  = "local" -%}
   {%- assign project_id    = project.name | slugify -%}
   {%- assign project_img   = project.image -%}
   {%- assign project_name  = project.name -%}
-  {%- assign project_category = project.category -%}
   {%- assign project_topic = project.topic -%}
   {%- assign project_style = project.style -%}
   {%- assign project_color = project.color -%}
-  {%- assign project_period = project.period -%}
+
+  {%- assign project_track = project.track -%}
 
   {%- if project.external_url -%}
     {%- assign project_url = project.external_url -%}
@@ -68,7 +73,9 @@
     {%- assign external    = false -%}
   {%- endif -%}
 
-  {% include projects/project-card.html %}
+  <div class="col-12 col-md-6 col-lg-6 mb-4">
+    {% include projects/project-card.html %}
+  </div>
 
 {% endfor %}
 

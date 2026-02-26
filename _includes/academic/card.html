@@ -1,5 +1,21 @@
 {%- assign doc = include.doc -%}
 
+{%- comment -%} 동일한 style/color 시스템 (projects 카드와 통일) {%- endcomment -%}
+{%- assign card_style  = 'border border-primary' -%}
+{%- assign text_style  = 'text-themed' -%}
+
+{%- assign item_style = doc.style | default: 'border' -%}
+{%- assign item_color = doc.color | default: 'primary' -%}
+
+{%- if item_style == 'fill' -%}
+  {%- assign card_style = item_color | prepend: 'bg-' -%}
+  {%- if item_color != 'light' -%}
+    {%- assign text_style = 'text-white' -%}
+  {%- endif -%}
+{%- elsif item_style == 'border' -%}
+  {%- assign card_style = item_color | prepend: 'border border-' -%}
+{%- endif -%}
+
 {%- assign t = doc.type | downcase -%}
 {%- if t == "publication" -%}
   {%- assign type_badge = "badge-outline-blue" -%}
@@ -12,10 +28,10 @@
 {%- endif -%}
 
 <div class="wow animated fadeIn" data-wow-delay=".12s">
-  <div class="post card text-themed p-3 h-100">
+  <div class="post card {{ card_style }} {{ text_style }} p-3 h-100">
     <div class="card-body p-0 d-flex flex-column">
 
-      <div class="d-flex justify-content-between align-items-start gap-2">
+      <div class="d-flex justify-content-between align-items-start">
         <div class="flex-grow-1">
           {% if doc.type %}
             <div class="mb-2">
@@ -24,7 +40,7 @@
           {% endif %}
 
           <h5 class="mb-1">
-            <a href="{{ doc.url | relative_url }}" class="text-themed" style="text-decoration: none;">
+            <a href="{{ doc.url | relative_url }}" class="{{ text_style }}" style="text-decoration: none;">
               {{ doc.title }}
             </a>
           </h5>
@@ -42,25 +58,31 @@
         <div class="text-muted small"><i>{{ doc.event }}</i></div>
       {% endif %}
 
-      {% comment %}
-      {% if doc.description %}
-        <p class="text-muted mt-2 mb-0 academic-desc">{{ doc.description }}</p>
-      {% endif %}
-      {% endcomment %}
-
-      <div class="mt-3">
-        <a class="btn btn-sm btn-outline-primary mr-2" href="{{ doc.url | relative_url }}">Read</a>
+      {%- comment -%} 버튼을 항상 아래로 밀어서 카드 높이/정렬 통일 {%- endcomment -%}
+      <div class="mt-auto pt-3">
+        <a class="btn btn-sm btn-outline-primary mr-2 mb-2" href="{{ doc.url | relative_url }}">Read</a>
 
         {% if doc.paper_url %}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ doc.paper_url }}" target="_blank" rel="noopener">Paper</a>
-        {% elsif doc.slides_url %}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ doc.slides_url }}" target="_blank" rel="noopener">Slides</a>
-        {% elsif doc.poster_url %}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ doc.poster_url }}" target="_blank" rel="noopener">Poster PDF</a>
-        {% elsif doc.video_url %}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ doc.video_url }}" target="_blank" rel="noopener">Video</a>
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.paper_url }}" target="_blank" rel="noopener">Paper</a>
         {% endif %}
-
+        {% if doc.slides_url %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.slides_url }}" target="_blank" rel="noopener">Slides</a>
+        {% endif %}
+        {% if doc.poster_url %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.poster_url }}" target="_blank" rel="noopener">Poster</a>
+        {% endif %}
+        {% if doc.video_url %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.video_url }}" target="_blank" rel="noopener">Video</a>
+        {% endif %}
+        {% if doc.doi %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="https://doi.org/{{ doc.doi }}" target="_blank" rel="noopener">DOI</a>
+        {% endif %}
+        {% if doc.pdf_url %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        {% endif %}
+        {% if doc.code_url %}
+          <a class="btn btn-sm btn-outline-secondary mr-2 mb-2" href="{{ doc.code_url }}" target="_blank" rel="noopener">Code</a>
+        {% endif %}
       </div>
 
     </div>

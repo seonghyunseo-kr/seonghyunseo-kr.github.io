@@ -1,0 +1,48 @@
+[
+
+  {
+    "title": "Early Warning Reporting (Aircraft Manufacturing)",
+    "url": "/projects/1-early-warning-reporting",
+    "year": "2025",
+    "track": "Industry",
+    "topic": "Forecasting + causal analysis",
+    "description": ""
+  },
+
+  {
+    "title": "BPED Process Modeling (LiOH Production)",
+    "url": "/projects/2-modeling-for-bped-process",
+    "year": "2024",
+    "track": "Industry",
+    "topic": "Process optimization",
+    "description": ""
+  },
+
+  {
+    "title": "Predictive Modeling for Productivity Improvement",
+    "url": "/projects/3-development-of-a-predicive-model-for-enhancing-productivity",
+    "year": "2024",
+    "track": "Industry",
+    "topic": "Predictive modeling",
+    "description": ""
+  },
+
+  {
+    "title": "Concept Drift–Aware Model Update Strategy (Steel Manufacturing PoC)",
+    "url": "/projects/4-developing-model",
+    "year": "2023",
+    "track": "Industry",
+    "topic": "Concept drift + retraining strategy",
+    "description": ""
+  },
+
+  {
+    "title": "Capstone: Anomaly Detection with Injection Molding Data",
+    "url": "/projects/5-injection",
+    "year": "2023",
+    "track": "Academic",
+    "topic": "Anomaly detection",
+    "description": ""
+  }
+
+]

@@ -1,6 +1,7 @@
 ---
 name: "Concept Drift–Aware Model Update Strategy (Steel Manufacturing PoC)"
 category: "Industry — POSCO DX"
+track: "Industry"
 topic: "Concept drift + retraining strategy"
 period: "Summer 2023"
 year: "2023"

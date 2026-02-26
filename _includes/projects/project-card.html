@@ -1,10 +1,6 @@
-{%- comment -%} Default Styles (force border-only cards) {%- endcomment -%}
+{%- comment -%} Default Styles {%- endcomment -%}
 {%- assign card_style  = 'border border-primary' -%}
 {%- assign text_style  = 'text-themed' -%}
-
-{%- if post.color -%}
-  {%- assign card_style = post.color | prepend: 'border border-' -%}
-{%- endif -%}
 
 {%- comment -%} Apply style/color from front matter {%- endcomment -%}
 {%- if project_style == 'fill' -%}
@@ -16,43 +12,60 @@
   {%- assign card_style = project_color | prepend: 'border border-' -%}
 {%- endif -%}
 
+{%- comment -%} Track badge style (Industry/Academic only) {%- endcomment -%}
+{%- assign track_badge = "badge-outline-blue" -%}
+{%- if project_track == "Academic" -%}
+  {%- assign track_badge = "badge-outline-green" -%}
+{%- elsif project_track == "Industry" -%}
+  {%- assign track_badge = "badge-outline-blue" -%}
+{%- endif -%}
+
 <div class="wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ project_url }}"
-     class="project card {{ card_style }} {{ text_style }}"
+     class="project card {{ card_style }} {{ text_style }} h-100 p-3"
      style="text-decoration: none;"
-     {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
+     {%- if external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
 
     {%- if project_img -%}
-      <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}" />
+      <img id="{{ project_id }}-img"
+           class="card-img-top mb-3"
+           src="{{ project_img }}"
+           alt="{{ project_name }}" />
     {%- endif -%}
 
-    <div class="card-body">
+    <div class="card-body p-0 d-flex flex-column">
 
-      <h4 id="{{ project_id }}-name" class="card-title mb-2">
+      {% if project_track %}
+        <div class="mb-2">
+          <span class="badge badge-pill {{ track_badge }}">{{ project_track }}</span>
+        </div>
+      {% endif %}
+
+    <h5 id="{{ project_id }}-name" class="mb-1">
+      <span class="project-title">
         {%- if project_type == "remote" -%}
           <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i>
           <span>&nbsp;|&nbsp;</span>
         {%- endif -%}
         {{ project_name }}
-      </h4>
+      </span>
+    </h5>
 
-      {% if project_category %}
-        <p class="card-text mb-1">
-          <span class="badge badge-pill badge-outline-blue">{{ project_category }}</span>
-        </p>
-      {% endif %}
-
+      {%- comment -%} Topic: gray italic text (instead of green chip) {%- endcomment -%}
       {% if project_topic %}
-        <p class="card-text mb-2">
-          <span class="badge badge-pill badge-outline-green">{{ project_topic }}</span>
-        </p>
+        <div class="text-muted small font-italic">{{ project_topic }}</div>
       {% endif %}
 
+      {% if project_desc %}
+        <div class="text-muted small mt-2">{{ project_desc }}</div>
+      {% endif %}
+
+      <div class="mt-auto"></div>
     </div>
 
     {% if project_period %}
-      <div class="card-footer {{ text_style }}">
-        {{ project_period }}
+      <div class="card-footer p-0 pt-3 {{ text_style }}">
+        <div class="text-muted small">{{ project_period }}</div>
       </div>
     {% endif %}
 

@@ -1,6 +1,7 @@
 ---
 name: "BPED Process Modeling (LiOH Production)"
 category: "Industry — POSCO Holdings"
+track: "Industry"
 topic: "Process optimization"
 period: "Winter 2024 – Summer 2025"
 year: "2024"

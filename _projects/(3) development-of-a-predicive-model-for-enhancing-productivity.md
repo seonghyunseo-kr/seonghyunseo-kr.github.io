@@ -1,6 +1,7 @@
 ---
 name: "Predictive Modeling for Productivity Improvement"
 category: "Industry — POSCO / POSCO DX"
+track: "Industry"
 topic: "Predictive modeling"
 period: "Summer 2024"
 year: "2024"

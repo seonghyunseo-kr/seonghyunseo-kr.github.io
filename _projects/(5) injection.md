@@ -1,6 +1,7 @@
 ---
 name: "Capstone: Anomaly Detection with Injection Molding Data"
 category: "Academic — Capstone"
+track: "Academic"
 topic: "Anomaly detection"
 period: "Spring 2023"
 year: "2023"

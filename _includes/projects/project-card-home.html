@@ -1,0 +1,65 @@
+{%- assign doc = include.item -%}
+
+{%- comment -%} Read URL: internal project page, fallback to external_url {%- endcomment -%}
+{%- assign read_url = doc.url | relative_url -%}
+{%- assign read_external = false -%}
+{%- if doc.external_url -%}
+  {%- assign read_url = doc.external_url -%}
+  {%- assign read_external = true -%}
+{%- endif -%}
+
+{%- comment -%} Card style (border-only) {%- endcomment -%}
+{%- assign card_style = 'border border-primary' -%}
+{%- assign text_style = 'text-themed' -%}
+{%- if doc.color -%}
+  {%- assign card_style = doc.color | prepend: 'border border-' -%}
+{%- endif -%}
+
+{%- comment -%} Track badge mapping (Industry/Academic) {%- endcomment -%}
+{%- assign track = doc.track | default: 'Project' -%}
+{%- assign track_badge = "badge-outline-blue" -%}
+{%- if track == "Academic" -%}
+  {%- assign track_badge = "badge-outline-green" -%}
+{%- elsif track == "Industry" -%}
+  {%- assign track_badge = "badge-outline-blue" -%}
+{%- endif -%}
+
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+  <div class="project card {{ card_style }} {{ text_style }}">
+
+    <div class="card-body">
+
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <span class="badge badge-pill {{ track_badge }}">{{ track | upcase }}</span>
+      </div>
+
+      <h4 class="card-title mb-4"
+          style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
+        <a href="{{ read_url }}"
+           style="text-decoration: none; color: inherit;"
+           {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          {{ doc.name }}
+        </a>
+      </h4>
+
+      {%- if doc.topic -%}
+        <p class="card-text mb-2 text-muted">
+          <i>{{ doc.topic }}</i>
+        </p>
+      {%- endif -%}
+
+      {%- if doc.description -%}
+        <p class="card-text mb-2">{{ doc.description }}</p>
+      {%- endif -%}
+
+    </div>
+
+    {%- comment -%} Footer: prefer period, fallback to year {%- endcomment -%}
+    {%- if doc.period or doc.year -%}
+      <div class="card-footer {{ text_style }}">
+        {%- if doc.period -%}{{ doc.period }}{%- else -%}{{ doc.year }}{%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[Tech Interviews] ">
+  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <meta property="og:image" content="/assets/img/profile.jpg">
+
+  <title>[Tech Interviews] </title>
+  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$$', '$$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>HYUN-TOPIA</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="/academic/">Academic</a>
+
+      <a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/cv/">CV</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1><b>[Tech Interviews] </b></h1>
+
+<p class="post-metadata text-muted">24 February 2026<br>Tags:
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#ml">
+          <span class="tag badge badge-pill text-primary border border-primary">ML</span>
+        </a>
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#ds">
+          <span class="tag badge badge-pill text-primary border border-primary">DS</span>
+        </a>
+      
+        <a class="text-decoration-none no-underline" href="/blog/tags#study">
+          <span class="tag badge badge-pill text-primary border border-primary">study</span>
+        </a>
+      </p>
+
+
+
+<h3 id="feature-selection-method-feature-engineeringselection">Feature Selection Method, Feature engineering/selection</h3>
+
+<ol>
+  <li>Feature selection experiment(Filter methods , Wrapper methods, Embedded methods)
+Filter: 통계 기반의 중요도 판단을 통해 학습 전 단계에서부터 feature selection을 수행하는 방식
+Wrapper: 여러번 학습을 반복하며 최적의 변수 조합을 찾는 방식
+Embedded: 학습 모델 자체에 feature selection 기능이 포함되어 있는 방식 (Lasso의 L1 Regularization – 중요하지 않은 변수는 가중치를 0으로 만드는 기능, Tree모델들의 feature importance 계산을 통한 feature selection 수행 기능)</li>
+</ol>
+
+<p>a.	(Feature Selection) What is a good feature? What are some ways to judge good features? (What is feature selection and what methods are there?)
+단순히 설명력을 높이는 것을 넘어 타겟 변수와 상관관계는 높으면서, 피처끼리의 상관관계(다중공선성)는 낮은 것</p>
+<ul>
+  <li>mRMR(Minimum Redundancy Maximum Relevance)이 바로 이 원리(중복은 최소화, 관련성은 최대화)를 구현한 알고리즘</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Missing value handling: (Missing value) There are a lot of missing values in real data. How can we handle them to improve model performance?
+가장 단순하고 쉬운 방식은 delete이지만 결측치의 수가 많은 경우 데이터의 정합성에 문제가 발생할 수도 있고, 데이터 설명력이 저하되는 문제가 발생할 수도 있음. 이에 delete가 아니라 데이터의 특성에 따라 대치(Imputation)를 수행. 수치형은 중앙값(Median)이나 평균으로, 범주형은 최빈값(Mode)으로 채우거나, 더 정교하게는 KNN Imputer나 Iterative Imputer를 사용해 다른 변수들과의 관계를 기반으로 예측하여 채울 수 있음.</p>
+  </li>
+  <li>Difference between Random forest and Lasso Regression feature selection
+    <ul>
+      <li>Random Forest: Information Gain or Gini Impurity-based featrue importance calculation</li>
+      <li>Lasso: L1 Regularization-based feature selection (set the importance as 0)</li>
+      <li>Lasso는 선형적인 관계에서 변수를 제거하고, Random Forest는 비선형적인 관계까지 포함하여 “이 변수가 데이터를 나누는 데 얼마나 기여했는가”를 수치화</li>
+    </ul>
+  </li>
+  <li>Feature engineering for text data
+    <ul>
+      <li>(Numeric variable) Why do I need feature normalization for numeric data?</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>Normalization vs. Standardization</li>
+  <li>Normalization: 데이터의 분포가 정규분포가 아니거나 정확한 분포를 모를 떄 0 ~ 1 사이의 정규분포를 가정하기 위해 사용 (MinMax)</li>
+  <li>
+    <p>Standardization: 이상치 등 데이터의 scale이 매우 차이가 많이 날 때 평균 0, 표준편차 1인 표준정규분포로 만드는 방식 (Z-scored)</p>
+  </li>
+  <li>
+    <p>(Categorical variable) How should categorical features be handled when performing data preprocessing tasks?</p>
+  </li>
+  <li>One-hot encoding, Label encoding, target encoding, etc.</li>
+  <li>One-hot encoding: 순서가 없는 범주형 데이터에 사용</li>
+  <li>Label encoding: 순서가 있는 범주형 데이터에 사용 (Tree모델에 유리)</li>
+  <li>
+    <p>Target encoding: 범주 별 타겟 변수의 평균으로 변환</p>
+  </li>
+  <li>(Text data) The dataset includes numeric and categorical variables, but may also contain text data. Please explain how text data can be used for modeling.</li>
+  <li>TF-IDF (단어 빈도 기반), Transformer (BERT), Word Embedding (Word2Vec) 등</li>
+</ul>
+
+<h3 id="difference-between-network-types--mlp-vs-convolutional-neural-network-vs-recurrent-neural-network-vs-transformer">Difference between network types : MLP vs. Convolutional Neural Network vs. Recurrent Neural Network vs. Transformer</h3>
+
+<ol>
+  <li>CNN
+a.	Why CNN is well known solution in Computer Vision field
+b.	Benefit of ReLU/ Other activation function
+    <ul>
+      <li>What is an activation function and why is it needed?</li>
+      <li>Explain the shortcomings of ReLU</li>
+    </ul>
+  </li>
+  <li>RNN
+a.	Why RNN is well known solution to Time-series data
+    <ul>
+      <li>순서와 시간(Sequential/Temporal)을 고려하여 이전 단계의 출력값이 다음 단계의 입력값으로 들어가는 재귀적 구조로 되어 있어 앞뒤 맥락이 중요한 시계열 데이터나 자연어 처리에 강함.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>b.	Vanishing gradient problem definition and solution</p>
+<ul>
+  <li>기울기 소실 문제는 역전파(Backpropagation) 과정에서 기울기를 계속 곱하다 보니 값이 0에 가까워져 앞부분의 가중치가 업데이트되지 않는 현상으로, 이를 해결하기 위한 방법으로 LSTM과 GRU가 있음.</li>
+</ul>
+
+<h2 id="c-gru-lstm-architecture-what-is-the-difference-between-gru-and-lstm">c.	GRU, LSTM Architecture: What is the difference between GRU and LSTM?</h2>
+
+<p>d.	RNN vs ARIMA</p>
+
+<ol>
+  <li>Transformer: What is the difference between CNN and Transformer?
+a.	Attention mechanism’s role
+    <ul>
+      <li>Self-Attention 매커니즘을 통해 중요한 데이터를 한 번에 파악하는 방식 (Attention은 가중치를 통해 중요한 데이터를 선별하는 알고리즘)
+b.	Positional Encoding 
+c.	How Attention score is calculated</li>
+    </ul>
+  </li>
+  <li>MLP
+a.	Limitation of MLP</li>
+</ol>
+
+<h3 id="evaluation-방법론-recall-precision-roc-curve-etc">Evaluation 방법론 (recall precision, roc curve, etc..)</h3>
+
+<ol>
+  <li>Precision, Recall, F1-Score
+    <ul>
+      <li>(Precision, Recall, F1-Score) Please explain what evaluation methods can be used in the model validation process and the pros and cons of each method</li>
+      <li>Precision: 정밀도. Positive라고 예측한 것 중 실제 Positive인 비율.</li>
+      <li>Recall: 재현율. 실제 Positive인 것 중 모델이 Positive라고 맞춘 비율.</li>
+      <li>F1-score: Precision + Recall / 2 (조화평균)</li>
+      <li>What is the appropriate metric for regression/classification?</li>
+      <li>Classification: Accuracy(균형 데이터), F1-Score/AUC-ROC(불균형 데이터), Log Loss(확률적 정밀도 파악).</li>
+      <li>Regression: MAE, MSE, R2, MAPE</li>
+    </ul>
+  </li>
+  <li>ROC Curve, Log Loss: (ROC Curve) What are ROC curves and AUC-ROC scores?
+    <ul>
+      <li>ROC Curve:  임계값(Threshold)을 변화시킬 때 TPR(True Positive Rate)과 FPR(False Positive Rate)의 변화를 나타낸 곡선</li>
+      <li>AUC-ROC Curve: ROC곡선 아래의 면적. 1에 가까울수록 모델이 긍정/부정을 구별하는 성능(분별력)이 뛰어남을 의미.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="ways-to-fighting-against-overfitting-">Ways to fighting against overfitting ?</h4>
+<ol>
+  <li>Methods or techniques to prevent or reduce overfitting
+    <ul>
+      <li>Complexity Control: Regularization (L1, L2) 추가</li>
+      <li>Early Stopping: 오차가 증가하기 시작하면 학습을 중단</li>
+      <li>Pruning: decision tree에서 불필요한 가지를 제거</li>
+      <li>Dropout: 신경망에서 random하게 node를 꺼서 특정 node에 의한 의존도 감소</li>
+    </ul>
+  </li>
+  <li>Data augmentation for tabular data
+    <ul>
+      <li>SMOTE(Synthetic Minority Over-sampling Technique): 클래스 불균형을 해결하기 위한 방식으로, 기존 데이터 사이의 공간을 knn을 기반으로 찾고, 샘플과 이웃 사이의 선분 위의 임의의 지점에 새로운 데이터를 생성.</li>
+      <li>VAE(Variational Autoencoder): 데이터의 분포를 학습하여 실제 데이터와 통계적으로 유사한 가상 데이터를 생성하는 방식. 딥러닝 기반의 잠재적 분포 기반 규칙을 학습하는 게 특징.</li>
+    </ul>
+  </li>
+  <li>Why Decision Trees and Random Forests are susceptible to overfitting
+    <ul>
+      <li>Decision Tree: 데이터의 아주 미세한 특징까지 끝까지 나누려 하기 때문에 depth가 깊어져 overfitting이 발생</li>
+      <li>Random Forest: 개별 트리가 과적합될 수 있으나 bagging을 통해 overfitting 완화 가능.</li>
+    </ul>
+    <ul>
+      <li>Bagging: 병렬 학습과 복원 추출을 통한 안정성 높은 학습을 수행하는 방식. (variance/분산 감소)</li>
+      <li>Boosting: Bagging과 달리 앞선 모델의 부족함을 뒷 모델이 계속해서 보완하는 방식의 weak learner start method. 오차를 줄이며 점진적으로 강화 (bias 제거)
+    * Please explain some ways to reduce the risk of overfitting and underfitting (or How should we deal with overfitting)?</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>There is cross validation as a way to prevent overfitting. Can you explain it?</li>
+  <li>Cross Validation: 데이터를 M개로 나눠 하나를 검증용, 나머지를 학습용으로 번갈아 사용하는 방식. 특정 데이터셋에 모델이 매몰되는 것을 막아 일반화 성능을 객관적으로 측정하도록 함.</li>
+</ul>
+
+<h4 id="ways-to-overcome-dataset-conditions-below-">Ways to overcome dataset conditions below ?</h4>
+<ol>
+  <li>Small dataset</li>
+  <li>Imbalanced dataset</li>
+  <li>Noisy dataset</li>
+</ol>
+
+<h3 id="최근-읽은-논문">최근 읽은 논문?</h3>
+<p>If you have recently read the paper and have experience implementing the algorithm in an actual project, please explain.</p>
+
+<h3 id="culture">Culture</h3>
+<p>Please describe the most difficult communication experience you had at work. How did you overcome it again?
+Tasks you would like to perform if you join the company
+Do you have experience explaining analysis results to someone who is unfamiliar with data analysis?</p>
+
+<h2 id="data-scientist-specific">[Data Scientist specific]</h2>
+
+<h3 id="data-engineering-experience-tools-sql-database">Data Engineering experience (Tools, SQL, Database)</h3>
+<ol>
+  <li>
+    <p>Data pipeline tools: Do you have experience using data pipeline tools (Airflow, etc.)?</p>
+  </li>
+  <li>
+    <p>Data Preprocessing
+a. How would you process it if there are 2,000 to 3,000 features?
+b. When carrying out a machine learning project, what tasks are performed during data preprocessing?</p>
+  </li>
+</ol>
+
+<h3 id="database-sql">Database, SQL</h3>
+<ul>
+  <li>SQL, MySQL, BigQuery experience</li>
+  <li>There have been reports that MySQL is slow these days. What would you check and handle first?</li>
+  <li>What should I do if I need to insert a large amount of data (more than 5 million) in MySQL?</li>
+  <li>What are Windows functions and how to write them?</li>
+  <li>Check knowledge about SQL Join (Inner join, left join, right join, full join)</li>
+</ul>
+
+<h3 id="statistics-question-pvalue-bayesian-">Statistics question (pvalue, bayesian, …)</h3>
+<h4 id="probability-and-distribution">Probability and Distribution</h4>
+<ol>
+  <li>P-Value, Multicollinearity,</li>
+  <li>Sampling: Explain how sampling is used in machine learning</li>
+</ol>
+
+<h4 id="estimation">Estimation</h4>
+<ol>
+  <li>Explain Trade-off between bias and variance in estimation
+    <ul>
+      <li>Bias는 모델이 너무 단순해서 정답을 못 맞히는 정도(Underfitting)이고, Variance는 모델이 데이터의 노이즈까지 학습하여 결과가 요동치는 정도(Overfitting).</li>
+      <li>하나를 줄이면 다른 하나가 늘어나는 관계이기 때문에, 검증 오차(Validation Error)가 최소가 되는 최적의 복잡도 지점을 찾는 것이 머신러닝 학습의 핵심.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Cautious of when making estimations with a small sample size?</p>
+  </li>
+  <li>Relationship between the width of a confidence interval, the confidence level, and the sample size
+    <ul>
+      <li>샘플 사이즈가 커질수록 표준 오차가 줄어들기 때문에 신뢰구간의 폭은 좁아지고 정밀해짐. 반대로 신뢰 수준(Confidence Level)을 95%에서 99%로 높이면, 정답을 포함할 확률을 높여야 하므로 신뢰구간의 폭은 넓어지게 됨.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="multiple-regression">Multiple Regression</h4>
+<ol>
+  <li>Multicollinearity: Explain what multicollinearity is and why it is a problem. How to solve this
+    <ul>
+      <li>다중공선성: Regression 문제에서 독립 변수들 간 강한 상관관계가 존재할 때 발생하는 문제로, 어떤 변수가 target에 진짜 영향을 주는지 해석하기가 어려워짐. 이를 해결하기 위해 VIF 지수가 높은 변수를 제거하거나, L1/L2 Regularization을 적용하여 가중치를 억제하여 문제를 해결할 수 있음.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="bayesian-statistics">Bayesian statistics</h4>
+<ol>
+  <li>Bayes’ theorem
+a.	Basics: 사전 확률에 새로운 우도(likelihood)를 결합하여 사후 확률을 도출하는 수식으로, 어떤 사건이 발생했다는 조건 하에 가설이 맞을 확률을 사후적으로 계속 업데이트 하는 확률적 추론 방식.
+    <ul>
+      <li>(Prior, 사전 확률): 데이터를 보기 전, 우리가 가설 H에 대해 이미 알고 있거나 믿고 있는 확률</li>
+      <li>(Likelihood, 우도): 가설 H가 참일 때, 현재 데이터 D가 관측될 확률</li>
+      <li>(Posterior, 사후 확률): 데이터 D를 확인한 후, 가설 H가 참일 최종적인 확률</li>
+      <li>(Evidence, 증거): 데이터 D 자체가 나타날 전체 확률 (보통 상수로 취급하여 확률의 합을 1로 만드는 역할)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>b.	MLE (Maximum Likelihood Estimation): 최대 우도 추정. 현재 주어진 데이터가 나타날 확률을 최대화하는 파라미터를 찾는 방식. 최대한 주관을 배제. 
+c.	MAP (Maximum a Posteriori): 최대 사후 확률 추정. 사전 확률(주관)을 개입시켜 관측된 사실에 집중하여 사후확률을 최대로 추정하는 방법. (과적합 해소에 적합?)</p>
+
+<ol>
+  <li>MCMC(Markov Chain Monte Carlo)
+    <ul>
+      <li>사후 확률의 분포가 너무 복잡해서 수식으로 직접 계산(적분)하기 어려울 때, 무작위 샘플링을 통해 그 분포를 근사적으로 찾아내는 기법. ‘마르코프 체인’ 성질을 이용해 현재 상태에서 다음 상태를 확률적으로 탐색하며 샘플을 추출하고, 이 샘플들이 모여 전체 확률 분포를 형성하게 함으로써 복잡한 베이지안 추론을 가능하도록 함.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="multivariate-analysis">Multivariate analysis</h4>
+<ol>
+  <li>
+    <h2 id="pca-ldalinear-discriminant-analysis-what-is-principal-component-analysis-pca-and-why-is-it-used">PCA, LDA(Linear Discriminant Analysis): What is Principal Component Analysis (PCA) and why is it used?</h2>
+  </li>
+  <li>Distance metrics in cluster analysis (Euclidean, Manhattan, Cosine, etc.) : Based on your learning and research experience, explain under what circumstances you would use cosine similarity instead of Euclidean distance
+    <ul>
+      <li>데이터의 절대적인 크기보다 방향성(패턴)이 중요할 때 사용. 예를 들어 텍스트 데이터에서 문서의 길이는 다르더라도 언급된 단어의 비율(주제)이 비슷하다면 두 문서는 유사하다고 보는데, 이때 유클리드 거리는 문서 길이에 영향을 받지만 코사인 유사도는 벡터의 각도만 보기 때문에 훨씬 정확한 유사도를 산출할 수 있음.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="time-series">Time series</h3>
+<h4 id="what-characteristics-should-be-considered-when-processing-time-series-data-and-what-model-should-be-used">What characteristics should be considered when processing time series data, and what model should be used?</h4>
+<ol>
+  <li>Characteristics: Seasonality, Trend, Cyclicity, irregularity
+    <ul>
+      <li>Seasonality:</li>
+      <li>Trend:</li>
+      <li>Cyclicity:</li>
+      <li>Irregularity(Non-stationarity):</li>
+    </ul>
+  </li>
+  <li>Time series model: ARIMA, Kalman Filter, LSTM, Prophet, Multivariate Time Series Mdoel (VAR: Vector Autoregression, VARIMA: Vector AutoRegressive Integrated moving Average), etc.
+    <ul>
+      <li>ARIMA: 자기회귀(AR) + 이동평균(MA) + 차분(I). 선형/통계적 정상성이 유지되는 데이터에서 유효함.</li>
+      <li>Prophet: trend, seasonality, holiday effect를 고려한 비선형적이고 정상성이 없는 데이터에 대해서도 유효하게 작용.</li>
+      <li>LSTM: 딥러닝 기반의 Long memory와 short memory 기반의 과거 데이터를 활용하는 방식. 데이터가 많고 복잡한 비선형 관계가 있을 떄 사용.</li>
+      <li>VAR: 여러 시계열 변수가 서로 영향을 주고받는 다변량 복잡도 높은 시계열 데이터에서 유효함.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="how-can-time-series-data-be-declared-as-stationery---how-to-make-it-stationary-differencing-time-series-decomposition">How Can Time-Series Data Be Declared As Stationery? -&gt; How to make it stationary? (Differencing, Time series decomposition)</h4>
+<ul>
+  <li>stationary: 시간이 흘러도 데이터의 평균과 분산이 일정한 상태. (ARIMA와 같은 통계적 시계열 모델이 가정하는 상태)</li>
+</ul>
+
+<ol>
+  <li>Augmented Dickey-Fuller Test(ADF Test)</li>
+</ol>
+
+
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>SeongHyun Kristine Seo</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.behance.net/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1769ff'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-behance fa-1x"></i>
+    </a><a class="social mx-1"  href="mailto:seonghyunseo.kr@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/seonghyunseo-kr"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/SeongHyun Seo"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>

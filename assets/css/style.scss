@@ -450,3 +450,50 @@
 .markdown-body blockquote {
   color: inherit;
 }
+
+/* Card hover lift effect (Projects + Academic) */
+.project.card,
+.post.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project.card:hover,
+.post.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Project title hover underline animation (Academic-style) */
+a.project.card,
+a.project.card:hover,
+a.project.card:hover * {
+  text-decoration: none;
+}
+
+a.project.card .project-title {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.project.card .project-title::after {
+  content: "";
+  display: block;
+  height: 0.15em;
+  margin-top: -0.15em;
+  width: 0;
+  background: #007bff;
+  transition: width 0.35s;
+}
+
+a.project.card:hover .project-title {
+  color: #007bff;
+}
+
+a.project.card:hover .project-title::after {
+  width: 100%;
+}
+
+.post.card .card-footer {
+  background-color: rgba(0, 0, 0, 0.03);
+}

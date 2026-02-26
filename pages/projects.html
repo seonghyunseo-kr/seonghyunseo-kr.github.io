@@ -1,11 +1,32 @@
 ---
-layout: default
+layout: post
 title: Projects
 permalink: /projects/
 weight: 3
-remote_projects: 
+remote_projects:
   - git-for-wizards
   - arduino-visitor-counter
 ---
 
+<div class="input-group mt-5 px-3">
+  <input id="project-search-input" type="text" class="form-control search-box" placeholder="Search projects..">
+  <div class="input-group-append">
+    <span class="input-group-text border border-primary bg-primary text-white">
+      <i class="fas fa-search"></i>
+    </span>
+  </div>
+</div>
+<ul class="px-3" id="project-results-container"></ul>
+
 {% include projects/index.html %}
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('project-search-input'),
+    resultsContainer: document.getElementById('project-results-container'),
+    searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+    noResultsText: '<li class="list-group-item list-group-item-action disabled">No results found</li>',
+    json: '{{ "/projects-search.json" | relative_url }}'
+  })
+</script>
