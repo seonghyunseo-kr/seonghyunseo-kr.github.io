@@ -28,7 +28,15 @@
     {% assign pats = site.data.patents | sort: "sort" | reverse | slice: 0, 1 %}
     {% for p in pats %}
       <div>
-        <div class="font-weight-bold">{{ p.title }}</div>
+        <div class="font-weight-bold">
+            {% if p.url %}
+                <a class="ha-link" href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a>
+            {% elsif p.paper_url %}
+                <a class="ha-link" href="{{ p.paper_url }}" target="_blank" rel="noopener">{{ p.title }}</a>
+            {% else %}
+                {{ p.title }}
+            {% endif %}
+        </div>
         <div class="text-muted small">
           {{ p.id }}{% if p.status %} · {{ p.status }}{% endif %}
         </div>

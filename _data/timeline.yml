@@ -3,10 +3,10 @@
   position: "AI/ML Researcher Intern"
   org: "Boeing AI"
   from: "Aug 2025"
-  to: "Present"
+  to: "Mar 2026"
   details:
     - "Built time series forecasting models to predict future quality risks and detect early warning signals in aircraft manufacturing."
-    - "Developed causal inference / causal discovery analyses to identify root causes of warning-level events."
+    - "Developed causal inference algorithms and quantified metrics with PCMCI and Transfer Entropy to identify root causes of warning-level events."
     - "Collaborated with global teammates to prototype an automated reporting system and iteratively improve it with stakeholder feedback."
 
 - kind: experience

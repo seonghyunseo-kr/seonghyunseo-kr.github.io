@@ -13,10 +13,12 @@ Through multiple projects in the manufacturing sector, I’ve become deeply moti
 
 My current research interests focus on **reliable AI/ML for real-world operations**, including time-series forecasting, multimodal time series, control & planning, and post-deployment model maintenance (e.g., monitoring and retraining).
 
-I’m currently an **AI/ML Researcher Intern at Boeing AI (BKETC, Seoul, South Korea)**, aiming to build sustainable and autonomous ML systems for industrial applications.
+I was an **AI/ML Researcher Intern at Boeing AI (BKETC, Seoul, South Korea)** where I focused on building sustainable and autonomous ML systems for industrial applications.
+
+Currently, I am seeking opportunities to contribute to the R&D journey within the industry.
 
 
-Check out my latest [CV (PDF)](/assets/pdf/cv.pdf) 
+Check out my latest [CV (PDF)](/assets/pdf/cv.pdf) ! 
 
 
 ## Education
