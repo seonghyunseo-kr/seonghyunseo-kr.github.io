@@ -1,32 +1,35 @@
 ---
-name: "Predictive Modeling for Productivity Improvement"
+name: "Predictive Model for Enhancing Factory Productivity"
 category: "Industry — POSCO / POSCO DX"
 track: "Industry"
-topic: "Predictive modeling"
+topic: "Ensemble Modeling + Multi-Target Prediction"
 period: "Summer 2024"
 year: "2024"
 style: border
-color: primary
-tools: [XGBoost, Extra Trees, Ensemble]
+color: info
+tools: [XGBoost, Extra Trees, Huber, Ensemble]
 image:
 external_url:
 featured: true
+summary_en: ""
+summary_kr: ""
+name_kr: ""
 ---
 
 ## Overview
-- Context: Industry project to enhance factory productivity through predictive modeling.
-- Goal: Build robust predictors across multiple targets and exceed KPI requirements.
-- Outcome: Built models for five targets and achieved accuracy above the initial KPI (per CV summary).
+- **Context**: Predictive modeling project with POSCO and POSCO DX to enhance productivity in steel manufacturing by building accurate multi-target prediction models.
+- **Goal**: Develop ensemble models for five distinct production targets, surpassing a KPI accuracy threshold of 80.8.
+- **Outcome**: Achieved final accuracy of **84.7**, exceeding the KPI, across all five targets; recognized for clear communication, teamwork, and logical task management during stakeholder reviews.
 
 ## My Contributions
-- Developed ensemble predictors combining XGBoost, Extra Trees, and other baselines with tuning/optimization.
-- Delivered models across multiple targets and summarized outcomes clearly for stakeholder reviews.
-- Collaborated closely with engineers to translate modeling insights into actionable improvements.
+- Developed **versatile ensemble models** combining **Huber**, **XGBoost**, and **Extra Trees**, leveraging expertise in algorithm customization and hyperparameter optimization.
+- Built prediction models for **five distinct targets** simultaneously, coordinating model-specific tuning while maintaining a unified pipeline structure.
+- Collaborated closely with industry professionals throughout the project, translating domain knowledge into feature engineering decisions.
+- Recognized during reviews for strengths in **organizing and summarizing work outcomes**, fostering teamwork, and providing clear, logical communication.
 
 ## Tech Stack
 - XGBoost
 - Extra Trees
-- Ensemble
-
-## Notes
-- Public details are limited due to project confidentiality.
+- Huber Regression
+- Ensemble methods (stacking / blending)
+- Python (scikit-learn)

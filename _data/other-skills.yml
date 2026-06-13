@@ -1,11 +1,19 @@
-- name: Korean (Native)
-  percentage: 100
-  color: info
+- name: MLOps / Workflow Orchestration
+  percentage: 85
+  color: primary
 
-- name: English (Advanced)
+- name: Time Series Forecasting
+  percentage: 85
+  color: danger
+
+- name: Concept Drift Detection & Adaptation
   percentage: 90
-  color: success
+  color: danger
 
-- name: Chinese/Mandarin (Beginner)
-  percentage: 20
-  color: 
+- name: Feature Engineering
+  percentage: 80
+  color: warning
+
+- name: Causal Inference
+  percentage: 75
+  color: secondary

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Is All Well with Your Models?: Strategies to Deal with Concept Drifts">
+  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+  <meta property="og:image" content="/assets/img/profile.jpg">
+
+  <title>Is All Well with Your Models?: Strategies to Deal with Concept Drifts</title>
+  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$$', '$$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>HYUN-TOPIA</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link active" href="/academic/">Academic</a>
+
+      <a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/cv/">CV</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1><b>Is All Well with Your Models?: Strategies to Deal with Concept Drifts</b></h1>
+
+<p class="post-metadata text-muted"><br></p>
+
+
+
+<blockquote>
+  <p><strong>2023 INFORMS Annual Meeting</strong> (Phoenix, AZ)<br />
+<strong>Session</strong>: Poster Session<br />
+<strong>Authors</strong>: Seong-Hyun Seo, Ui-Jong Hwang, Dong-Joon Lim (SKKU Technometrics Lab)<br />
+<strong>Poster</strong>: <a href="/assets/refs/2023_INFORMS_Poster.pdf">Download PDF</a><br />
+<strong>Acknowledgment</strong>: Supported by the National Research Foundation of Korea (NRF) under Grant RS-2023-00239046, and by Hyosung ITX.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="overview">Overview</h4>
+<p>This poster marks the earliest public presentation of what would become the SHIFT framework. Motivated by the limitations of standard Alternating Learner (AL) frameworks for concept drift detection, we introduce model update strategies built around two new concepts — <strong>period</strong> and <strong>weight</strong> — and apply them to a real-world Korean spandex fiber production case study.</p>
+
+<h4 id="key-takeaways">Key Takeaways</h4>
+<ul>
+  <li><strong>Concept drift in continuous manufacturing</strong>: in spandex fiber production, multi-phase chemical reactions make real-time optimization difficult, and data distributions shift unpredictably over time — causing deployed models to degrade.</li>
+  <li><strong>AL framework limitations</strong>: the conventional Alternating Learner approach detects drift by comparing long-window (LW) and short-window (SW) model errors, but cannot modify the model itself or adjust retraining data structure in response.</li>
+  <li><strong>Advanced AL + model update strategy</strong>: the proposed extension adds feature selection (FS) and structured period definitions — Reference, Update, and Buffer — plus differential weighting of buffer-period data, enabling more precise and stable adaptation.</li>
+  <li><strong>74% CTQ improvement</strong>: on spandex dope polymer viscosity prediction, the auto-modeling strategy (AL + Reference Model + Process Variable + FS Period + Q Limit) achieved MAPE = 1.17%, far outperforming periodic retraining (6.48%) and baseline AL + adaptation (4.88%).</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="abstract">Abstract</h3>
+<p>This poster presents concept drift detection methods that address the situation where model performance deteriorates due to concept drift, preventing effective auto-modeling. We adopt feature selection and various model update strategies into the conventional AL framework to detect concept drift more effectively and efficiently. These advanced strategies successfully detect concept drift in real-world scenarios, ensuring consistent performance and reliable predictions in dynamic environments. Results are validated on Korean spandex fiber production data.</p>
+
+<p><br /></p>
+
+<h4 id="background--continuous-process-in-spandex-fiber-production">Background — Continuous Process in Spandex Fiber Production</h4>
+
+<p>Spandex fiber manufacturing involves three sequential reaction phases:</p>
+<ol>
+  <li>Pre-polymer production</li>
+  <li>Polymer reactions</li>
+  <li>Fiber production</li>
+</ol>
+
+<p>Each phase requires chemical quality tests to obtain quality indicators. Real-time process optimization is difficult due to irregular flow times of intermediate products and the need for continuous monitoring.</p>
+
+<p><strong>Prediction target</strong>: Dope Polymer Viscosity<br />
+<strong>Data</strong>: 691,200 datapoints (Jul 2020 – Dec 2021), 30 features (24 process + 6 derived), Lasso Regression base model<br />
+<strong>Validation</strong>: Rolling origin with 15-day window size and 5-day test period</p>
+
+<p><br /></p>
+
+<h4 id="proposed-method">Proposed Method</h4>
+
+<p><strong>Method 1 — Advanced AL Framework</strong></p>
+
+<p>The conventional AL framework trains two models — long window (LW) and short window (SW) — and compares errors to detect CD. When CD is detected, LW is replaced with SW + N. However, this approach cannot modify the model itself, making it insufficient when drift is too frequent or hyperparameter-sensitive.</p>
+
+<p>The <strong>Advanced AL</strong> adds:</p>
+<ul>
+  <li><strong>Feature Selection (FS)</strong>: dynamically reconfigures predictor variables upon CD detection, instead of relying on a fixed input set</li>
+  <li>Addresses cases where the conventional AL adjusts learning intervals but fails to adapt the model structure</li>
+</ul>
+
+<p><strong>Method 2 — Model Update Strategy</strong></p>
+
+<p>Three period types define the update structure:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Period Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reference Period</td>
+      <td>A past period of similar duration used for diagnosing pattern changes</td>
+    </tr>
+    <tr>
+      <td>Update Period</td>
+      <td>Minimum duration required to accumulate new data for updates</td>
+    </tr>
+    <tr>
+      <td>Buffer Period</td>
+      <td>Additional data collected after detecting pattern changes, before updating</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Differential Weighting</strong>: assigns varying importance to buffer-period data during model updates, adjusting sensitivity to new distributions.</p>
+
+<p><br /></p>
+
+<h4 id="results--spandex-industry">Results — Spandex Industry</h4>
+
+<p><strong>Optimal configuration</strong>: AL + Reference Model + Process Variable + FS Period + Q Limit<br />
+→ MAPE = <strong>1.17%</strong> (overall period)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Overall MAPE</th>
+      <th>Rapid Change Period MAPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Periodic model update</td>
+      <td>6.48%</td>
+      <td>2.94%</td>
+    </tr>
+    <tr>
+      <td>AL + Adaptation</td>
+      <td>4.88%</td>
+      <td>2.45%</td>
+    </tr>
+    <tr>
+      <td><strong>Auto-modeling (proposed)</strong></td>
+      <td><strong>4.69%</strong></td>
+      <td><strong>1.73%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Optimal hyperparameters</strong>:</p>
+<ul>
+  <li>Reference Model: 29-day regular model</li>
+  <li>Process Variable: Included</li>
+  <li>FS Period: 4 days</li>
+  <li>Q Length: 11 days</li>
+  <li>Buffer Period: 2 days</li>
+  <li>Weight: Linear</li>
+</ul>
+
+<p>Key behaviors observed:</p>
+<ul>
+  <li><strong>Downtrend detection</strong>: model updates performed sensitively to the latest data during performance drops</li>
+  <li><strong>Rebound detection</strong>: updates triggered after vulnerable periods to recover stable performance</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="contribution">Contribution</h4>
+<ul>
+  <li>Co-author and presenter (Seong-Hyun Seo), with Ui-Jong Hwang and Prof. Dong-Joon Lim</li>
+</ul>
+
+<h4 id="related-work">Related Work</h4>
+<ul>
+  <li>This work is the conceptual precursor to the full SHIFT framework</li>
+  <li>Extended and formalized as: <em>SHIFT: Self-Healing Intelligence in Feature Store and Data Store Transitions</em>, IEEE Access (2026)</li>
+  <li>See also: <a href="/academic/2024-poster-informs-seatlle">2024 INFORMS Poster — Steeling Against Time</a></li>
+</ul>
+
+<h4 id="notes">Notes</h4>
+<ul>
+  <li>Poster available for download above</li>
+</ul>
+
+
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>SeongHyun Kristine Seo</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.behance.net/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1769ff'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-behance fa-1x"></i>
+    </a><a class="social mx-1"  href="mailto:seonghyunseo.kr@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/seonghyunseo-kr"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/SeongHyun Seo"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>

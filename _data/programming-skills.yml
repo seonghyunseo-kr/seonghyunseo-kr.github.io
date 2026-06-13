@@ -13,3 +13,11 @@
 - name: TensorFlow
   percentage: 70
   color: secondary
+
+- name: R
+  percentage: 60
+  color:
+
+- name: scikit-learn
+  percentage: 80
+  color: warning

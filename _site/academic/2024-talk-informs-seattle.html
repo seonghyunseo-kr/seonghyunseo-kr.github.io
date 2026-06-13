@@ -98,39 +98,102 @@
 
 <blockquote>
   <p><strong>2024 INFORMS Annual Meeting</strong> (Seattle, WA)<br />
-<strong>Session</strong>: WA Technical Sessions 56 / Recent Advances in Stochastic Optimization (Contributed Session)<br />
-<strong>Slides</strong>: (LINK TBD)</p>
+<strong>Session</strong>: Oral Session — Recent Advances in Stochastic Optimization (Contributed)<br />
+<strong>Slides</strong>: <a href="/assets/refs/2024_INFORMS_Presentation.pdf">Download PDF</a></p>
 </blockquote>
 
 <p><br /></p>
 
 <h4 id="overview">Overview</h4>
-<p>This talk presents an autonomous model update framework for sustaining post-deployment ML performance under concept drift, integrating drift detection, feature/data refresh, retraining decisions, and artifact/version management.</p>
+<p>Modern manufacturing relies on continuous AI-driven automation, yet existing MLOps frameworks lack robust answers to a core question: <em>when and how</em> should a deployed model be retrained? This talk presents an <strong>Adaptive Model Update Framework</strong> that addresses concept drift through non-periodic, pattern-based retraining — integrating feature store and data store updates into a closed-loop MLOps workflow.</p>
 
-<h4 id="key-takeaways">Key takeaways</h4>
+<h4 id="key-takeaways">Key Takeaways</h4>
 <ul>
-  <li><strong>Beyond periodic retraining</strong>: decide <em>when</em> and <em>how</em> to update based on drift and operational signals.</li>
-  <li><strong>Closed-loop maintenance</strong>: connect detection → data/feature refresh → training/orchestration → versioning.</li>
-  <li><strong>Industrial relevance</strong>: a real steel manufacturing case motivates proactive, autonomous maintenance.</li>
+  <li><strong>Beyond periodic retraining</strong>: conventional approaches risk missing degradation points by retraining on a fixed schedule; the proposed framework detects drift dynamically using a double-window method and classifies it into 3 patterns.</li>
+  <li><strong>Pattern-based CD detection</strong>: a multi-learner queue system (LW/SW) monitors performance over time and triggers one of three retraining strategies — extend the training window, shift to a short window, or re-select optimal feature combinations.</li>
+  <li><strong>Buffer Period + Differential Weighting</strong>: after drift is detected, a buffer collects additional data before retraining; differential weighting (Constant, Amplified, Linear, Log) controls sensitivity to new distributions.</li>
+  <li><strong>Industrial validation</strong>: applied to a Korean steel sintering process (30 variables, return fines prediction) — CTQ improved from 53.06% to 92.47%, MAPE from 5.65 to 2.34.</li>
 </ul>
 
 <p><br /></p>
 
 <h3 id="abstract">Abstract</h3>
-<p>This presentation is focused on autonomous model update strategies aimed at improving the performance and stability of machine learning (ML) models after deployment. Unlike traditional approaches that often involve periodic retraining or retraining triggered by performance falling below predetermined thresholds, these autonomous strategies make informed decisions regarding the optimal timing and procedures for iterative model training, ensuring long-term sustainability. We propose an adaptive framework to facilitate concept drift detection and adaptation, leveraging data/feature extraction, model management, hyperparameter adjustments, and artifacts versioning. An empirical case study from the Korean steel industry highlights the necessity of autonomous retraining strategies after model deployment and the importance of considering these strategies during model development.</p>
+<p>This presentation focuses on autonomous model update strategies aimed at improving the performance and stability of machine learning models after deployment. Unlike traditional approaches that rely on periodic retraining or fixed performance thresholds, the proposed adaptive framework makes informed decisions about <em>when</em> and <em>how</em> to retrain — integrating concept drift detection, feature/data store refresh, and differential weighting into a unified MLOps workflow. An empirical case study from the Korean steel industry demonstrates both the necessity and effectiveness of autonomous post-deployment retraining strategies.</p>
+
+<p><br /></p>
+
+<h4 id="proposed-method--three-core-components">Proposed Method — Three Core Components</h4>
+
+<p><strong>1. Non-Periodic Retraining via Double-Window CD Detection</strong><br />
+A queue management system monitors long-term (LW) and short-term (SW) memory models in parallel. Based on error comparisons and queue thresholds (τ, δ, maxq), drift is classified into three patterns:</p>
+<ul>
+  <li>Pattern 1: Expand LW → maintain current model</li>
+  <li>Pattern 2: Shift LW → SW → maintain current model</li>
+  <li>Pattern 3: Shift LW → SW → re-select optimal feature combinations</li>
+</ul>
+
+<p><strong>2. Feature &amp; Data Store Updates</strong><br />
+mRMR-based feature selection is triggered on Pattern 3 detections, ensuring the model adapts to shifts in feature importance — not just distributional changes in the target.</p>
+
+<p><strong>3. Buffer Period with Differential Weighting</strong><br />
+Post-detection, a buffer period collects data before retraining. Four weighting schemes (Constant, Amplified, Linear, Logarithmic) control how much influence new-distribution data has on the updated model, balancing adaptation speed against stability.</p>
+
+<p><br /></p>
+
+<h4 id="case-study--korean-steel-manufacturing">Case Study — Korean Steel Manufacturing</h4>
+<ul>
+  <li><strong>Process</strong>: sintering (ironmaking stage) — return fines ratio predicts sinter and final product quality</li>
+  <li><strong>Data</strong>: 50,832 rows, 30 variables; MDLP discretization + mRMR feature selection</li>
+  <li><strong>Problem</strong>: CTQ degraded from 65% (2021) → 51.86% (Jan–Jun 2023) with no effective update strategy</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Configuration</th>
+      <th>MAPE</th>
+      <th>CTQ (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Original model</td>
+      <td>5.65</td>
+      <td>53.06</td>
+    </tr>
+    <tr>
+      <td>Proposed (no buffer, constant weight)</td>
+      <td>2.35</td>
+      <td>92.39</td>
+    </tr>
+    <tr>
+      <td><strong>Proposed (buffer + double weight)</strong></td>
+      <td><strong>2.34</strong></td>
+      <td><strong>92.47</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The proposed framework achieved ~74% improvement in CTQ performance compared to the original, with stable predictions maintained even during abnormal periods (Feb and Mar 2023).</p>
 
 <p><br /></p>
 
 <h4 id="contribution">Contribution</h4>
 <ul>
-  <li>Presenter</li>
+  <li>Presenter (SeongHyun Seo), co-authored with Prof. Dong-Joon Lim (SKKU)</li>
+</ul>
+
+<h4 id="related-work">Related Work</h4>
+<ul>
+  <li>This talk is an early presentation of the framework later published as: <em>SHIFT: Self-Healing Intelligence in Feature store and data store Transitions</em>, IEEE Access (2026)</li>
+  <li>See also: <a href="/academic/2024-poster-informs-seatlle">2024 INFORMS Poster — Steeling Against Time</a></li>
 </ul>
 
 <h4 id="notes">Notes</h4>
 <ul>
-  <li>(TBD)</li>
+  <li>Slides available for download above</li>
+  <li>The framework forms the core of the M.S. thesis and KR Patent No. 10-2941200</li>
 </ul>
-
 
 
 

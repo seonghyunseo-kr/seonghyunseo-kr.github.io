@@ -97,34 +97,135 @@
 
 
 <blockquote>
-  <p><strong>2024 INFORMS Annual Meeting</strong> (Seattle, WA)  <br />
+  <p><strong>2024 INFORMS Annual Meeting</strong> (Seattle, WA)<br />
 <strong>Session</strong>: Poster Session<br />
-<strong>Poster</strong>: (LINK TBD)</p>
+<strong>Authors</strong>: Jeong-Uk Seo, SeongHyun Seo, Dong-Joon Lim (SKKU Technometrics Lab)<br />
+<strong>Poster</strong>: <a href="/assets/refs/2024_INFORMS_Poster.pdf">Download PDF</a></p>
 </blockquote>
 
 <p><br /></p>
 
-<h3 id="poster">Poster</h3>
-<p>(Image TBD)
-<!-- ![Poster Overview](/assets/img/informs_2024_poster.jpg) --></p>
+<h4 id="overview">Overview</h4>
+<p>This poster presents a focused case study on model degradation and adaptive retraining in Korean steel manufacturing. While the companion talk introduces the full Adaptive Model Update Framework, this poster zooms in on the empirical evidence — showing <em>why</em> static models fail in continuous industrial processes and <em>how</em> non-periodic, buffer-based retraining restores and maintains performance.</p>
+
+<h4 id="key-takeaways">Key Takeaways</h4>
+<ul>
+  <li><strong>Concept Drift in steel manufacturing</strong>: data patterns shift unpredictably over time; a model trained in 2021 degraded significantly by mid-2023 with no effective update mechanism in place.</li>
+  <li><strong>Double-window CD detection</strong>: three drift patterns are classified using long-term (LW) and short-term (SW) memory models — each triggering a different retraining strategy (expand window / shift window / re-select features).</li>
+  <li><strong>Buffer Period + Differential Weighting</strong>: after drift detection, a buffer collects additional data; weighting functions (Uniform, Stepwise, Linear, Logarithmic) control sensitivity during the update — achieving stable performance gains across all configurations.</li>
+  <li><strong>~74% improvement in CTQ</strong>: the proposed framework outperformed the original model across all evaluated periods, with MAPE dropping from 5.65 → 2.34 and CTQ rising from 53.06% → 92.47%.</li>
+</ul>
 
 <p><br /></p>
 
 <h3 id="abstract">Abstract</h3>
-<p>Concept drift (CD) refers to a situation in which the statistical properties of the target variable, which the model aims to predict, unpredictably change over time. Methods for detecting and adapting to concept drift provide insights into scenarios where model performance declines due to these unpredictable changes. We propose an adaptive framework that facilitates concept drift detection and adaptation, leveraging data and feature extraction, model management, hyperparameter adjustments, and artifact versioning. Additionally, a ‘buffer period’ is introduced to continue data collection after drift detection, during which various ‘weights’ are applied to update the model. An empirical case study from the Korean steel industry highlights the necessity of autonomous retraining strategies post-model deployment and the importance of considering these strategies during model development.</p>
+<p>Concept drift (CD) refers to unpredictable changes in the statistical properties of the target variable over time, leading to model performance degradation. This poster proposes an adaptive framework that facilitates CD detection (CDD) and CD adaptation (CDA) through a double-window detection method and a non-periodic model update strategy. During a buffer period following drift detection, various differential weighting functions are applied to structure the retraining data. An empirical case study on return fines prediction in Korean steel sintering demonstrates the necessity and effectiveness of autonomous retraining strategies.</p>
+
+<p><br /></p>
+
+<h4 id="case-study--sintering-process-korean-steel-manufacturing">Case Study — Sintering Process, Korean Steel Manufacturing</h4>
+
+<p><strong>Process context</strong><br />
+Steel production follows sequential stages: Ironmaking → Steelmaking → Casting → Rolling. Within ironmaking, the sintering process converts iron ore into sinter. Return fines — a by-product of sintering — directly predict sinter quality, which cascades into final product quality.</p>
+
+<p><strong>Data</strong></p>
+<ul>
+  <li>50,832 rows restructured from raw plant data</li>
+  <li>Feature discretization: MDLP</li>
+  <li>Feature selection: mRMR</li>
+  <li>Target: return fines occurrence rate (30 input variables)</li>
+</ul>
+
+<p><strong>Problem</strong><br />
+CTQ (Critical-to-Quality) degraded from 65% (2021) → 51.86% (Jan–Jun 2023). No effective model update strategy existed to detect or respond to this drift.</p>
+
+<p><br /></p>
+
+<h4 id="results">Results</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Configuration</th>
+      <th>MAPE</th>
+      <th>CTQ (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Original model</td>
+      <td>5.65</td>
+      <td>53.06</td>
+    </tr>
+    <tr>
+      <td>Proposed (periodic, no buffer)</td>
+      <td>3.91</td>
+      <td>72.15</td>
+    </tr>
+    <tr>
+      <td>Proposed (non-periodic, no buffer, constant)</td>
+      <td>2.35</td>
+      <td>92.39</td>
+    </tr>
+    <tr>
+      <td><strong>Proposed (non-periodic, buffer + various weights)</strong></td>
+      <td><strong>2.34</strong></td>
+      <td><strong>92.47</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Period-level breakdown:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>Original (MAPE / CTQ)</th>
+      <th>Proposed (MAPE / CTQ)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overall</td>
+      <td>7.39 / 7.63</td>
+      <td>4.29 / 40.97</td>
+    </tr>
+    <tr>
+      <td>Before Buffer</td>
+      <td>6.70 / 0</td>
+      <td>4.88 / 30.76</td>
+    </tr>
+    <tr>
+      <td>Buffer</td>
+      <td>5.70 / 5.40</td>
+      <td>4.33 / 37.83</td>
+    </tr>
+    <tr>
+      <td>After Buffer</td>
+      <td>7.84 / 9.37</td>
+      <td>4.03 / 43.75</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><br /></p>
 
 <h4 id="contribution">Contribution</h4>
 <ul>
-  <li>Presenter / Co-Author</li>
+  <li>Co-author and presenter (SeongHyun Seo), with Jeong-Uk Seo and Prof. Dong-Joon Lim</li>
+</ul>
+
+<h4 id="related-work">Related Work</h4>
+<ul>
+  <li>Companion talk at same conference: <a href="/academic/2024-talk-informs-seattle">Automating ML Workflow Orchestration</a></li>
+  <li>Extended framework published as: <em>SHIFT: Self-Healing Intelligence in Feature store and data store Transitions</em>, IEEE Access (2026)</li>
 </ul>
 
 <h4 id="notes">Notes</h4>
 <ul>
-  <li>(TBD)</li>
+  <li>Poster available for download above</li>
 </ul>
-
 
 
 

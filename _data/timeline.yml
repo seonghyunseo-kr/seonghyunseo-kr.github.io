@@ -30,3 +30,33 @@
     - "Analyzed and forecasted social/economic impacts of the Korean art fair market."
     - "Used Google Trends and Naver Data Lab to build word clouds and run network analysis on key topics."
     - "Summarized findings into report-ready deliverables."
+
+- kind: experience
+  sort: "2026-04"
+  position: "AI Engineer"
+  org: "LG Energy Solution (LGES)"
+  from: "Apr 2026"
+  to: "Present"
+  details:
+    - "CTO Organization — Pack/BMS·진단솔루션·Cloud진단개발팀"
+    - "Seocho R&D Campus"
+
+- kind: education
+  sort: "2025-08"
+  position: "M.S. in Industrial Engineering"
+  org: "Sungkyunkwan University (SKKU)"
+  from: "Sep 2022"
+  to: "Aug 2025"
+  details:
+    - "Specialization: Autonomous AI/ML Operations"
+    - "Thesis: Autonomous online learning with feature store and data store updates: A case study on virtual metrology in steel manufacturing"
+    - "Advisor: Prof. D.-J. Lim"
+
+- kind: education
+  sort: "2024-02"
+  position: "B.S. in Data Science & Systems Management Engineering (Double Major)"
+  org: "Sungkyunkwan University (SKKU)"
+  from: "Mar 2019"
+  to: "Feb 2024"
+  details:
+    - "Double Major: Data Science + Systems Management Engineering"

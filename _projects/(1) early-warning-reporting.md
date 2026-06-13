@@ -2,31 +2,33 @@
 name: "Early Warning Reporting (Aircraft Manufacturing)"
 category: "Industry — Boeing AI"
 track: "Industry"
-topic: "Forecasting + causal analysis"
+topic: "Forecasting + Causal Inference + LLM Reporting"
 period: "Aug 2025 – Present"
 year: "2025"
 style: border
 color: primary
-tools: [Prophet, PCMCI, LLM]
+tools: [Prophet, PCMCI, Transfer Entropy, LLM, Multi-Agent]
 image:
 external_url:
 featured: true
+summary_en: ""
+summary_kr: ""
+name_kr: ""
 ---
 
 ## Overview
-- Context: Early warning reporting and system development for manufacturing quality risk.
-- Goal: Predict future warning-level signals and identify likely root causes.
-- Outcome: Prototyped forecasting/causal modeling components and contributed to an automated reporting workflow.
+- **Context**: Early warning reporting and automated system development for quality risk management in aircraft manufacturing, in collaboration with Boeing's global engineering team (BKETC).
+- **Goal**: Predict future quality-risk signals before they escalate into defects or delays, and identify the root causes of those signals through causal analysis.
+- **Outcome**: Prototyped a full pipeline covering forecasting, causal inference, and LLM-based report generation; integrated stakeholder feedback through iterative deployment cycles.
 
 ## My Contributions
-- Implemented a time-series forecasting pipeline (e.g., Prophet) to detect and predict quality-risk signals.
-- Built causal analysis components (e.g., PCMCI / transfer entropy) to support root-cause reasoning.
-- Supported LLM-based reporting workflows and iterative improvements with stakeholder feedback.
+- Developed an automated time series forecasting pipeline using **Prophet** to detect and predict quality risks in manufacturing processes, enabling early identification of delays and defects.
+- Built a causal inference model combining **PCMCI** and **Transfer Entropy** to quantify directional dependencies among process variables and pinpoint root causes of early warning signals.
+- Designed **LLM-based multi-agent reporting workflows** that automatically generated and distributed warning-level reports, streamlining AI-driven decision-making processes.
+- Collaborated with global teammates across time zones, actively incorporating stakeholder feedback into iterative improvements of the prototype system.
 
 ## Tech Stack
-- Prophet
-- PCMCI
-- LLM
-
-## Notes
-- Public details are limited due to project confidentiality. 
+- Prophet (time series forecasting)
+- PCMCI (causal discovery)
+- Transfer Entropy (directional dependency)
+- LLM / Multi-Agent framework (automated reporting)

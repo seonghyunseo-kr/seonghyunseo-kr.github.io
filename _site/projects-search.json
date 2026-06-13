@@ -5,43 +5,43 @@
     "url": "/projects/1-early-warning-reporting",
     "year": "2025",
     "track": "Industry",
-    "topic": "Forecasting + causal analysis",
+    "topic": "Forecasting + Causal Inference + LLM Reporting",
     "description": ""
   },
 
   {
-    "title": "BPED Process Modeling (LiOH Production)",
+    "title": "Modeling for BPED Process (LiOH Production)",
     "url": "/projects/2-modeling-for-bped-process",
     "year": "2024",
     "track": "Industry",
-    "topic": "Process optimization",
+    "topic": "Process Optimization + Anomaly Detection + Smart Factory",
     "description": ""
   },
 
   {
-    "title": "Predictive Modeling for Productivity Improvement",
+    "title": "Predictive Model for Enhancing Factory Productivity",
     "url": "/projects/3-development-of-a-predicive-model-for-enhancing-productivity",
     "year": "2024",
     "track": "Industry",
-    "topic": "Predictive modeling",
+    "topic": "Ensemble Modeling + Multi-Target Prediction",
     "description": ""
   },
 
   {
-    "title": "Concept Drift–Aware Model Update Strategy (Steel Manufacturing PoC)",
-    "url": "/projects/4-developing-model",
+    "title": "Developing Model Update Strategy in Steel Industry",
+    "url": "/projects/4-developing-model-update-strategy",
     "year": "2023",
-    "track": "Industry",
-    "topic": "Concept drift + retraining strategy",
+    "track": "Research",
+    "topic": "Concept Drift + MLOps + Adaptive Retraining",
     "description": ""
   },
 
   {
-    "title": "Capstone: Anomaly Detection with Injection Molding Data",
-    "url": "/projects/5-injection",
+    "title": "Smart Factory Capstone: Anomaly Detection with Injection Data",
+    "url": "/projects/5-injection-data-anomaly-detection",
     "year": "2023",
-    "track": "Academic",
-    "topic": "Anomaly detection",
+    "track": "Research",
+    "topic": "Anomaly Detection + Automated Labeling + Quality Control",
     "description": ""
   }
 

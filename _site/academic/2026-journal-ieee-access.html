@@ -22,11 +22,11 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="SHIFT: Self-Healing Intelligence in Feature Store and Data Store Transitions">
-  <meta property="og:description" content="First Author Research Paper">
+  <meta property="og:description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
   <meta property="og:image" content="/assets/img/profile.jpg">
 
   <title>SHIFT: Self-Healing Intelligence in Feature Store and Data Store Transitions</title>
-  <meta name="description" content="First Author Research Paper">
+  <meta name="description" content="AI/ML Researcher | Data Scientist | Applied Scientist">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -96,37 +96,228 @@
 
 
 
-<p><br /></p>
-
 <blockquote>
-  <p><strong>Journal</strong>: IEEE Access (Volume: 14)<br />
-<strong>DOI</strong>: <a href="https://ieeexplore.ieee.org/abstract/document/11366656">10.1109/ACCESS.2026.3658719</a><br />
-<strong>Date of Publication</strong>: 28 January 2026<br />
-<strong>eISSN</strong>: 2169-3536</p>
+  <p><strong>IEEE Access</strong>, Volume 14, 2026 (Open Access)<br />
+<strong>DOI</strong>: <a href="https://doi.org/10.1109/ACCESS.2026.3658719">10.1109/ACCESS.2026.3658719</a><br />
+<strong>Authors</strong>: Seong-Hyun Seo, Dong-Joon Lim (Sungkyunkwan University)<br />
+<strong>Received</strong>: Dec 30, 2025 · <strong>Accepted</strong>: Jan 24, 2026 · <strong>Published</strong>: Jan 28, 2026<br />
+<strong>Funding</strong>: Ministry of SMEs and Startups of Korea (MSS) · Hyundai Motor Chung Mong-Koo Foundation<br />
+<strong>Paper</strong>: <a href="/assets/refs/2026-journal-ieee-access.pdf">Download PDF</a></p>
 </blockquote>
 
 <p><br /></p>
 
+<h4 id="overview">Overview</h4>
+<p>SHIFT (Self-Healing Intelligence in Feature Store and Data Store Transitions) is an AI model management framework designed to sustain the prediction performance of deployed machine learning systems under concept drift. Unlike conventional retraining approaches that rely on fixed feature sets and static data selection, SHIFT autonomously updates both the <strong>feature store</strong> (what variables the model uses) and the <strong>data store</strong> (what data it trains on), enabling continuous, self-correcting model maintenance without manual intervention or model replacement.</p>
+
+<p>The framework was validated on a real-world <strong>virtual metrology (VM) system</strong> in a Korean steel sintering process, recovering predictive accuracy from a degraded state (CTQ 15%) to well above the original deployment target (CTQ 93%), while outperforming 11 existing concept drift detection and adaptation methods.</p>
+
+<h4 id="key-contributions">Key Contributions</h4>
+<ul>
+  <li><strong>Dual-update strategy</strong>: jointly orchestrates feature store reconfiguration and drift-aware data store construction — the first framework to integrate both within a single automated workflow.</li>
+  <li><strong>Pattern-based CD detection</strong>: classifies drift into three types (stationary, real drift, virtual drift) using a queue-based multi-learner system, enabling tailored retraining responses rather than uniform periodic updates.</li>
+  <li><strong>Buffer Period + Differential Weighting</strong>: collects post-drift data before retraining; applies weighting functions (constant, linear, logarithmic, double) to emphasize recent distributions and distinguish genuine shifts from transient noise.</li>
+  <li><strong>Base-model agnostic</strong>: SHIFT is an operational intelligence layer — it specifies <em>when</em> and <em>how</em> to retrain, independent of whether the underlying model is Lasso, XGBoost, or a Transformer.</li>
+  <li><strong>Statistically validated</strong>: Wilcoxon signed-rank tests confirm SHIFT significantly outperforms all baseline methods (DDM, ADWIN, PL, AL, STEPD, MDDM, FHDDM, etc.) across the full evaluation period.</li>
+</ul>
+
+<p><br /></p>
+
 <h3 id="abstract">Abstract</h3>
-<p>This study presents an AI model management framework for maintaining the prediction performance of virtual metrology (VM) systems in steel manufacturing processes. The proposed method addresses concept drift (CD), a major threat to long-term model reliability, by employing a dual-update strategy that autonomously updates both the feature store and the data store. Unlike conventional model maintenance approaches based on static inputs and accumulated data, our framework continuously reassesses feature relevance and adapts retraining datasets to reflect evolving process conditions. In a real-world steel sintering process, the method achieved significant recovery in predictive accuracy—from 65% post-deployment to over 93% after updates. This study highlights the importance of proactive maintenance for AI models and demonstrates how an intelligent update strategy can extend the usable life and reliability of VM systems in critical production workflows. The findings contribute to the broader field of AI-enabled asset management by offering a scalable solution for condition monitoring, retraining scheduling, and long-term performance assurance.</p>
+<p>This study presents an AI model management framework for maintaining the prediction performance of virtual metrology (VM) systems in steel manufacturing processes. The proposed method addresses concept drift (CD) — a major threat to long-term model reliability — by employing a dual-update strategy that autonomously updates both the feature store and the data store. Unlike conventional model maintenance approaches based on static inputs and accumulated data, the framework continuously reassesses feature relevance and adapts retraining datasets to reflect evolving process conditions. In a real-world steel sintering process, the method achieved significant recovery in predictive accuracy — from 65% post-deployment to over 93% after updates. The findings contribute to the broader field of AI-enabled asset management by offering a scalable solution for condition monitoring, retraining scheduling, and long-term performance assurance.</p>
 
-<p><strong>Key Words: Adaptation models, Data models, Artificial intelligence, Reliability, Maintenance, Predictive models, Monitoring, Concept drift, Feature extraction, Steel Manufacturing</strong></p>
+<p><strong>Index Terms</strong>: Operational intelligence, virtual metrology, autonomous model update, concept drift, data store, feature store.</p>
 
-<h3 id="overview">Overview</h3>
-<p><img src="/assets/img/SHIFT_Overview.jpg" alt="SHIFT Overview" /></p>
+<p><br /></p>
 
-<p><em>Overview of the proposed method: SHIFT (Left) and comparison of predictive performance (right).</em></p>
+<h4 id="methodology--shift-algorithm">Methodology — SHIFT Algorithm</h4>
+
+<p><strong>CD Detection</strong><br />
+SHIFT maintains two parallel learners:</p>
+<ul>
+  <li><strong>Long-window model (L)</strong>: learns stable long-term concepts</li>
+  <li><strong>Short-window model (S)</strong>: focuses on recent, temporary patterns</li>
+</ul>
+
+<p>A <strong>queue management system (Q)</strong> accumulates batch-level drift signals (0, 1, or 2) over time, and the final drift decision is made only after sufficient evidence accumulates. This prevents overreaction to transient fluctuations.</p>
+
+<p>Three drift patterns are classified:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Condition</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Stationary (0)</td>
+      <td>L meets threshold τ</td>
+      <td>Update L with accumulated data; update S with recent window</td>
+    </tr>
+    <tr>
+      <td>Real drift (1)</td>
+      <td>L below τ but better than S; Snew (with FS) outperforms L</td>
+      <td>Feature store update: re-select optimal predictors</td>
+    </tr>
+    <tr>
+      <td>Virtual drift (2)</td>
+      <td>L below τ; S outperforms L</td>
+      <td>Data store update: retrain on recent window only</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>CD Adaptation</strong><br />
+Once drift is confirmed:</p>
+<ul>
+  <li><strong>Buffer Period</strong>: collects post-drift data before retraining begins — balancing rapid adaptation vs. robustness to noise</li>
+  <li><strong>Differential Weighting</strong>: assigns greater importance to buffer-period data using linear, logarithmic, or double-weight schemes</li>
+  <li><strong>Feature Selection</strong>: MDLP discretization + mRMR relevance-redundancy optimization to identify the current best predictor set</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="case-study--steel-sintering-process">Case Study — Steel Sintering Process</h4>
+
+<p><strong>Setting</strong><br />
+A VM model (Lasso regression, 30 variables) was deployed in January 2023 to predict sinter production rate (return fines ratio) in a Korean steel plant. The model, trained on 18 months of data (Jun 2021 – Dec 2022), had no post-deployment update policy.</p>
+
+<p><strong>Data</strong>: ~1.06M raw instances → 50,832 rows after 10-minute aggregation, 127 features<br />
+<strong>Target</strong>: Sinter production rate (return fines ratio)<br />
+<strong>Metrics</strong>: MAPE (lower = better), CTQ — proportion of predictions within one SD of training data (higher = better)</p>
+
+<p><strong>Performance Degradation (without SHIFT)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>MAPE</th>
+      <th>CTQ (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>At development</td>
+      <td>4.56</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <td>Overall (Jan–Jun 2023)</td>
+      <td>9.87</td>
+      <td>15.11</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 1 (Jan 31 – Feb 4)</td>
+      <td>12.02</td>
+      <td>12.85</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 2 (Feb 21 – Feb 27)</td>
+      <td>11.44</td>
+      <td>2.07</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 3 (Apr 18 – Apr 22)</td>
+      <td>9.31</td>
+      <td>12.24</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 4 (May 7 – May 10)</td>
+      <td>10.87</td>
+      <td>7.71</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Performance with SHIFT</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>MAPE</th>
+      <th>CTQ (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Overall (Jan–Jun 2023)</strong></td>
+      <td><strong>2.14</strong></td>
+      <td><strong>93.12</strong></td>
+    </tr>
+    <tr>
+      <td>Abnormal period 1</td>
+      <td>2.41</td>
+      <td>90.42</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 2</td>
+      <td>1.83</td>
+      <td>94.08</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 3</td>
+      <td>1.94</td>
+      <td>94.92</td>
+    </tr>
+    <tr>
+      <td>Abnormal period 4</td>
+      <td>2.06</td>
+      <td>91.19</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In total, <strong>621 data store updates</strong> and <strong>395 feature store updates</strong> were performed autonomously. Nine new predictor variables not present in the original model were discovered and incorporated during retraining.</p>
+
+<p><strong>Hyperparameters (final)</strong>:</p>
+<ul>
+  <li>Short window (S): 4 hours</li>
+  <li>Batch interval: 2 hours</li>
+  <li>τ (MAPE threshold for L): 2</li>
+  <li>n (min Q length): 2, δ: 0.3, qmax: 7</li>
+  <li>Buffer: 6 hours, Weight: double</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="comparison-with-existing-methods">Comparison with Existing Methods</h4>
+
+<p>SHIFT achieved the <strong>lowest average rank</strong> (5.41) across all evaluation periods, significantly outperforming DDM (6.09), ADWIN (6.25), MDDM (6.30), FHDDM (6.46), STEPD (5.97), and AL (5.94) via Wilcoxon signed-rank test (Bonferroni-adjusted threshold ~0.0045). Only PL (5.63) was not statistically distinguishable — but PL showed notably worse absolute MAPE in failure cases.</p>
+
+<p><strong>Ablation study</strong>:</p>
+<ul>
+  <li>Full SHIFT (both updates): MAPE 2.14 / CTQ 93.12</li>
+  <li>Without feature store update: MAPE 2.30 / CTQ 92.71</li>
+  <li>Without data store update: MAPE 2.63 / CTQ 88.77</li>
+</ul>
+
+<p>Both components are necessary — neither alone suffices under severe or sudden drift.</p>
 
 <p><br /></p>
 
 <h4 id="contribution">Contribution</h4>
 <ul>
-  <li>SeongHyun Seo: First Author</li>
-  <li>DongJoon Lim: Corresponding Author &amp; Advisor</li>
+  <li>First author (Seong-Hyun Seo), co-authored with Prof. Dong-Joon Lim (SKKU)</li>
+  <li>This paper is the culmination of the M.S. thesis and the full formalization of research presented at INFORMS 2023 and 2024</li>
+</ul>
+
+<h4 id="related-work">Related Work</h4>
+<ul>
+  <li>Precursor poster: <a href="/academic/2023-poster-informs-pheonix">2023 INFORMS — Is All Well with Your Models?</a></li>
+  <li>Early framework presentation: <a href="/academic/2024-talk-informs-seattle">2024 INFORMS Talk — Automating ML Workflow Orchestration</a></li>
+  <li><a href="/academic/2024-poster-informs-seatlle">2024 INFORMS Poster — Steeling Against Time</a></li>
+  <li>See also: KR Patent No. 10-2941200 (System and Method for AI Model Retraining through Feature Store and Data Store Updates)</li>
 </ul>
 
 <h4 id="notes">Notes</h4>
-<p>This journey began during my undergraduate years through an industry-academic collaboration and was finalized during my Master’s degree. It is incredibly rewarding to see this long-term effort come to fruition.</p>
+<ul>
+  <li>Paper available for download above (Open Access, CC BY 4.0)</li>
+</ul>
 
 
 
