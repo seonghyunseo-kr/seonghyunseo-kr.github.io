@@ -1,4 +1,14 @@
 - kind: experience
+  sort: "2026-07"
+  position: "AI Engineer"
+  org: "LG Energy Solution (LGES)"
+  from: "Jul 2026"
+  to: "Present"
+  details:
+    - "CTO Organization — Pack/BMS·진단솔루션·Cloud진단개발팀"
+    - "Seocho R&D Campus"
+
+- kind: experience
   sort: "2025-08"
   position: "AI/ML Researcher Intern"
   org: "Boeing AI"
@@ -30,16 +40,6 @@
     - "Analyzed and forecasted social/economic impacts of the Korean art fair market."
     - "Used Google Trends and Naver Data Lab to build word clouds and run network analysis on key topics."
     - "Summarized findings into report-ready deliverables."
-
-- kind: experience
-  sort: "2026-04"
-  position: "AI Engineer"
-  org: "LG Energy Solution (LGES)"
-  from: "Apr 2026"
-  to: "Present"
-  details:
-    - "CTO Organization — Pack/BMS·진단솔루션·Cloud진단개발팀"
-    - "Seocho R&D Campus"
 
 - kind: education
   sort: "2025-08"

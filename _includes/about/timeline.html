@@ -1,6 +1,7 @@
 <div class="col mt-4">
   <div class="timeline-body bg-themed">
-    {% for item in site.data.timeline %}
+    {% assign experience = site.data.timeline | where_exp: "item", "item.kind != 'education'" %}
+    {% for item in experience %}
       <div class="timeline-item">
         <div class="content">
 
