@@ -88,7 +88,13 @@
 
     <div class="row justify-content-center home-card-grid">
       {% for project in latest_projects %}
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
+        {%- assign visibility = "" -%}
+        {%- if forloop.index == 2 -%}
+          {%- assign visibility = "d-none d-md-block" -%}
+        {%- elsif forloop.index == 3 -%}
+          {%- assign visibility = "d-none d-lg-block" -%}
+        {%- endif -%}
+        <div class="col-12 col-md-6 col-lg-4 mb-4 {{ visibility }}">
           {% include projects/project-card-home.html item=project %}
         </div>
       {% endfor %}

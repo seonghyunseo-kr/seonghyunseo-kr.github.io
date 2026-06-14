@@ -3,6 +3,7 @@ name: "Developing Model Update Strategy in Steel Industry"
 category: "Research — Technometrics / POSCO DX"
 track: "Research"
 topic: "Concept Drift + MLOps + Adaptive Retraining"
+description: "Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline."
 period: "Summer 2023"
 year: "2023"
 style: border

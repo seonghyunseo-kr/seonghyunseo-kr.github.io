@@ -3,6 +3,7 @@ layout: post
 type: poster
 year: 2023
 title: "Is All Well with Your Models?: Strategies to Deal with Concept Drifts"
+description: "Reviewed strategies for detecting and responding to concept drift in deployed machine learning models."
 event: "2023 INFORMS Annual Meeting"
 location: "Phoenix, AZ"
 poster_url: "/assets/refs/2023_INFORMS_Poster.pdf"

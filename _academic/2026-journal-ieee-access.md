@@ -3,6 +3,7 @@ layout: post
 type: journal
 year: 2026
 title: "SHIFT: Self-Healing Intelligence in Feature Store and Data Store Transitions"
+description: "Introduces SHIFT, a self-healing framework for managing feature store and data store transitions during automated model retraining."
 venue: "IEEE Access"
 doi: "10.1109/ACCESS.2026.3658719"
 paper_url: "/assets/refs/2026-journal-ieee-access.pdf"

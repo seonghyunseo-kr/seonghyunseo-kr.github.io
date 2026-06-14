@@ -3,6 +3,7 @@ name: "Smart Factory Capstone: Anomaly Detection with Injection Data"
 category: "Research — On-Campus / Industry-Academia"
 track: "Research"
 topic: "Anomaly Detection + Automated Labeling + Quality Control"
+description: "Built a real-time anomaly detection and automated labeling system for injection molding quality control, earning two awards at SKKU capstone contests."
 period: "Spring 2023"
 year: "2023"
 style: border

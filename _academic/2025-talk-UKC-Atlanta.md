@@ -3,6 +3,7 @@ layout: post
 type: talk
 year: 2025
 title: "Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing"
+description: "Presented an autonomous online-learning framework that updates feature stores and data stores for virtual metrology in steel manufacturing."
 event: "UKC 2025"
 location: "Atlanta, GA"
 slides_url: "https://YOUR-SLIDES-LINK"

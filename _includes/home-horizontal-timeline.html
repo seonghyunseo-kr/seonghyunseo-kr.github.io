@@ -1,5 +1,5 @@
 {% assign edu = site.data.education %}
-{% assign exp = site.data.timeline %}
+{% assign exp = site.data.timeline | where_exp: "item", "item.kind != 'education'" %}
 {% assign events = edu | concat: exp | sort: "sort" %}
 
 <div class="home-ht bg-themed">

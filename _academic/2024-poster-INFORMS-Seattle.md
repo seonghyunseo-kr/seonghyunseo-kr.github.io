@@ -3,6 +3,7 @@ layout: post
 type: poster
 year: 2024
 title: "Steeling Against Time: A Case Study of the Korean Steel Industry"
+description: "A case study examining how the Korean steel industry adapts its processes and models to shifting conditions over time."
 event: "2024 INFORMS Annual Meeting"
 location: "Seattle, WA"
 poster_url: "/assets/refs/2024_INFORMS_Poster.pdf"

@@ -3,6 +3,7 @@ name: "Early Warning Reporting (Aircraft Manufacturing)"
 category: "Industry — Boeing AI"
 track: "Industry"
 topic: "Forecasting + Causal Inference + LLM Reporting"
+description: "Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow."
 period: "Aug 2025 – Present"
 year: "2025"
 style: border

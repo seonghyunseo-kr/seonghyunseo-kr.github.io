@@ -3,6 +3,7 @@ layout: post
 type: talk
 year: 2024
 title: "Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates"
+description: "Outlined strategies for automating ML workflow orchestration to support autonomous post-deployment model updates."
 event: "2024 INFORMS Annual Meeting"
 location: "Seattle, WA"
 slides_url: "/assets/refs/2024_INFORMS_Presentation.pdf"

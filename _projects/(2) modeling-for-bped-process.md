@@ -3,6 +3,7 @@ name: "Modeling for BPED Process (LiOH Production)"
 category: "Industry — POSCO Holdings"
 track: "Industry"
 topic: "Process Optimization + Anomaly Detection + Smart Factory"
+description: "Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout."
 period: "Winter 2024 – Summer 2025"
 year: "2024"
 style: border

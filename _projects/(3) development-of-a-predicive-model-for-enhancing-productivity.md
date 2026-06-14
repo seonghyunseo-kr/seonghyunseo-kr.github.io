@@ -3,6 +3,7 @@ name: "Predictive Model for Enhancing Factory Productivity"
 category: "Industry — POSCO / POSCO DX"
 track: "Industry"
 topic: "Ensemble Modeling + Multi-Target Prediction"
+description: "Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline."
 period: "Summer 2024"
 year: "2024"
 style: border

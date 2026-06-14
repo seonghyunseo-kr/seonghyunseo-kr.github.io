@@ -6,7 +6,7 @@
     "year": "2025",
     "track": "Industry",
     "topic": "Forecasting + Causal Inference + LLM Reporting",
-    "description": ""
+    "description": "Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow."
   },
 
   {
@@ -15,7 +15,7 @@
     "year": "2024",
     "track": "Industry",
     "topic": "Process Optimization + Anomaly Detection + Smart Factory",
-    "description": ""
+    "description": "Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout."
   },
 
   {
@@ -24,7 +24,7 @@
     "year": "2024",
     "track": "Industry",
     "topic": "Ensemble Modeling + Multi-Target Prediction",
-    "description": ""
+    "description": "Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline."
   },
 
   {
@@ -33,7 +33,7 @@
     "year": "2023",
     "track": "Research",
     "topic": "Concept Drift + MLOps + Adaptive Retraining",
-    "description": ""
+    "description": "Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline."
   },
 
   {
@@ -42,7 +42,7 @@
     "year": "2023",
     "track": "Research",
     "topic": "Anomaly Detection + Automated Labeling + Quality Control",
-    "description": ""
+    "description": "Built a real-time anomaly detection and automated labeling system for injection molding quality control, earning two awards at SKKU capstone contests."
   }
 
 ]
