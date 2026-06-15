@@ -6,7 +6,7 @@ permalink: /projects-search.json
 [
 {% for project in site.projects %}
   {
-    "title": {{ project.name | jsonify }},
+    "title": {{ project.title | jsonify }},
     "url": {{ project.url | relative_url | jsonify }},
     "year": {{ project.year | jsonify }},
     "track": {{ project.track | jsonify }},

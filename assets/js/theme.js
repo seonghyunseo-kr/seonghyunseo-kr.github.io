@@ -54,6 +54,14 @@ const langs = {
 };
 
 document.addEventListener("DOMContentLoaded", initLang);
+document.addEventListener("DOMContentLoaded", initTimelineScroll);
+
+function initTimelineScroll() {
+  const track = document.querySelector(".home-ht-track");
+  if (track) {
+    track.scrollLeft = track.scrollWidth;
+  }
+}
 
 function initLang() {
   const savedLang = localStorage.getItem(LANG_STORAGE_KEY);

@@ -21,8 +21,19 @@ layout: page
       {% endfor %}
     {%- endif -%}
   {%- endunless -%}
-  
+
 </p>
+
+{%- if page.collection == "projects" -%}
+<blockquote>
+  <p>
+    {%- if page.category -%}<strong>{{ page.category }}</strong><br>{%- endif -%}
+    {%- if page.period -%}<strong>Period</strong>: {{ page.period }}<br>{%- endif -%}
+    {%- if page.tools and page.tools.size > 0 -%}<strong>Tools</strong>: {{ page.tools | join: ", " }}{%- endif -%}
+  </p>
+</blockquote>
+<br>
+{%- endif -%}
 
 {% if page.summary and page.summary.en %}
 <p class="md-heading">## Summary</p>

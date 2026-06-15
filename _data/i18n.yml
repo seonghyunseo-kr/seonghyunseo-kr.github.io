@@ -100,3 +100,14 @@ academic_badge:
   academic:
     en: "ACADEMIC"
     kr: "학술"
+
+project_track:
+  industry:
+    en: "INDUSTRY"
+    kr: "산업"
+  research:
+    en: "RESEARCH"
+    kr: "연구"
+  github:
+    en: "GITHUB"
+    kr: "GITHUB"

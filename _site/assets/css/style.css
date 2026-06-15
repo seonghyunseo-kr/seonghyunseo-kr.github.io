@@ -475,14 +475,17 @@ body { font-family: "Poppins", sans-serif; }
 .home-ht { padding: 2.5rem; border-radius: 0.5rem; }
 
 /* Track: items keep a readable width and scroll horizontally whenever they don't all fit, on any screen size */
-.home-ht-track { position: relative; display: flex; gap: 0.75rem; padding: 10rem 0; /* room for top/bottom boxes, even when wrapped to multiple lines */ overflow-x: auto; overflow-y: visible; /* do NOT clip top/bottom boxes */ -webkit-overflow-scrolling: touch; }
+.home-ht-track { position: relative; overflow-x: auto; overflow-y: visible; /* do NOT clip top/bottom boxes */ -webkit-overflow-scrolling: touch; }
 
 .home-ht-track::-webkit-scrollbar { height: 8px; }
 
 .home-ht-track::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); border-radius: 999px; }
 
-/* Continuous horizontal line */
-.home-ht-track:before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: rgba(0, 0, 0, 0.15); transform: translateY(-50%); z-index: 0; }
+/* Inner wrapper: shrink-wraps to the full content width (so the line below spans every event, not just the initially visible viewport), but never narrower than the track itself */
+.home-ht-line-wrap { position: relative; display: inline-flex; gap: 0.75rem; min-width: 100%; padding: 10rem 0; /* room for top/bottom boxes, even when wrapped to multiple lines */ }
+
+/* Continuous horizontal line, spanning the full scrollable width */
+.home-ht-line-wrap:before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: rgba(0, 0, 0, 0.15); transform: translateY(-50%); z-index: 0; }
 
 .home-ht-event { position: relative; flex: 0 0 auto; width: clamp(160px, 22vw, 230px); /* scales with viewport, never collapses */ overflow: visible; /* do NOT clip text */ z-index: 1; }
 

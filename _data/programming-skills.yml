@@ -4,20 +4,21 @@
 
 - name: SQL
   percentage: 70
-  color:
-
-- name: Pytorch
-  percentage: 70
   color: secondary
 
-- name: TensorFlow
-  percentage: 70
-  color: secondary
+- name: scikit-learn
+  percentage: 80
+  color: warning
+
+# - name: Pytorch
+#   percentage: 70
+#   color: secondary
+
+# - name: TensorFlow
+#   percentage: 70
+#   color: secondary
 
 - name: R
   percentage: 60
   color:
 
-- name: scikit-learn
-  percentage: 80
-  color: warning

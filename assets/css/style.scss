@@ -36,9 +36,6 @@
    whenever they don't all fit, on any screen size */
 .home-ht-track {
   position: relative;
-  display: flex;
-  gap: 0.75rem;
-  padding: 10rem 0;           /* room for top/bottom boxes, even when wrapped to multiple lines */
   overflow-x: auto;
   overflow-y: visible;        /* do NOT clip top/bottom boxes */
   -webkit-overflow-scrolling: touch;
@@ -53,8 +50,19 @@
   border-radius: 999px;
 }
 
-/* Continuous horizontal line */
-.home-ht-track:before {
+/* Inner wrapper: shrink-wraps to the full content width (so the line below
+   spans every event, not just the initially visible viewport), but never
+   narrower than the track itself */
+.home-ht-line-wrap {
+  position: relative;
+  display: inline-flex;
+  gap: 0.75rem;
+  min-width: 100%;
+  padding: 10rem 0;           /* room for top/bottom boxes, even when wrapped to multiple lines */
+}
+
+/* Continuous horizontal line, spanning the full scrollable width */
+.home-ht-line-wrap:before {
   content: "";
   position: absolute;
   left: 0;

@@ -4,25 +4,27 @@
 
 <div class="home-ht bg-themed">
   <div class="home-ht-track">
-    {% for e in events %}
-      <div class="home-ht-event {% if e.kind == 'education' %}is-top{% else %}is-bottom{% endif %}">
-        <div class="home-ht-dot"></div>
+    <div class="home-ht-line-wrap">
+      {% for e in events %}
+        <div class="home-ht-event {% if e.kind == 'education' %}is-top{% else %}is-bottom{% endif %}">
+          <div class="home-ht-dot"></div>
 
-        {% if e.kind == "education" %}
-          <div class="home-ht-box top">
-            <div class="small text-muted">{{ e.to }}</div>
-            <div class="font-weight-bold ht-title edu-title">{{ e.degree }}</div>
-            <div class="small text-muted ht-subtitle">{{ e.school }}</div>
-          </div>
-        {% else %}
-          <div class="home-ht-box bottom">
-            <div class="small text-muted">{{ e.from }} — {{ e.to }}</div>
-            <div class="font-weight-bold ht-title">{{ e.position }}</div>
-            <div class="small text-muted ht-subtitle">{{ e.org }}</div>
-          </div>
-        {% endif %}
+          {% if e.kind == "education" %}
+            <div class="home-ht-box top">
+              <div class="small text-muted">{{ e.to }}</div>
+              <div class="font-weight-bold ht-title edu-title">{{ e.degree }}</div>
+              <div class="small text-muted ht-subtitle">{{ e.school }}</div>
+            </div>
+          {% else %}
+            <div class="home-ht-box bottom">
+              <div class="small text-muted">{{ e.from }} — {{ e.to }}</div>
+              <div class="font-weight-bold ht-title">{{ e.position }}</div>
+              <div class="small text-muted ht-subtitle">{{ e.org }}</div>
+            </div>
+          {% endif %}
 
-      </div>
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>

@@ -15,13 +15,24 @@
   {%- assign card_style = doc.color | prepend: 'border border-' -%}
 {%- endif -%}
 
-{%- comment -%} Track badge mapping (Industry/Academic) {%- endcomment -%}
+{%- comment -%} Track badge mapping (Industry/Research/GitHub) {%- endcomment -%}
 {%- assign track = doc.track | default: 'Project' -%}
-{%- assign track_badge = "badge-outline-blue" -%}
-{%- if track == "Academic" -%}
+{%- assign t = track | downcase -%}
+{%- if t == "research" -%}
   {%- assign track_badge = "badge-outline-green" -%}
-{%- elsif track == "Industry" -%}
+{%- elsif t == "github" -%}
+  {%- assign track_badge = "badge-outline-yellow" -%}
+{%- else -%}
   {%- assign track_badge = "badge-outline-blue" -%}
+{%- endif -%}
+
+{%- assign badge_i18n = site.data.i18n.project_track[t] -%}
+{%- if badge_i18n -%}
+  {%- assign badge_en = badge_i18n.en -%}
+  {%- assign badge_kr = badge_i18n.kr -%}
+{%- else -%}
+  {%- assign badge_en = track | upcase -%}
+  {%- assign badge_kr = track | upcase -%}
 {%- endif -%}
 
 <div class="wow animated fadeIn" data-wow-delay=".15s">
@@ -30,7 +41,7 @@
     <div class="card-body">
 
       <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="badge badge-pill {{ track_badge }}">{{ track | upcase }}</span>
+        <span class="badge badge-pill {{ track_badge }}" data-en="{{ badge_en | escape }}" data-kr="{{ badge_kr | escape }}">{{ badge_en }}</span>
       </div>
 
       <h4 class="card-title mb-4"
@@ -38,8 +49,8 @@
         <a href="{{ read_url }}"
            style="text-decoration: none; color: inherit;"
            {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}
-           data-en="{{ doc.name | escape }}" data-kr="{{ doc.name_kr | escape }}">
-          {{ doc.name }}
+           data-en="{{ doc.title | escape }}" data-kr="{{ doc.title_kr | escape }}">
+          {{ doc.title }}
         </a>
       </h4>
 

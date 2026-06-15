@@ -12,64 +12,70 @@
   {%- assign card_style = project_color | prepend: 'border border-' -%}
 {%- endif -%}
 
-{%- comment -%} Track badge style (Industry/Academic only) {%- endcomment -%}
-{%- assign track_badge = "badge-outline-blue" -%}
-{%- if project_track == "Academic" -%}
-  {%- assign track_badge = "badge-outline-green" -%}
-{%- elsif project_track == "Industry" -%}
-  {%- assign track_badge = "badge-outline-blue" -%}
+{%- assign t = project_track | downcase -%}
+{%- if t == "research" -%}
+  {%- assign type_badge = "badge-outline-green" -%}
+{%- elsif t == "github" -%}
+  {%- assign type_badge = "badge-outline-yellow" -%}
+{%- else -%}
+  {%- assign type_badge = "badge-outline-blue" -%}
 {%- endif -%}
 
-<div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="{{ project_url }}"
-     class="project card {{ card_style }} {{ text_style }} h-100 p-3"
-     style="text-decoration: none;"
-     {%- if external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+{%- assign badge_i18n = site.data.i18n.project_track[t] -%}
+{%- if badge_i18n -%}
+  {%- assign badge_en = badge_i18n.en -%}
+  {%- assign badge_kr = badge_i18n.kr -%}
+{%- else -%}
+  {%- assign badge_en = project_track | upcase -%}
+  {%- assign badge_kr = project_track | upcase -%}
+{%- endif -%}
 
-    {%- if project_img -%}
-      <img id="{{ project_id }}-img"
-           class="card-img-top mb-3"
-           src="{{ project_img }}"
-           alt="{{ project_name }}" />
-    {%- endif -%}
+{%- assign read_label = "Read" -%}
+{%- if project_type == "remote" -%}{%- assign read_label = "Code" -%}{%- endif -%}
 
+<div class="wow animated fadeIn" data-wow-delay=".12s">
+  <div class="post card {{ card_style }} {{ text_style }} p-3 h-100">
     <div class="card-body p-0 d-flex flex-column">
 
-      {% if project_track %}
-        <div class="mb-2">
-          <span class="badge badge-pill {{ track_badge }}">{{ project_track }}</span>
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="flex-grow-1">
+          {% if project_track %}
+            <div class="mb-2">
+              <span class="badge badge-pill {{ type_badge }}" data-en="{{ badge_en | escape }}" data-kr="{{ badge_kr | escape }}">{{ badge_en }}</span>
+            </div>
+          {% endif %}
+
+          <h5 class="mb-1">
+            <a href="{{ project_url }}" class="{{ text_style }}" style="text-decoration: none;"
+              {%- if external and site.open_new_tab %} target="_blank" rel="noopener"{% endif %}
+              data-en="{{ project_name | escape }}" data-kr="{{ project_name_kr | escape }}">
+              {%- if project_type == "remote" -%}
+                <i class="fab fa-github"></i>&nbsp;|&nbsp;{{ project_name }}
+              {%- else -%}
+                {{ project_name }}
+              {%- endif -%}
+            </a>
+          </h5>
         </div>
-      {% endif %}
 
-    <h5 id="{{ project_id }}-name" class="mb-1">
-      <span class="project-title">
-        {%- if project_type == "remote" -%}
-          <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i>
-          <span>&nbsp;|&nbsp;</span>
-          {{ project_name }}
-        {%- else -%}
-          <span data-en="{{ project_name | escape }}" data-kr="{{ project_name_kr | escape }}">{{ project_name }}</span>
-        {%- endif -%}
-      </span>
-    </h5>
+        {% if project_year and project_year != "" %}
+          <div class="text-muted text-nowrap">{{ project_year }}</div>
+        {% endif %}
+      </div>
 
-      {%- comment -%} Topic: gray italic text (instead of green chip) {%- endcomment -%}
-      {% if project_topic %}
-        <div class="text-muted small font-italic">{{ project_topic }}</div>
+      {% if project_category %}
+        <div class="text-muted small"><i>{{ project_category }}</i></div>
       {% endif %}
 
       {% if project_desc_en %}
-        <div class="text-muted small mt-2" data-en="{{ project_desc_en | escape }}" data-kr="{{ project_summary_kr | escape }}">{{ project_desc_en }}</div>
+        <p class="card-text mb-2 mt-2" data-en="{{ project_desc_en | escape }}" data-kr="{{ project_summary_kr | escape }}">{{ project_desc_en }}</p>
       {% endif %}
 
-      <div class="mt-auto"></div>
-    </div>
-
-    {% if project_period %}
-      <div class="card-footer p-0 pt-3 {{ text_style }}">
-        <div class="text-muted small">{{ project_period }}</div>
+      <div class="mt-auto pt-3">
+        <a class="btn btn-sm btn-outline-primary mr-2 mb-2" href="{{ project_url }}"
+          {%- if external and site.open_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ read_label }}</a>
       </div>
-    {% endif %}
 
-  </a>
+    </div>
+  </div>
 </div>
