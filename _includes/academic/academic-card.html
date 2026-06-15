@@ -17,7 +17,7 @@
 
 {%- comment -%} Type badge mapping (your convention) {%- endcomment -%}
 {%- assign t = doc.type | downcase -%}
-{%- if t == "publication" -%}
+{%- if t == "publication" or t == "journal" -%}
   {%- assign type_badge = "badge-outline-blue" -%}
 {%- elsif t == "talk" -%}
   {%- assign type_badge = "badge-outline-green" -%}

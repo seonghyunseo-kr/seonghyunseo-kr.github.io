@@ -91,6 +91,9 @@ academic_badge:
   publication:
     en: "PUBLICATION"
     kr: "논문"
+  journal:
+    en: "PUBLICATION"
+    kr: "논문"
   talk:
     en: "TALK"
     kr: "발표"

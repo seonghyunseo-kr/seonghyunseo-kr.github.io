@@ -1,4 +1,6 @@
-{% assign pubs = site.academic | where: "type", "publication" | sort: "year" | reverse %}
+{% assign pubs_publication = site.academic | where: "type", "publication" %}
+{% assign pubs_journal = site.academic | where: "type", "journal" %}
+{% assign pubs = pubs_publication | concat: pubs_journal | sort: "year" | reverse %}
 {% assign talks = site.academic | where: "type", "talk" | sort: "year" | reverse %}
 {% assign posters = site.academic | where: "type", "poster" | sort: "year" | reverse %}
 
