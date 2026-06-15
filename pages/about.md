@@ -21,35 +21,35 @@ Currently, I am seeking opportunities to contribute to the R&D journey within th
 Check out my latest [CV (PDF)](/assets/pdf/cv.pdf) ! 
 
 
-## Education
+<h2 data-en="{{ site.data.i18n.about.education.en | escape }}" data-kr="{{ site.data.i18n.about.education.kr | escape }}">{{ site.data.i18n.about.education.en }}</h2>
 
 <div class="row">
   {% include education.html %}
 </div>
 
-## Experience
+<h2 data-en="{{ site.data.i18n.about.experience.en | escape }}" data-kr="{{ site.data.i18n.about.experience.kr | escape }}">{{ site.data.i18n.about.experience.en }}</h2>
 
 <div class="row">
   {% include about/timeline.html %}
 </div>
 
-## Publications & Patents
+<h2 data-en="{{ site.data.i18n.about.publications_patents.en | escape }}" data-kr="{{ site.data.i18n.about.publications_patents.kr | escape }}">{{ site.data.i18n.about.publications_patents.en }}</h2>
 
 <div class="row">
   {% include about/publications-patent.html %}
 </div>
 
 <div class="d-flex justify-content-end">
-  <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/">For More Academic Info →</a>
+  <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/" data-en="{{ site.data.i18n.about.for_more_academic.en | escape }}" data-kr="{{ site.data.i18n.about.for_more_academic.kr | escape }}">{{ site.data.i18n.about.for_more_academic.en }}</a>
 </div>
 
-## Honors and Awards
+<h2 data-en="{{ site.data.i18n.about.honors_awards.en | escape }}" data-kr="{{ site.data.i18n.about.honors_awards.kr | escape }}">{{ site.data.i18n.about.honors_awards.en }}</h2>
 
 <div class="row">
   {% include about/honors-awards.html %}
 </div>
 
 <div class="row">
-  {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
+  {% include about/skills.html title="Programming Skills" title_kr=site.data.i18n.about.programming_skills.kr source=site.data.programming-skills %}
   {% include about/languages-certifications.html %}
 </div>

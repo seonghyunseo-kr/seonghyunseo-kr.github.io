@@ -1,0 +1,102 @@
+# KR / EN text dictionary for the language toggle.
+# Values are read at build time via Liquid (site.data.i18n.*) and written
+# into data-en / data-kr attributes; assets/js/theme.js swaps them at runtime.
+
+nav:
+  About:
+    en: "About"
+    kr: "소개"
+  Projects:
+    en: "Projects"
+    kr: "프로젝트"
+  Academic:
+    en: "Academic"
+    kr: "학술"
+  Blog:
+    en: "Blog"
+    kr: "블로그"
+  CV:
+    en: "CV"
+    kr: "CV"
+
+landing:
+  intro: >-
+    I'm an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data.
+    My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing.
+    I'm particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production.
+  intro_kr: >-
+    저는 과학적·통계적 사고에 기반해 실제 데이터에서 인사이트를 도출하는 데 집중하는 AI/ML 연구자를 꿈꾸고 있습니다.
+    제 목표는 산업 현장, 특히 제조업에서 지속 가능하고 자율적인 AI를 지원하는 신뢰성 있는 데이터 기반 시스템을 구축하는 것입니다.
+    철강, 화학 소재, 항공우주 생산 전반에 걸친 품질 및 공정 관리·자동화에 특히 관심이 많습니다.
+
+  research_interests_label:
+    en: "Research interests:"
+    kr: "연구 관심분야:"
+  research_interest_1:
+    en: "Time-series forecasting (incl. multimodal time series)"
+    kr: "시계열 예측 (멀티모달 시계열 포함)"
+  research_interest_2:
+    en: "Statistical process control and planning"
+    kr: "통계적 공정 관리 및 계획"
+  research_interest_3:
+    en: "Operations Research & Optimization"
+    kr: "운영 연구 및 최적화"
+  research_interest_4:
+    en: "Post-deployment model maintenance (monitoring, retraining, MLOps)"
+    kr: "배포 후 모델 유지보수 (모니터링, 재학습, MLOps)"
+
+  timeline_title:
+    en: "Timeline"
+    kr: "타임라인"
+  more:
+    en: "More →"
+    kr: "더보기 →"
+  projects_title:
+    en: "Projects"
+    kr: "프로젝트"
+  view_all_projects:
+    en: "View all →"
+    kr: "전체 보기 →"
+  publications_title:
+    en: "Publications & Presentations"
+    kr: "논문 및 발표"
+  view_all_academic:
+    en: "View all →"
+    kr: "전체 보기 →"
+
+about:
+  education:
+    en: "Education"
+    kr: "학력"
+  experience:
+    en: "Experience"
+    kr: "경력"
+  publications_patents:
+    en: "Publications & Patents"
+    kr: "논문 및 특허"
+  for_more_academic:
+    en: "For More Academic Info →"
+    kr: "학술 정보 더보기 →"
+  honors_awards:
+    en: "Honors and Awards"
+    kr: "수상 및 경력"
+  programming_skills:
+    en: "Programming Skills"
+    kr: "프로그래밍 스킬"
+  other_skills:
+    en: "Other Skills"
+    kr: "기타 스킬"
+
+academic_badge:
+  publication:
+    en: "PUBLICATION"
+    kr: "논문"
+  talk:
+    en: "TALK"
+    kr: "발표"
+  poster:
+    en: "POSTER"
+    kr: "포스터"
+  academic:
+    en: "ACADEMIC"
+    kr: "학술"

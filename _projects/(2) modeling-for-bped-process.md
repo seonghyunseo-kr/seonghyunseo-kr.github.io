@@ -12,9 +12,9 @@ tools: [ML, Time Series, Anomaly Detection, Platform Dev]
 image:
 external_url:
 featured: true
-summary_en: ""
-summary_kr: ""
-name_kr: ""
+summary_en: "Led an AI modeling initiative for POSCO's BPED (Battery Precursor Electrolysis & Drying) process in lithium hydroxide production, combining machine learning with time series techniques to support smart factory operations. Developed a real-time anomaly detection system and a custom end-to-end platform covering data ingestion, model training, visualization, and recommendations, serving as both Data Scientist and project lead."
+summary_kr: "POSCO의 수산화리튬(LiOH) 생산 BPED 공정을 대상으로 머신러닝과 시계열 기법을 결합한 AI 모델링을 주도했습니다. 실시간 이상 탐지 시스템과 데이터 수집·모델 학습·시각화·추천까지 아우르는 맞춤형 엔드투엔드 플랫폼을 구축했으며, 데이터 사이언티스트 겸 프로젝트 리더로서 현장 엔지니어와의 협업을 이끌었습니다."
+name_kr: "BPED 공정 모델링 (수산화리튬 생산)"
 ---
 
 ## Overview

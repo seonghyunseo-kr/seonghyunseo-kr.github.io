@@ -46,8 +46,10 @@
         {%- if project_type == "remote" -%}
           <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i>
           <span>&nbsp;|&nbsp;</span>
+          {{ project_name }}
+        {%- else -%}
+          <span data-en="{{ project_name | escape }}" data-kr="{{ project_name_kr | escape }}">{{ project_name }}</span>
         {%- endif -%}
-        {{ project_name }}
       </span>
     </h5>
 
@@ -56,8 +58,8 @@
         <div class="text-muted small font-italic">{{ project_topic }}</div>
       {% endif %}
 
-      {% if project_desc %}
-        <div class="text-muted small mt-2">{{ project_desc }}</div>
+      {% if project_desc_en %}
+        <div class="text-muted small mt-2" data-en="{{ project_desc_en | escape }}" data-kr="{{ project_summary_kr | escape }}">{{ project_desc_en }}</div>
       {% endif %}
 
       <div class="mt-auto"></div>

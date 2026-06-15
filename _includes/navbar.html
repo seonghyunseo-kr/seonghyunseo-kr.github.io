@@ -37,7 +37,7 @@
 
       {%- endfor -%}
 
-      {% for html_page in filtered_pages %}  
+      {% for html_page in filtered_pages %}
 
         {%- if page.url contains html_page.url -%}
           {%- assign active_status = "active" -%}
@@ -51,11 +51,26 @@
           {%- assign url = html_page.url | relative_url -%}
         {%- endif -%}
 
-        <a class="nav-item nav-link {{ active_status }}" href="{{ url }}" {%- if html_page.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>{{ html_page.title }}</a>
+        {%- assign nav_i18n = site.data.i18n.nav[html_page.title] -%}
+        {%- if nav_i18n -%}
+          {%- assign nav_en = nav_i18n.en -%}
+          {%- assign nav_kr = nav_i18n.kr -%}
+        {%- else -%}
+          {%- assign nav_en = html_page.title -%}
+          {%- assign nav_kr = html_page.title -%}
+        {%- endif -%}
+
+        <a class="nav-item nav-link {{ active_status }}" href="{{ url }}" {%- if html_page.external_url and site.open_new_tab -%} target="_blank" {%- endif -%} data-en="{{ nav_en }}" data-kr="{{ nav_kr }}">{{ nav_en }}</a>
 
       {% endfor %}
 
       <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+
+      <span class="nav-item nav-link lang-toggle">
+        <a href="#" class="lang-option" data-lang-option="kr" onclick="setLang('kr'); return false;">KR</a>
+        <span class="lang-sep">/</span>
+        <a href="#" class="lang-option" data-lang-option="en" onclick="setLang('en'); return false;">EN</a>
+      </span>
     </div>
   </div>
 

@@ -37,13 +37,14 @@
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="{{ read_url }}"
            style="text-decoration: none; color: inherit;"
-           {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+           {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}
+           data-en="{{ doc.name | escape }}" data-kr="{{ doc.name_kr | escape }}">
           {{ doc.name }}
         </a>
       </h4>
 
       {%- if doc.description -%}
-        <p class="card-text mb-2 home-card-summary">{{ doc.description }}</p>
+        <p class="card-text mb-2 home-card-summary" data-en="{{ doc.description | escape }}" data-kr="{{ doc.summary_kr | escape }}">{{ doc.description }}</p>
       {%- endif -%}
 
     </div>

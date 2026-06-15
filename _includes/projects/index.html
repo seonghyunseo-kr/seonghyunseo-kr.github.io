@@ -24,6 +24,9 @@
           {%- assign project_category = "GitHub" -%}
           {%- assign project_topic = "" -%}
           {%- assign project_period = "" -%}
+          {%- assign project_name_kr = "" -%}
+          {%- assign project_desc_en = "" -%}
+          {%- assign project_summary_kr = "" -%}
 
           {%- assign project_style = "border" -%}
           {%- assign project_color = "primary" -%}
@@ -59,7 +62,10 @@
   {%- assign project_id    = project.name | slugify -%}
   {%- assign project_img   = project.image -%}
   {%- assign project_name  = project.name -%}
+  {%- assign project_name_kr = project.name_kr -%}
   {%- assign project_topic = project.topic -%}
+  {%- assign project_desc_en = project.description -%}
+  {%- assign project_summary_kr = project.summary_kr -%}
   {%- assign project_style = project.style -%}
   {%- assign project_color = project.color -%}
 

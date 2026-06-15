@@ -11,6 +11,8 @@ style: border
 color: primary
 comments: false
 toc: true
+title_kr: "ML 워크플로우 오케스트레이션 자동화: 배포 후 모델 자율 업데이트 전략"
+summary_kr: "배포 후 모델을 언제, 어떻게 재학습할지 결정하는 적응형 모델 업데이트 프레임워크를 제안한 발표로, 더블 윈도우 기반 컨셉 드리프트 감지와 피처·데이터 스토어 업데이트를 결합해 한국 철강 소결 공정에서 CTQ를 53%에서 92.5%로 향상시켰습니다."
 ---
 
 > **2024 INFORMS Annual Meeting** (Seattle, WA)  

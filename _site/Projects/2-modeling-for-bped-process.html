@@ -70,21 +70,27 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"data-en="" data-kr=""></a>
 
-      <a class="nav-item nav-link " href="/about/">About</a>
+      <a class="nav-item nav-link " href="/about/"data-en="About" data-kr="소개">About</a>
 
-      <a class="nav-item nav-link " href="/academic/">Academic</a>
+      <a class="nav-item nav-link " href="/academic/"data-en="Academic" data-kr="학술">Academic</a>
 
-      <a class="nav-item nav-link active" href="/projects/">Projects</a>
+      <a class="nav-item nav-link active" href="/projects/"data-en="Projects" data-kr="프로젝트">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link " href="/blog/"data-en="Blog" data-kr="블로그">Blog</a>
 
-      <a class="nav-item nav-link " href="/cv/">CV</a>
+      <a class="nav-item nav-link " href="/cv/"data-en="CV" data-kr="CV">CV</a>
 
       
 
       <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+
+      <span class="nav-item nav-link lang-toggle">
+        <a href="#" class="lang-option" data-lang-option="kr" onclick="setLang('kr'); return false;">KR</a>
+        <span class="lang-sep">/</span>
+        <a href="#" class="lang-option" data-lang-option="en" onclick="setLang('en'); return false;">EN</a>
+      </span>
     </div>
   </div>
 

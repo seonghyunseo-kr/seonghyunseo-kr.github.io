@@ -44,3 +44,37 @@ function getTheme() {
 function setTheme(value) {
   document.documentElement.setAttribute(THEME_ATTR, value);
 }
+
+const LANG_STORAGE_KEY = "lang";
+const LANG_ATTR        = "data-lang";
+
+const langs = {
+  EN: "en",
+  KR: "kr",
+};
+
+document.addEventListener("DOMContentLoaded", initLang);
+
+function initLang() {
+  const savedLang = localStorage.getItem(LANG_STORAGE_KEY);
+  setLang(savedLang === langs.KR ? langs.KR : langs.EN);
+}
+
+function setLang(lang) {
+  document.documentElement.setAttribute(LANG_ATTR, lang);
+  localStorage.setItem(LANG_STORAGE_KEY, lang);
+
+  document.querySelectorAll("[data-en]").forEach((el) => {
+    const en = el.getAttribute("data-en");
+    const kr = el.getAttribute("data-kr");
+    el.textContent = lang === langs.KR && kr && kr.trim() !== "" ? kr : en;
+  });
+
+  document.querySelectorAll(".lang-option").forEach((el) => {
+    el.classList.toggle("active", el.getAttribute("data-lang-option") === lang);
+  });
+}
+
+function getLang() {
+  return document.documentElement.getAttribute(LANG_ATTR);
+}

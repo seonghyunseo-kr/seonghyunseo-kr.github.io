@@ -29,20 +29,30 @@
 
 {%- assign type_label = doc.type | default: 'academic' | upcase -%}
 
+{%- assign badge_i18n = site.data.i18n.academic_badge[t] -%}
+{%- if badge_i18n -%}
+  {%- assign badge_en = badge_i18n.en -%}
+  {%- assign badge_kr = badge_i18n.kr -%}
+{%- else -%}
+  {%- assign badge_en = type_label -%}
+  {%- assign badge_kr = type_label -%}
+{%- endif -%}
+
 <div class="wow animated fadeIn" data-wow-delay=".15s">
   <div class="project card {{ card_style }} {{ text_style }}">
 
     <div class="card-body">
 
       <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="badge badge-pill {{ type_badge }}">{{ type_label }}</span>
+        <span class="badge badge-pill {{ type_badge }}" data-en="{{ badge_en | escape }}" data-kr="{{ badge_kr | escape }}">{{ badge_en }}</span>
       </div>
 
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="{{ read_url }}"
           style="text-decoration: none; color: inherit;"
-          {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}>
+          {%- if read_external and site.open_new_tab -%} target="_blank" rel="noopener" {%- endif -%}
+          data-en="{{ doc.title | escape }}" data-kr="{{ doc.title_kr | escape }}">
           {{ doc.title }}
         </a>
       </h4>

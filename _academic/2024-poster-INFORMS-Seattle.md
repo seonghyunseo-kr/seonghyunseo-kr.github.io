@@ -12,6 +12,8 @@ style: border
 color: info
 comments: false
 toc: true
+title_kr: "시간에 맞서기: 한국 철강산업 사례 연구"
+summary_kr: "한국 철강 소결 공정의 리턴파인 예측을 사례로, 더블 윈도우 기반 컨셉 드리프트 감지와 버퍼 기간·차등 가중치를 적용한 비주기적 재학습 프레임워크를 제안하여 CTQ를 53%에서 92.5%로 개선한 결과를 2024 INFORMS 연례총회에서 포스터로 발표했습니다."
 ---
 
 > **2024 INFORMS Annual Meeting** (Seattle, WA)  

@@ -70,21 +70,27 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"data-en="" data-kr=""></a>
 
-      <a class="nav-item nav-link " href="/about/">About</a>
+      <a class="nav-item nav-link " href="/about/"data-en="About" data-kr="소개">About</a>
 
-      <a class="nav-item nav-link " href="/academic/">Academic</a>
+      <a class="nav-item nav-link " href="/academic/"data-en="Academic" data-kr="학술">Academic</a>
 
-      <a class="nav-item nav-link " href="/projects/">Projects</a>
+      <a class="nav-item nav-link " href="/projects/"data-en="Projects" data-kr="프로젝트">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link " href="/blog/"data-en="Blog" data-kr="블로그">Blog</a>
 
-      <a class="nav-item nav-link " href="/cv/">CV</a>
+      <a class="nav-item nav-link " href="/cv/"data-en="CV" data-kr="CV">CV</a>
 
       
 
       <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+
+      <span class="nav-item nav-link lang-toggle">
+        <a href="#" class="lang-option" data-lang-option="kr" onclick="setLang('kr'); return false;">KR</a>
+        <span class="lang-sep">/</span>
+        <a href="#" class="lang-option" data-lang-option="en" onclick="setLang('en'); return false;">EN</a>
+      </span>
     </div>
   </div>
 
@@ -135,19 +141,19 @@
         AI/ML Researcher | Data Scientist | Applied Scientist
       </p>
 
-      <p class="mb-3 wow animated fadeIn" data-wow-delay=".2s">
-        I’m an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data.
-        My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing.
-        I’m particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production.
+      <p class="mb-3 wow animated fadeIn" data-wow-delay=".2s"
+         data-en="I&#39;m an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data. My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing. I&#39;m particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production."
+         data-kr="저는 과학적·통계적 사고에 기반해 실제 데이터에서 인사이트를 도출하는 데 집중하는 AI/ML 연구자를 꿈꾸고 있습니다. 제 목표는 산업 현장, 특히 제조업에서 지속 가능하고 자율적인 AI를 지원하는 신뢰성 있는 데이터 기반 시스템을 구축하는 것입니다. 철강, 화학 소재, 항공우주 생산 전반에 걸친 품질 및 공정 관리·자동화에 특히 관심이 많습니다.">
+        I'm an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data. My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing. I'm particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production.
       </p>
 
       <div class="wow animated fadeIn mb-4" data-wow-delay=".25s">
-        <span>Research interests:</span>
+        <span data-en="Research interests:" data-kr="연구 관심분야:">Research interests:</span>
         <ul class="mb-2">
-          <li>Time-series forecasting (incl. multimodal time series)</li>
-          <li>Statistical process control and planning</li>
-          <li>Operations Research & Optimization</li>
-          <li>Post-deployment model maintenance (monitoring, retraining, MLOps)</li>
+          <li data-en="Time-series forecasting (incl. multimodal time series)" data-kr="시계열 예측 (멀티모달 시계열 포함)">Time-series forecasting (incl. multimodal time series)</li>
+          <li data-en="Statistical process control and planning" data-kr="통계적 공정 관리 및 계획">Statistical process control and planning</li>
+          <li data-en="Operations Research &amp; Optimization" data-kr="운영 연구 및 최적화">Operations Research & Optimization</li>
+          <li data-en="Post-deployment model maintenance (monitoring, retraining, MLOps)" data-kr="배포 후 모델 유지보수 (모니터링, 재학습, MLOps)">Post-deployment model maintenance (monitoring, retraining, MLOps)</li>
         </ul>
       </div>
     </div>
@@ -156,8 +162,8 @@
   <!-- Highlights Timeline -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".18s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Timeline</h3>
-      <a class="btn btn-link p-0" href="/about/">More →</a>
+      <h3 class="mb-0" data-en="Timeline" data-kr="타임라인">Timeline</h3>
+      <a class="btn btn-link p-0" href="/about/" data-en="More →" data-kr="더보기 →">More →</a>
     </div>
     
 
@@ -256,8 +262,8 @@
   <!-- Projects -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".2s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Projects</h3>
-      <a class="btn btn-link p-0" href="/projects/">View all →</a>
+      <h3 class="mb-0" data-en="Projects" data-kr="프로젝트">Projects</h3>
+      <a class="btn btn-link p-0" href="/projects/" data-en="View all →" data-kr="전체 보기 →">View all →</a>
     </div>
 
     
@@ -277,10 +283,10 @@
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/projects/1-early-warning-reporting"
-           style="text-decoration: none; color: inherit;">
+           style="text-decoration: none; color: inherit;"data-en="Early Warning Reporting (Aircraft Manufacturing)" data-kr="조기 경보 리포팅 (항공기 제조)">
           Early Warning Reporting (Aircraft Manufacturing)
         </a>
-      </h4><p class="card-text mb-2 home-card-summary">Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow.</p></div><div class="card-footer text-themed">Aug 2025 – Present</div></div>
+      </h4><p class="card-text mb-2 home-card-summary" data-en="Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow." data-kr="항공기 제조 공정의 품질 위험을 사전에 감지하기 위해 Prophet 기반 시계열 예측과 PCMCI·Transfer Entropy 기반 인과추론을 결합한 엔드투엔드 파이프라인을 구축했습니다. LLM 멀티에이전트 워크플로우를 설계해 조기 경보 신호의 근본 원인을 자동으로 분석하고 리포트를 생성·배포했으며, Boeing 글로벌 엔지니어링 팀과의 협업을 통해 프로토타입을 반복적으로 개선했습니다.">Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow.</p></div><div class="card-footer text-themed">Aug 2025 – Present</div></div>
 </div>
         </div>
       <div class="col-12 col-md-6 col-lg-4 mb-4 d-none d-md-block">
@@ -296,10 +302,10 @@
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/projects/3-development-of-a-predicive-model-for-enhancing-productivity"
-           style="text-decoration: none; color: inherit;">
+           style="text-decoration: none; color: inherit;"data-en="Predictive Model for Enhancing Factory Productivity" data-kr="공장 생산성 향상을 위한 예측 모델">
           Predictive Model for Enhancing Factory Productivity
         </a>
-      </h4><p class="card-text mb-2 home-card-summary">Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline.</p></div><div class="card-footer text-themed">Summer 2024</div></div>
+      </h4><p class="card-text mb-2 home-card-summary" data-en="Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline." data-kr="POSCO 및 POSCO DX와 함께 진행한 프로젝트로, XGBoost·Extra Trees·Huber 회귀를 결합한 앙상블 모델을 구축해 5개의 생산 목표 변수를 동시에 예측했습니다. 그 결과 핵심 정확도 KPI를 기준치 80.8에서 84.7로 향상시켰으며, 명확한 커뮤니케이션과 협업 능력을 인정받았습니다.">Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline.</p></div><div class="card-footer text-themed">Summer 2024</div></div>
 </div>
         </div>
       <div class="col-12 col-md-6 col-lg-4 mb-4 d-none d-lg-block">
@@ -315,10 +321,10 @@
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/projects/2-modeling-for-bped-process"
-           style="text-decoration: none; color: inherit;">
+           style="text-decoration: none; color: inherit;"data-en="Modeling for BPED Process (LiOH Production)" data-kr="BPED 공정 모델링 (수산화리튬 생산)">
           Modeling for BPED Process (LiOH Production)
         </a>
-      </h4><p class="card-text mb-2 home-card-summary">Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout.</p></div><div class="card-footer text-themed">Winter 2024 – Summer 2025</div></div>
+      </h4><p class="card-text mb-2 home-card-summary" data-en="Developed real-time anomaly detection and an end-to-end modeling platform for POSCO&#39;s BPED lithium hydroxide production line as part of a smart factory rollout." data-kr="POSCO의 수산화리튬(LiOH) 생산 BPED 공정을 대상으로 머신러닝과 시계열 기법을 결합한 AI 모델링을 주도했습니다. 실시간 이상 탐지 시스템과 데이터 수집·모델 학습·시각화·추천까지 아우르는 맞춤형 엔드투엔드 플랫폼을 구축했으며, 데이터 사이언티스트 겸 프로젝트 리더로서 현장 엔지니어와의 협업을 이끌었습니다.">Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout.</p></div><div class="card-footer text-themed">Winter 2024 – Summer 2025</div></div>
 </div>
         </div>
       
@@ -332,8 +338,8 @@
   <!-- Academic -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".23s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Publications & Presentations</h3>
-      <a class="btn btn-link p-0" href="/academic/">View all →</a>
+      <h3 class="mb-0" data-en="Publications &amp; Presentations" data-kr="논문 및 발표">Publications & Presentations</h3>
+      <a class="btn btn-link p-0" href="/academic/" data-en="View all →" data-kr="전체 보기 →">View all →</a>
     </div>
 
     
@@ -353,13 +359,13 @@
     <div class="card-body">
 
       <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="badge badge-pill badge-outline-green">TALK</span>
+        <span class="badge badge-pill badge-outline-green" data-en="TALK" data-kr="발표">TALK</span>
       </div>
 
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/academic/2025-talk-ukc-atlanta"
-          style="text-decoration: none; color: inherit;">
+          style="text-decoration: none; color: inherit;"data-en="Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing" data-kr="피처 스토어 및 데이터 스토어 업데이트를 통한 자율 온라인 학습: 철강 제조 가상 계측 사례 연구">
           Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing
         </a>
       </h4><p class="card-text mb-2">
@@ -381,13 +387,13 @@
     <div class="card-body">
 
       <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="badge badge-pill badge-outline-yellow">POSTER</span>
+        <span class="badge badge-pill badge-outline-yellow" data-en="POSTER" data-kr="포스터">POSTER</span>
       </div>
 
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/academic/2024-poster-informs-seattle"
-          style="text-decoration: none; color: inherit;">
+          style="text-decoration: none; color: inherit;"data-en="Steeling Against Time: A Case Study of the Korean Steel Industry" data-kr="시간에 맞서기: 한국 철강산업 사례 연구">
           Steeling Against Time: A Case Study of the Korean Steel Industry
         </a>
       </h4><p class="card-text mb-2">
@@ -409,13 +415,13 @@
     <div class="card-body">
 
       <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="badge badge-pill badge-outline-green">TALK</span>
+        <span class="badge badge-pill badge-outline-green" data-en="TALK" data-kr="발표">TALK</span>
       </div>
 
       <h4 class="card-title mb-4"
           style="white-space: normal; overflow: visible; text-overflow: unset; display: block; -webkit-line-clamp: unset;">
         <a href="/academic/2024-talk-informs-seattle"
-          style="text-decoration: none; color: inherit;">
+          style="text-decoration: none; color: inherit;"data-en="Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates" data-kr="ML 워크플로우 오케스트레이션 자동화: 배포 후 모델 자율 업데이트 전략">
           Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates
         </a>
       </h4><p class="card-text mb-2">

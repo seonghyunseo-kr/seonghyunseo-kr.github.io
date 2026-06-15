@@ -70,21 +70,27 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"></a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/"data-en="" data-kr=""></a>
 
-      <a class="nav-item nav-link " href="/about/">About</a>
+      <a class="nav-item nav-link " href="/about/"data-en="About" data-kr="소개">About</a>
 
-      <a class="nav-item nav-link active" href="/academic/">Academic</a>
+      <a class="nav-item nav-link active" href="/academic/"data-en="Academic" data-kr="학술">Academic</a>
 
-      <a class="nav-item nav-link " href="/projects/">Projects</a>
+      <a class="nav-item nav-link " href="/projects/"data-en="Projects" data-kr="프로젝트">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link " href="/blog/"data-en="Blog" data-kr="블로그">Blog</a>
 
-      <a class="nav-item nav-link " href="/cv/">CV</a>
+      <a class="nav-item nav-link " href="/cv/"data-en="CV" data-kr="CV">CV</a>
 
       
 
       <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+
+      <span class="nav-item nav-link lang-toggle">
+        <a href="#" class="lang-option" data-lang-option="kr" onclick="setLang('kr'); return false;">KR</a>
+        <span class="lang-sep">/</span>
+        <a href="#" class="lang-option" data-lang-option="en" onclick="setLang('en'); return false;">EN</a>
+      </span>
     </div>
   </div>
 
@@ -119,12 +125,13 @@
         <div class="flex-grow-1">
           
             <div class="mb-2">
-              <span class="badge badge-pill badge-outline-green">Talk</span>
+              <span class="badge badge-pill badge-outline-green" data-en="TALK" data-kr="발표">TALK</span>
             </div>
           
 
           <h5 class="mb-1">
-            <a href="/academic/2025-talk-ukc-atlanta" class="text-themed" style="text-decoration: none;">
+            <a href="/academic/2025-talk-ukc-atlanta" class="text-themed" style="text-decoration: none;"
+              data-en="Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing" data-kr="피처 스토어 및 데이터 스토어 업데이트를 통한 자율 온라인 학습: 철강 제조 가상 계측 사례 연구">
               Autonomous Online Learning with Feature Store and Data Store Updates: A Case Study on Virtual Metrology in Steel Manufacturing
             </a>
           </h5>
@@ -166,12 +173,13 @@
         <div class="flex-grow-1">
           
             <div class="mb-2">
-              <span class="badge badge-pill badge-outline-green">Talk</span>
+              <span class="badge badge-pill badge-outline-green" data-en="TALK" data-kr="발표">TALK</span>
             </div>
           
 
           <h5 class="mb-1">
-            <a href="/academic/2024-talk-informs-seattle" class="text-themed" style="text-decoration: none;">
+            <a href="/academic/2024-talk-informs-seattle" class="text-themed" style="text-decoration: none;"
+              data-en="Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates" data-kr="ML 워크플로우 오케스트레이션 자동화: 배포 후 모델 자율 업데이트 전략">
               Automating ML Workflow Orchestration: Strategies for Autonomous Post-Deployment Model Updates
             </a>
           </h5>
@@ -220,12 +228,13 @@
         <div class="flex-grow-1">
           
             <div class="mb-2">
-              <span class="badge badge-pill badge-outline-yellow">Poster</span>
+              <span class="badge badge-pill badge-outline-yellow" data-en="POSTER" data-kr="포스터">POSTER</span>
             </div>
           
 
           <h5 class="mb-1">
-            <a href="/academic/2024-poster-informs-seattle" class="text-themed" style="text-decoration: none;">
+            <a href="/academic/2024-poster-informs-seattle" class="text-themed" style="text-decoration: none;"
+              data-en="Steeling Against Time: A Case Study of the Korean Steel Industry" data-kr="시간에 맞서기: 한국 철강산업 사례 연구">
               Steeling Against Time: A Case Study of the Korean Steel Industry
             </a>
           </h5>
@@ -267,12 +276,13 @@
         <div class="flex-grow-1">
           
             <div class="mb-2">
-              <span class="badge badge-pill badge-outline-yellow">Poster</span>
+              <span class="badge badge-pill badge-outline-yellow" data-en="POSTER" data-kr="포스터">POSTER</span>
             </div>
           
 
           <h5 class="mb-1">
-            <a href="/academic/2023-poster-informs-phoenix" class="text-themed" style="text-decoration: none;">
+            <a href="/academic/2023-poster-informs-phoenix" class="text-themed" style="text-decoration: none;"
+              data-en="Is All Well with Your Models?: Strategies to Deal with Concept Drifts" data-kr="당신의 모델은 안전한가요?: 컨셉 드리프트 대응 전략">
               Is All Well with Your Models?: Strategies to Deal with Concept Drifts
             </a>
           </h5>

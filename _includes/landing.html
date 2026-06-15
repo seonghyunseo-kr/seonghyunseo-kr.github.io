@@ -44,19 +44,19 @@
         {{ site.description }}
       </p>
 
-      <p class="mb-3 wow animated fadeIn" data-wow-delay=".2s">
-        I’m an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data.
-        My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing.
-        I’m particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production.
+      <p class="mb-3 wow animated fadeIn" data-wow-delay=".2s"
+         data-en="{{ site.data.i18n.landing.intro | escape }}"
+         data-kr="{{ site.data.i18n.landing.intro_kr | escape }}">
+        {{ site.data.i18n.landing.intro }}
       </p>
 
       <div class="wow animated fadeIn mb-4" data-wow-delay=".25s">
-        <span>Research interests:</span>
+        <span data-en="{{ site.data.i18n.landing.research_interests_label.en | escape }}" data-kr="{{ site.data.i18n.landing.research_interests_label.kr | escape }}">{{ site.data.i18n.landing.research_interests_label.en }}</span>
         <ul class="mb-2">
-          <li>Time-series forecasting (incl. multimodal time series)</li>
-          <li>Statistical process control and planning</li>
-          <li>Operations Research & Optimization</li>
-          <li>Post-deployment model maintenance (monitoring, retraining, MLOps)</li>
+          <li data-en="{{ site.data.i18n.landing.research_interest_1.en | escape }}" data-kr="{{ site.data.i18n.landing.research_interest_1.kr | escape }}">{{ site.data.i18n.landing.research_interest_1.en }}</li>
+          <li data-en="{{ site.data.i18n.landing.research_interest_2.en | escape }}" data-kr="{{ site.data.i18n.landing.research_interest_2.kr | escape }}">{{ site.data.i18n.landing.research_interest_2.en }}</li>
+          <li data-en="{{ site.data.i18n.landing.research_interest_3.en | escape }}" data-kr="{{ site.data.i18n.landing.research_interest_3.kr | escape }}">{{ site.data.i18n.landing.research_interest_3.en }}</li>
+          <li data-en="{{ site.data.i18n.landing.research_interest_4.en | escape }}" data-kr="{{ site.data.i18n.landing.research_interest_4.kr | escape }}">{{ site.data.i18n.landing.research_interest_4.en }}</li>
         </ul>
       </div>
     </div>
@@ -65,8 +65,8 @@
   <!-- Highlights Timeline -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".18s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Timeline</h3>
-      <a class="btn btn-link p-0" href="{{ site.baseurl }}/about/">More →</a>
+      <h3 class="mb-0" data-en="{{ site.data.i18n.landing.timeline_title.en | escape }}" data-kr="{{ site.data.i18n.landing.timeline_title.kr | escape }}">{{ site.data.i18n.landing.timeline_title.en }}</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/about/" data-en="{{ site.data.i18n.landing.more.en | escape }}" data-kr="{{ site.data.i18n.landing.more.kr | escape }}">{{ site.data.i18n.landing.more.en }}</a>
     </div>
     {% include home-horizontal-timeline.html %}
   </div>
@@ -79,8 +79,8 @@
   <!-- Projects -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".2s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Projects</h3>
-      <a class="btn btn-link p-0" href="{{ site.baseurl }}/projects/">View all →</a>
+      <h3 class="mb-0" data-en="{{ site.data.i18n.landing.projects_title.en | escape }}" data-kr="{{ site.data.i18n.landing.projects_title.kr | escape }}">{{ site.data.i18n.landing.projects_title.en }}</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/projects/" data-en="{{ site.data.i18n.landing.view_all_projects.en | escape }}" data-kr="{{ site.data.i18n.landing.view_all_projects.kr | escape }}">{{ site.data.i18n.landing.view_all_projects.en }}</a>
     </div>
 
     {% assign projects_sorted = site.projects | sort: "year" | reverse %}
@@ -108,8 +108,8 @@
   <!-- Academic -->
   <div class="mt-5 wow animated slideInUp" data-wow-delay=".23s">
     <div class="d-flex justify-content-between align-items-end flex-wrap mb-3">
-      <h3 class="mb-0">Publications & Presentations</h3>
-      <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/">View all →</a>
+      <h3 class="mb-0" data-en="{{ site.data.i18n.landing.publications_title.en | escape }}" data-kr="{{ site.data.i18n.landing.publications_title.kr | escape }}">{{ site.data.i18n.landing.publications_title.en }}</h3>
+      <a class="btn btn-link p-0" href="{{ site.baseurl }}/academic/" data-en="{{ site.data.i18n.landing.view_all_academic.en | escape }}" data-kr="{{ site.data.i18n.landing.view_all_academic.kr | escape }}">{{ site.data.i18n.landing.view_all_academic.en }}</a>
     </div>
 
     {% assign pubs = site.academic | where: "type", "publication" %}

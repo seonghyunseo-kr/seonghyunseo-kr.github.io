@@ -12,6 +12,8 @@ style: border
 color: warning
 comments: false
 toc: true
+title_kr: "당신의 모델은 안전한가요?: 컨셉 드리프트 대응 전략"
+summary_kr: "스판덱스 섬유 생산 공정을 사례로, 컨셉 드리프트를 감지하고 모델을 적응적으로 업데이트하는 전략(피처 선택, 기간 구분, 차등 가중치)을 제안하여 2023 INFORMS 연례총회에서 포스터로 발표했습니다."
 ---
 
 > **2023 INFORMS Annual Meeting** (Phoenix, AZ)  

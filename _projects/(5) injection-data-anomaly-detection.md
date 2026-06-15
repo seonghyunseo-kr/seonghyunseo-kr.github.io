@@ -12,9 +12,9 @@ tools: [Anomaly Detection, Automated Labeling, Injection Molding Data]
 image:
 external_url:
 featured: false
-summary_en: ""
-summary_kr: ""
-name_kr: ""
+summary_en: "Developed a real-time anomaly detection system and an automated labeling framework for injection molding quality control as part of an industry-academia collaboration. Led the effort coordinating researchers and manufacturing engineers, improving production accuracy and process efficiency, and the project earned two awards at SKKU capstone design contests (2023)."
+summary_kr: "산학협력 캡스톤 프로젝트로 사출 성형 품질관리를 위한 실시간 이상 탐지 및 자동 라벨링 시스템을 개발했습니다. 연구자와 제조 엔지니어 간 협업을 주도하여 생산 정확도와 공정 효율을 높였으며, 그 결과 2023년 SKKU 종합설계대회와 DNA-Hero 캡스톤 디자인 대회에서 각각 3위를 수상했습니다."
+name_kr: "스마트팩토리 캡스톤: 사출 데이터 이상 탐지"
 ---
 
 ## Overview

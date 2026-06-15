@@ -641,3 +641,14 @@ a.project.card:hover .project-title { color: #007bff; }
 a.project.card:hover .project-title::after { width: 100%; }
 
 .post.card .card-footer { background-color: rgba(0, 0, 0, 0.03); }
+
+/* KR / EN language toggle */
+.lang-toggle { display: flex; align-items: center; gap: 0.25rem; }
+
+.lang-option { text-decoration: none !important; color: inherit; opacity: 0.5; transition: opacity 0.15s ease-in-out; }
+
+.lang-option:hover { opacity: 1; }
+
+.lang-option.active { opacity: 1; font-weight: 700; }
+
+.lang-sep { opacity: 0.4; }

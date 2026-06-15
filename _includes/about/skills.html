@@ -1,6 +1,6 @@
 <div class="col-lg">
 
-  <h2 class="mb-3">{{ include.title }}</h2>
+  <h2 class="mb-3" data-en="{{ include.title | escape }}" data-kr="{{ include.title_kr | default: include.title | escape }}">{{ include.title }}</h2>
 
   {% for skill in include.source %}
 

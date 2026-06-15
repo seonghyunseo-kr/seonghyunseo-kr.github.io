@@ -12,9 +12,9 @@ tools: [XGBoost, Extra Trees, Huber, Ensemble]
 image:
 external_url:
 featured: true
-summary_en: ""
-summary_kr: ""
-name_kr: ""
+summary_en: "Built versatile ensemble models combining XGBoost, Extra Trees, and Huber regression to simultaneously predict five distinct production targets for POSCO and POSCO DX. The models lifted the key accuracy KPI from a baseline of 80.8 to 84.7 across all targets, and the work was recognized for clear stakeholder communication and effective teamwork during reviews."
+summary_kr: "POSCO 및 POSCO DX와 함께 진행한 프로젝트로, XGBoost·Extra Trees·Huber 회귀를 결합한 앙상블 모델을 구축해 5개의 생산 목표 변수를 동시에 예측했습니다. 그 결과 핵심 정확도 KPI를 기준치 80.8에서 84.7로 향상시켰으며, 명확한 커뮤니케이션과 협업 능력을 인정받았습니다."
+name_kr: "공장 생산성 향상을 위한 예측 모델"
 ---
 
 ## Overview

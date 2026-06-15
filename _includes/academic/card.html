@@ -27,6 +27,15 @@
   {%- assign type_badge = "badge-outline-red" -%}
 {%- endif -%}
 
+{%- assign badge_i18n = site.data.i18n.academic_badge[t] -%}
+{%- if badge_i18n -%}
+  {%- assign badge_en = badge_i18n.en -%}
+  {%- assign badge_kr = badge_i18n.kr -%}
+{%- else -%}
+  {%- assign badge_en = doc.type | capitalize -%}
+  {%- assign badge_kr = doc.type | capitalize -%}
+{%- endif -%}
+
 <div class="wow animated fadeIn" data-wow-delay=".12s">
   <div class="post card {{ card_style }} {{ text_style }} p-3 h-100">
     <div class="card-body p-0 d-flex flex-column">
@@ -35,12 +44,13 @@
         <div class="flex-grow-1">
           {% if doc.type %}
             <div class="mb-2">
-              <span class="badge badge-pill {{ type_badge }}">{{ doc.type | capitalize }}</span>
+              <span class="badge badge-pill {{ type_badge }}" data-en="{{ badge_en | escape }}" data-kr="{{ badge_kr | escape }}">{{ badge_en }}</span>
             </div>
           {% endif %}
 
           <h5 class="mb-1">
-            <a href="{{ doc.url | relative_url }}" class="{{ text_style }}" style="text-decoration: none;">
+            <a href="{{ doc.url | relative_url }}" class="{{ text_style }}" style="text-decoration: none;"
+              data-en="{{ doc.title | escape }}" data-kr="{{ doc.title_kr | escape }}">
               {{ doc.title }}
             </a>
           </h5>

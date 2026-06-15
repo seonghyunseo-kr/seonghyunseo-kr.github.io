@@ -11,6 +11,8 @@ style: border
 color: danger
 comments: false
 toc: true
+title_kr: "SHIFT: 피처 스토어와 데이터 스토어 전환을 위한 자가 치유형 지능 시스템"
+summary_kr: "컨셉 드리프트 상황에서 피처 스토어와 데이터 스토어를 동시에 자율적으로 업데이트하는 자가 치유형 AI 모델 관리 프레임워크 SHIFT를 제안했습니다. 한국 철강 소결 공정의 가상 계측 사례에서 CTQ를 15%에서 93%로 회복시키며 기존 11개 컨셉 드리프트 대응 기법을 모두 능가함을 통계적으로 검증했습니다."
 ---
 
 > **IEEE Access**, Volume 14, 2026 (Open Access)  

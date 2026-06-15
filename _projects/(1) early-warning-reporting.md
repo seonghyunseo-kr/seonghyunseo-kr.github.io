@@ -12,9 +12,9 @@ tools: [Prophet, PCMCI, Transfer Entropy, LLM, Multi-Agent]
 image:
 external_url:
 featured: true
-summary_en: ""
-summary_kr: ""
-name_kr: ""
+summary_en: "Built an end-to-end pipeline for aircraft manufacturing quality risk management, combining Prophet-based time series forecasting with PCMCI and Transfer Entropy causal inference to detect early warning signals and pinpoint their root causes. Designed an LLM-based multi-agent workflow that automatically generates and distributes root-cause reports, iterating the prototype with feedback from Boeing's global engineering team."
+summary_kr: "항공기 제조 공정의 품질 위험을 사전에 감지하기 위해 Prophet 기반 시계열 예측과 PCMCI·Transfer Entropy 기반 인과추론을 결합한 엔드투엔드 파이프라인을 구축했습니다. LLM 멀티에이전트 워크플로우를 설계해 조기 경보 신호의 근본 원인을 자동으로 분석하고 리포트를 생성·배포했으며, Boeing 글로벌 엔지니어링 팀과의 협업을 통해 프로토타입을 반복적으로 개선했습니다."
+name_kr: "조기 경보 리포팅 (항공기 제조)"
 ---
 
 ## Overview

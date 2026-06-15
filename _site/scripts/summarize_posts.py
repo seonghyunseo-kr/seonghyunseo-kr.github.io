@@ -1,133 +1,230 @@
-import os
-import re
-import glob
-import yaml
-import requests
+"""Generate KR/EN summary fields for _projects/ and _academic/ front matter.
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "").strip()
-MODEL = "gpt-4o-mini"
+For each file in _projects/*.md, fills in (if missing/empty):
+  - summary_en : 2-3 sentence English summary (from Overview + My Contributions)
+  - summary_kr : 2-3 sentence Korean summary
+  - name_kr    : Korean translation of the project title
 
-def split_front_matter(text: str):
-    if text.startswith("---"):
-        parts = text.split("---", 2)
-        if len(parts) >= 3:
-            fm_text = parts[1]
-            body = parts[2].lstrip("\n")
-            fm = yaml.safe_load(fm_text) or {}
-            return fm, body
-    return {}, text
+For each file in _academic/*.md, fills in (if missing/empty):
+  - title_kr   : Korean translation of the title
+  - summary_kr : 1-2 sentence Korean summary (from description + Overview)
 
-def strip_code_blocks(md: str) -> str:
-    # Remove fenced code blocks ```...```
-    return re.sub(r"```.*?```", "", md, flags=re.DOTALL)
-
-def compress_whitespace(s: str) -> str:
-    s = re.sub(r"\n{3,}", "\n\n", s)
-    return s.strip()
-
-def has_en_summary(fm: dict) -> bool:
-    try:
-        en = fm.get("summary", {}).get("en", {})
-        return bool(en.get("tldr")) and isinstance(en.get("bullets"), list) and len(en.get("bullets")) == 3
-    except Exception:
-        return False
-
-def build_prompt(md_body: str) -> str:
-    # Basic length guard for long posts
-    max_chars = 12000
-    md_body = md_body[:max_chars]
-
-    return f"""You are summarizing a technical blog post written in English.
-
-Requirements:
-- Output MUST be valid YAML for the following schema only:
-  tldr: <string>
-  bullets: <list of exactly 3 strings>
-- TL;DR: exactly one line.
-- bullets: exactly 3 bullets.
-- Prefer keeping the TOTAL length (tldr + bullets) within 500 characters, but prioritize preserving key meaning if a bit longer.
-- Do NOT include code blocks or LaTeX; summarize concepts only.
-- Do NOT add extra keys or commentary.
-
-Blog post (Markdown):
-{md_body}
+Usage:
+    ANTHROPIC_API_KEY=sk-... python scripts/summarize_posts.py
 """
 
-def call_openai(prompt: str) -> dict:
-    if not OPENAI_API_KEY:
-        raise RuntimeError("OPENAI_API_KEY is not set")
+import glob
+import json
+import os
+import re
 
-    url = "https://api.openai.com/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {OPENAI_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.2,
-    }
+import frontmatter
+from anthropic import Anthropic
 
-    r = requests.post(url, headers=headers, json=payload, timeout=60)
-    r.raise_for_status()
+MODEL = "claude-sonnet-4-6"
 
-    content = r.json()["choices"][0]["message"]["content"].strip()
-    data = yaml.safe_load(content)
+_client = None
 
+
+def get_client() -> Anthropic:
+    global _client
+    if _client is None:
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise RuntimeError("ANTHROPIC_API_KEY environment variable is not set")
+        _client = Anthropic(api_key=api_key)
+    return _client
+
+
+def extract_section(body: str, heading: str) -> str:
+    """Return the text under a markdown heading line containing `heading`,
+    up to (but not including) the next heading of any level."""
+    pattern = rf"^#{{1,6}}\s*{re.escape(heading)}\s*\n(.*?)(?=^#{{1,6}}\s|\Z)"
+    match = re.search(pattern, body, re.DOTALL | re.MULTILINE)
+    return match.group(1).strip() if match else ""
+
+
+def call_claude(prompt: str) -> dict:
+    response = get_client().messages.create(
+        model=MODEL,
+        max_tokens=600,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = response.content[0].text.strip()
+
+    # Strip markdown code fences if the model wrapped the JSON anyway
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip())
+
+    data = json.loads(text)
     if not isinstance(data, dict):
-        raise ValueError("Model output is not a YAML mapping")
-    if "tldr" not in data or "bullets" not in data:
-        raise ValueError("Missing keys in summary YAML")
-    if not isinstance(data["bullets"], list) or len(data["bullets"]) != 3:
-        raise ValueError("bullets must be a list of exactly 3 strings")
-
+        raise ValueError("Model output is not a JSON object")
     return data
 
-def ensure_summary(fm: dict, summary_yaml: dict) -> dict:
-    fm.setdefault("summary", {})
-    fm["summary"].setdefault("en", {})
-    fm["summary"]["en"]["tldr"] = str(summary_yaml["tldr"]).strip()
-    fm["summary"]["en"]["bullets"] = [str(x).strip() for x in summary_yaml["bullets"]]
-    return fm
 
-def dump_front_matter(fm: dict) -> str:
-    return "---\n" + yaml.safe_dump(fm, sort_keys=False, allow_unicode=True).strip() + "\n---\n\n"
+def clean(value) -> str:
+    return " ".join(str(value).split())
+
+
+def yaml_quote(value: str) -> str:
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
+def update_front_matter(text: str, updates: dict) -> str:
+    """Set or insert `key: "value"` fields inside the YAML front matter block,
+    leaving the rest of the file (and other front matter fields) untouched."""
+    lines = text.split("\n")
+    if lines[0].strip() != "---":
+        raise ValueError("File does not start with front matter")
+
+    end_idx = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            end_idx = i
+            break
+    if end_idx is None:
+        raise ValueError("Could not find end of front matter")
+
+    fm_lines = lines[1:end_idx]
+    remaining = lines[end_idx:]
+
+    updated_keys = set()
+    for i, line in enumerate(fm_lines):
+        m = re.match(r"^([A-Za-z0-9_]+):", line)
+        if m and m.group(1) in updates:
+            key = m.group(1)
+            fm_lines[i] = f"{key}: {yaml_quote(updates[key])}"
+            updated_keys.add(key)
+
+    for key, value in updates.items():
+        if key not in updated_keys:
+            fm_lines.append(f"{key}: {yaml_quote(value)}")
+
+    return "\n".join(["---"] + fm_lines + remaining)
+
+
+PROJECT_PROMPT = """You are localizing a personal portfolio website for an AI/ML researcher.
+
+Project title: {name}
+
+## Overview
+{overview}
+
+## My Contributions
+{contributions}
+
+Based on the information above, generate:
+1. "summary_en": A 2-3 sentence English summary of the project suitable for a project card (third person or neutral tone).
+2. "summary_kr": A natural, professional Korean summary of the same project (2-3 sentences). Write naturally in Korean rather than translating summary_en word-for-word.
+3. "name_kr": A natural Korean translation of the project title "{name}".
+
+Respond with ONLY a single JSON object, no markdown code fences, no extra commentary:
+{{"summary_en": "...", "summary_kr": "...", "name_kr": "..."}}
+"""
+
+ACADEMIC_PROMPT = """You are localizing a personal academic portfolio page for an AI/ML researcher.
+
+Title: {title}
+Description: {description}
+
+## Overview
+{overview}
+
+Based on the information above, generate:
+1. "title_kr": A natural Korean translation of the title "{title}".
+2. "summary_kr": A natural, professional 1-2 sentence Korean summary of the work, based on the description and overview. Do not translate word-for-word.
+
+If the Overview is "(TBD)" or empty, base the summary mainly on the title and description.
+
+Respond with ONLY a single JSON object, no markdown code fences, no extra commentary:
+{{"title_kr": "...", "summary_kr": "..."}}
+"""
+
+
+def process_project(path: str) -> None:
+    post = frontmatter.load(path)
+    fm = post.metadata
+
+    if fm.get("summary_en") and fm.get("summary_kr") and fm.get("name_kr"):
+        print(f"[SKIP] {path} (already filled)")
+        return
+
+    name = fm.get("name", "")
+    overview = extract_section(post.content, "Overview") or "(none)"
+    contributions = extract_section(post.content, "My Contributions") or "(none)"
+
+    prompt = PROJECT_PROMPT.format(name=name, overview=overview, contributions=contributions)
+
+    try:
+        data = call_claude(prompt)
+        updates = {
+            "summary_en": clean(data["summary_en"]),
+            "summary_kr": clean(data["summary_kr"]),
+            "name_kr": clean(data["name_kr"]),
+        }
+    except Exception as e:
+        print(f"[ERROR] {path}: {e}")
+        return
+
+    with open(path, "r", encoding="utf-8") as f:
+        text = f.read()
+    new_text = update_front_matter(text, updates)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(new_text)
+
+    print(f"[UPDATED] {path}")
+    print(f"  summary_en: {updates['summary_en']}")
+    print(f"  summary_kr: {updates['summary_kr']}")
+    print(f"  name_kr:    {updates['name_kr']}")
+
+
+def process_academic(path: str) -> None:
+    post = frontmatter.load(path)
+    fm = post.metadata
+
+    if fm.get("title_kr") and fm.get("summary_kr"):
+        print(f"[SKIP] {path} (already filled)")
+        return
+
+    title = fm.get("title", "")
+    description = fm.get("description", "") or "(none)"
+    overview = extract_section(post.content, "Overview") or "(none)"
+
+    prompt = ACADEMIC_PROMPT.format(title=title, description=description, overview=overview)
+
+    try:
+        data = call_claude(prompt)
+        updates = {
+            "title_kr": clean(data["title_kr"]),
+            "summary_kr": clean(data["summary_kr"]),
+        }
+    except Exception as e:
+        print(f"[ERROR] {path}: {e}")
+        return
+
+    with open(path, "r", encoding="utf-8") as f:
+        text = f.read()
+    new_text = update_front_matter(text, updates)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(new_text)
+
+    print(f"[UPDATED] {path}")
+    print(f"  title_kr:   {updates['title_kr']}")
+    print(f"  summary_kr: {updates['summary_kr']}")
+
 
 def main():
-    paths = sorted(glob.glob("_posts/*.md"))
-    updated = 0
+    project_paths = sorted(glob.glob("_projects/*.md"))
+    academic_paths = sorted(glob.glob("_academic/*.md"))
 
-    for path in paths:
-        with open(path, "r", encoding="utf-8") as f:
-            text = f.read()
+    print(f"== Projects ({len(project_paths)}) ==")
+    for path in project_paths:
+        process_project(path)
 
-        fm, body = split_front_matter(text)
+    print(f"\n== Academic ({len(academic_paths)}) ==")
+    for path in academic_paths:
+        process_academic(path)
 
-        # Only generate when missing
-        if has_en_summary(fm):
-            continue
-
-        cleaned = compress_whitespace(strip_code_blocks(body))
-        if len(cleaned) < 200:
-            continue
-
-        try:
-            prompt = build_prompt(cleaned)
-            summary = call_openai(prompt)
-            fm = ensure_summary(fm, summary)
-        except Exception as e:
-            # Fail open: publish without summary
-            print(f"[SKIP] {path}: {e}")
-            continue
-
-        new_text = dump_front_matter(fm) + body
-        if new_text != text:
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(new_text)
-            updated += 1
-            print(f"[UPDATED] {path}")
-
-    print(f"Done. Updated {updated} file(s).")
 
 if __name__ == "__main__":
     main()

@@ -12,9 +12,9 @@ tools: [Concept Drift Detection, Adaptive Retraining, MLOps, PoC]
 image:
 external_url:
 featured: true
-summary_en: ""
-summary_kr: ""
-name_kr: ""
+summary_en: "Led an end-to-end Proof-of-Concept with POSCO DX to design and validate an adaptive retraining framework that detects concept drift in real-world steel manufacturing processes. The framework improved predictive accuracy from 15 to 85 against a 60-70 baseline, earned executive approval for full-scale implementation, and laid the foundation for the author's M.S. thesis and the SHIFT paper (IEEE Access, 2026)."
+summary_kr: "POSCO DX와 함께 진행한 PoC를 리드하여, 철강 제조 현장에서 발생하는 컨셉 드리프트를 감지하고 이에 적응적으로 재학습하는 프레임워크를 설계·검증했습니다. 그 결과 예측 정확도를 기존 60~70 수준에서 15→85로 크게 향상시켰고, 임원 승인을 받아 실제 시스템에 적용되었으며 이후 석사 학위논문과 SHIFT 논문(IEEE Access, 2026)의 토대가 되었습니다."
+name_kr: "철강 산업 모델 업데이트 전략 개발"
 ---
 
 ## Overview
