@@ -64,8 +64,8 @@ function initTimelineScroll() {
 }
 
 function initLang() {
-  const savedLang = localStorage.getItem(LANG_STORAGE_KEY);
-  setLang(savedLang === langs.KR ? langs.KR : langs.EN);
+  // Toggle is hidden in navbar.html, so ignore any saved KR preference
+  setLang(langs.EN);
 }
 
 function setLang(lang) {

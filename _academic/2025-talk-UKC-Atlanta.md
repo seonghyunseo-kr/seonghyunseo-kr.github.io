@@ -6,7 +6,6 @@ title: "Autonomous Online Learning with Feature Store and Data Store Updates: A 
 description: "Presented an autonomous online-learning framework that updates feature stores and data stores for virtual metrology in steel manufacturing."
 event: "UKC 2025"
 location: "Atlanta, GA"
-slides_url: "https://YOUR-SLIDES-LINK"
 style: border
 color: primary
 comments: false

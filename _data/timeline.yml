@@ -19,32 +19,31 @@
     - "Automated reporting pipeline."
 
 - kind: experience
-  sort: "2022-09-01"
+  sort: "2024-03"
   position: "Graduate Research Student"
-  org: "Technometrics Lab"
-  from: "Sep 2022"
+  org: "Technometrics Lab, SKKU"
+  from: "Mar 2024"
   to: "Aug 2025"
   details:
     - "Researched concept drift detection and adaptive retraining strategies for production ML systems (MLOps)."
-    - "Presented at multiple international conferences; submitted journal papers."
+    - "Presented at multiple international conferences; published a first-author paper in IEEE Access (2026) and registered a Korean patent on SHIFT."
     - "Filed a patent on AI model retraining through feature store and data store updates."
 
 - kind: experience
-  sort: "2022-09-02"
-  position: "Research Assistant"
-  org: "Hyundai Research Institute"
+  sort: "2022-09"
+  position: "Undergraduate Research Student"
+  org: "Technometrics Lab, SKKU"
   from: "Sep 2022"
-  to: "Feb 2023"
+  to: "Feb 2024"
   details:
-    - "Analyzed and forecasted social/economic impacts of the Korean art fair market."
-    - "Used Google Trends and Naver Data Lab to build word clouds and run network analysis on key topics."
-    - "Summarized findings into report-ready deliverables."
+    - "Researched concept drift detection and adaptive retraining strategies for production ML systems."
+    - "Began the SHIFT project through an industry–academia PoC with POSCO DX."
 
 - kind: education
   sort: "2025-08"
   position: "M.S. in Industrial Engineering"
   org: "Sungkyunkwan University (SKKU)"
-  from: "Sep 2022"
+  from: "Mar 2024"
   to: "Aug 2025"
   details:
     - "Specialization: Autonomous AI/ML Operations"
