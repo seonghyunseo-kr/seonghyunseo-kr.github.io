@@ -27,7 +27,6 @@
   details:
     - "Researched concept drift detection and adaptive retraining strategies for production ML systems (MLOps)."
     - "Presented at multiple international conferences; published a first-author paper in IEEE Access (2026) and registered a Korean patent on SHIFT."
-    - "Filed a patent on AI model retraining through feature store and data store updates."
 
 - kind: experience
   sort: "2022-09"
