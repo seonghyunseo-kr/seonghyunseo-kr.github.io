@@ -21,12 +21,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Developing Model Update Strategy in Steel Industry">
-  <meta property="og:description" content="Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline.">
+  <meta property="og:title" content="SHIFT: Self-Healing Model Maintenance under Concept Drift">
+  <meta property="og:description" content="Developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data; began as a POSCO DX Po...">
   <meta property="og:image" content="/assets/img/profile.jpg">
 
-  <title>Developing Model Update Strategy in Steel Industry</title>
-  <meta name="description" content="Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline.">
+  <title>SHIFT: Self-Healing Model Maintenance under Concept Drift</title>
+  <meta name="description" content="Developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data; began as a POSCO DX Po...">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -78,8 +78,6 @@
 
       <a class="nav-item nav-link active" href="/projects/"data-en="Projects" data-kr="프로젝트">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/"data-en="Blog" data-kr="블로그">Blog</a>
-
       <a class="nav-item nav-link " href="/cv/"data-en="CV" data-kr="CV">CV</a>
 
       
@@ -96,35 +94,37 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1><b>Developing Model Update Strategy in Steel Industry</b></h1>
+  <h1><b>SHIFT: Self-Healing Model Maintenance under Concept Drift</b></h1>
 
-<p class="post-metadata text-muted"><br></p><blockquote>
-  <p><strong>Research — Technometrics / POSCO DX</strong><br><strong>Period</strong>: Summer 2023<br><strong>Tools</strong>: Concept Drift Detection, Adaptive Retraining, MLOps, PoC</p>
+<p class="post-metadata text-muted">30 October 2026<br></p><blockquote>
+  <p><strong>Research — Technometrics Lab / POSCO DX</strong><br><strong>Period</strong>: Summer 2023<br><strong>Tools</strong>: Concept Drift Detection, MDLP, mRMR, Adaptive Retraining, Python</p>
 </blockquote>
 <br>
 
-<h4 id="overview">Overview</h4>
+<h4 id="problem">Problem</h4>
 <ul>
-  <li><strong>Context</strong>: Proof-of-Concept (PoC) with POSCO DX validating an AI-driven model update strategy to detect and adapt to <strong>Concept Drift</strong> in real-world steel manufacturing processes.</li>
-  <li><strong>Goal</strong>: Design and validate an adaptive retraining framework that maintains model accuracy as data distributions shift over time in production environments.</li>
-  <li><strong>Outcome</strong>: Improved predictive accuracy from <strong>15 → 85</strong>, far exceeding the baseline of 60–70; secured executive approval for full-scale implementation and integration into the production system.</li>
+  <li>A virtual metrology (VM) model deployed in a Korean steel sintering process had no post-deployment update policy, and its predictive accuracy degraded as process conditions shifted (concept drift).</li>
+  <li>Conventional retraining relies on fixed feature sets and accumulated data, so it cannot tell <em>when</em> and <em>how</em> the model should be updated.</li>
 </ul>
 
-<h4 id="my-contributions">My Contributions</h4>
+<h4 id="my-role">My Role</h4>
 <ul>
-  <li><strong>Led the PoC end-to-end</strong> — from research design through stakeholder presentation and executive sign-off.</li>
-  <li>Implemented and tested an <strong>adaptive AI framework</strong> for real-time concept drift detection and model retraining, demonstrating feasibility for production-scale deployment.</li>
-  <li>Validated the strategy against real steel manufacturing process data, achieving a dramatic accuracy improvement (15 → 85 vs. baseline 60–70).</li>
-  <li>Presented PoC findings to executives and engineering stakeholders, successfully securing approval for further implementation.</li>
-  <li>This project formed the foundation of the M.S. thesis and the SHIFT paper (IEEE Access, 2026).</li>
+  <li>Led the POSCO DX Proof-of-Concept end-to-end, from research design to the executive presentation.</li>
+  <li>Developed SHIFT as my M.S. thesis (Technometrics Lab, SKKU); first author of the IEEE Access paper and co-inventor of the Korean patent.</li>
 </ul>
 
-<h4 id="tech-stack">Tech Stack</h4>
+<h4 id="approach">Approach</h4>
 <ul>
-  <li>Concept Drift Detection algorithms</li>
-  <li>Adaptive / online retraining methods</li>
-  <li>MLOps pipeline design</li>
-  <li>Python</li>
+  <li>Classified real vs. virtual drift using long/short-window learners and a queue-based decision rule.</li>
+  <li>Updated the <strong>features</strong> (MDLP + mRMR) and the <strong>training data</strong> (buffer period, weighting), i.e., both the feature store and the data store.</li>
+</ul>
+
+<h4 id="outcome">Outcome</h4>
+<ul>
+  <li>PoC: raised accuracy from <strong>15 to 85</strong> (baseline 60–70) and won approval for production use.</li>
+  <li>Paper: recovered CTQ from 15% to 93% and outperformed 11 existing concept drift methods.</li>
+  <li>Publication: Seo, S., &amp; Lim, D.-J. (2026). SHIFT: Self-Healing Intelligence in Feature store and data store Transitions. <em>IEEE Access</em>, 14, 16483–16502. <a href="https://doi.org/10.1109/ACCESS.2026.3658719">DOI: 10.1109/ACCESS.2026.3658719</a></li>
+  <li>Patent: KR Patent No. 10-2941200.</li>
 </ul>
 
 

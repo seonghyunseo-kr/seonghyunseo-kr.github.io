@@ -1,7 +1,7 @@
 ### Site Settings ###
 title               : HYUN-TOPIA
 description         : >-
-                      AI/ML Researcher | Data Scientist | Applied Scientist
+                      Researcher at LG Energy Solution · Forecasting & Decision-Making under Uncertainty
 baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : seonghyunseo-kr/seonghyunseo-kr.github.io      # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : yousinix/portfolYOU
@@ -98,3 +98,8 @@ exclude:
   - CLAUDE.md
   - LICENSE
   - "*.log"
+  # Blog hidden for now; files kept in the repo
+  - _posts
+  - pages/blog.html
+  - pages/tags.html
+  - pages/blog

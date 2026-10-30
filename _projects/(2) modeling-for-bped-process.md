@@ -1,38 +1,36 @@
 ---
 layout: post
-title: "Modeling for BPED Process (LiOH Production)"
+title: "AI Modeling for BPED Process in LiOH Production"
 category: "Industry — POSCO Holdings"
 track: "Industry"
-topic: "Process Optimization + Anomaly Detection + Smart Factory"
-description: "Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout."
+topic: "Process Modeling + Real-Time Anomaly Detection + Smart Factory"
+description: "Modeled POSCO's BPED process for lithium hydroxide production with time-series models and built real-time anomaly detection, leading the project as data scientist and PM."
 period: "Winter 2024 – Summer 2025"
 year: "2024"
 style: border
 color: success
 comments: false
 toc: true
-tools: [ML, Time Series, Anomaly Detection, Platform Dev]
+tools: [Lasso, LSTM, One-Class SVM, Statistical Thresholds, Platform Dev]
 image:
 external_url:
 featured: true
-summary_en: "Led an AI modeling initiative for POSCO's BPED (Battery Precursor Electrolysis & Drying) process in lithium hydroxide production, combining machine learning with time series techniques to support smart factory operations. Developed a real-time anomaly detection system and a custom end-to-end platform covering data ingestion, model training, visualization, and recommendations, serving as both Data Scientist and project lead."
-summary_kr: "POSCO의 수산화리튬(LiOH) 생산 BPED 공정을 대상으로 머신러닝과 시계열 기법을 결합한 AI 모델링을 주도했습니다. 실시간 이상 탐지 시스템과 데이터 수집·모델 학습·시각화·추천까지 아우르는 맞춤형 엔드투엔드 플랫폼을 구축했으며, 데이터 사이언티스트 겸 프로젝트 리더로서 현장 엔지니어와의 협업을 이끌었습니다."
-title_kr: "BPED 공정 모델링 (수산화리튬 생산)"
+summary_en: "Modeled the BPED process in POSCO's lithium hydroxide production, moving from a Lasso baseline to LSTM-based time-series models, and built real-time anomaly detection combining domain rule-based statistical thresholds with One-Class SVM. Led the project as data scientist and PM, delivering a modeling and recommendation platform with process engineers."
+summary_kr: "POSCO의 수산화리튬(LiOH) 생산 BPED 공정을 시계열 모델로 모델링하고 실시간 이상 탐지 시스템을 구축했으며, 데이터 사이언티스트 겸 PM으로 프로젝트를 이끌었습니다."
+title_kr: "수산화리튬 생산 BPED 공정 AI 모델링"
 ---
 
-#### Overview
-- **Context**: AI-based modeling for the BPED (Battery Precursor Electrolysis & Drying) process in LiOH production at POSCO Holdings, targeting smart factory deployment.
-- **Goal**: Optimize a complex chemical manufacturing process by combining ML with time series techniques, improving operational efficiency and product quality.
-- **Outcome**: Delivered a real-time anomaly detection system and a customized end-to-end modeling platform supporting visualization and recommendation, ready for practical field deployment.
+#### Problem
+- The BPED process in LiOH production at POSCO Holdings is a complex, multi-variable chemical process. The goal was to model it for process optimization and to flag process deviations early, as part of a smart factory rollout.
 
-#### My Contributions
-- Developed AI-based modeling frameworks integrating **machine learning with time series techniques** to support decision-making under complex, multi-variable manufacturing conditions.
-- Built **real-time anomaly detection models** to flag process deviations early and support quality control.
-- Contributed to a **customized platform** providing end-to-end functionality: data ingestion, model training, visualization, and actionable recommendations for field engineers.
-- **Led the project as Data Scientist and PM** — coordinated cross-functional efforts, produced evidence-based documentation, and translated model insights into field-ready solutions through close collaboration with process engineers.
+#### My Role
+- Led the project as data scientist and PM: coordinated cross-functional work, produced documentation, and worked closely with process engineers to turn model insights into field-ready solutions.
 
-#### Tech Stack
-- Machine Learning (regression, ensemble methods)
-- Time Series Analysis
-- Anomaly Detection
-- Custom platform development (end-to-end pipeline)
+#### Approach
+- Modeled the process for optimization, moving from a **Lasso** baseline to **LSTM**-based time-series models.
+- Detected anomalies in real time by combining domain rule-based **statistical thresholds** with **One-Class SVM**.
+- Built a platform covering data ingestion, model training, visualization, and recommendations for field engineers.
+
+#### Outcome
+- Delivered a real-time anomaly detection system and a modeling and recommendation platform with process engineers.
+- TODO: quantitative outcome (e.g., model performance or adoption status), if it can be shared publicly.

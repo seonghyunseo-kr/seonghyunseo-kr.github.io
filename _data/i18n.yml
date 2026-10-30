@@ -21,29 +21,29 @@ nav:
 
 landing:
   intro: >-
-    I'm an aspiring AI/ML researcher grounded in scientific and statistical reasoning, focused on extracting insights from real-world data.
-    My goal is to build reliable, data-driven systems for industrial applications that support sustainable and autonomous AI—especially in manufacturing.
-    I'm particularly interested in quality and process control and automation across steel, chemical materials, and aerospace production.
+    I'm SeongHyun Kristine Seo, a researcher at LG Energy Solution working on diagnostic algorithms for EV battery fleets.
+    My research interest is forecasting and decision-making under uncertainty in real-world industrial systems:
+    how to forecast the state of complex systems, how far to trust those forecasts, and how to turn them into decisions when failure labels are scarce and arrive late.
   intro_kr: >-
-    저는 과학적·통계적 사고에 기반해 실제 데이터에서 인사이트를 도출하는 데 집중하는 AI/ML 연구자를 꿈꾸고 있습니다.
-    제 목표는 산업 현장, 특히 제조업에서 지속 가능하고 자율적인 AI를 지원하는 신뢰성 있는 데이터 기반 시스템을 구축하는 것입니다.
-    철강, 화학 소재, 항공우주 생산 전반에 걸친 품질 및 공정 관리·자동화에 특히 관심이 많습니다.
+    저는 LG에너지솔루션에서 EV 배터리 플릿(fleet)을 위한 진단 알고리즘을 연구하고 있는 SeongHyun Kristine Seo입니다.
+    제 연구 관심사는 실제 산업 시스템에서의 불확실성 하 예측과 의사결정입니다.
+    복잡한 시스템의 상태를 어떻게 예측할지, 그 예측을 어디까지 신뢰할 수 있을지, 그리고 고장 라벨이 부족하고 늦게 확보되는 상황에서 예측을 어떻게 의사결정으로 연결할지를 연구합니다.
 
   research_interests_label:
     en: "Research interests:"
     kr: "연구 관심분야:"
   research_interest_1:
-    en: "Time-series forecasting (incl. multimodal time series)"
-    kr: "시계열 예측 (멀티모달 시계열 포함)"
+    en: "Uncertainty-aware time-series forecasting"
+    kr: "불확실성을 고려한 시계열 예측"
   research_interest_2:
-    en: "Statistical process control and planning"
-    kr: "통계적 공정 관리 및 계획"
+    en: "Learning with scarce and delayed labels"
+    kr: "라벨이 부족하고 늦게 확보되는 환경에서의 학습"
   research_interest_3:
-    en: "Operations Research & Optimization"
-    kr: "운영 연구 및 최적화"
+    en: "Decision-making under uncertainty"
+    kr: "불확실성 하에서의 의사결정"
   research_interest_4:
-    en: "Post-deployment model maintenance (monitoring, retraining, MLOps)"
-    kr: "배포 후 모델 유지보수 (모니터링, 재학습, MLOps)"
+    en: "Application domains: manufacturing, aerospace, and battery systems (prognostics and health management)"
+    kr: "적용 분야: 제조, 항공우주, 배터리 시스템 (고장 예측 및 건전성 관리, PHM)"
 
   timeline_title:
     en: "Timeline"

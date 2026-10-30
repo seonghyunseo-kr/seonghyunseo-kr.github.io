@@ -1,48 +1,48 @@
 [
 
   {
-    "title": "Early Warning Reporting (Aircraft Manufacturing)",
+    "title": "Early Warning Reporting for Aircraft Manufacturing",
     "url": "/projects/1-early-warning-reporting",
     "year": "2025",
     "track": "Industry",
-    "topic": "Forecasting + Causal Inference + LLM Reporting",
-    "description": "Built a forecasting and causal-inference pipeline that flags emerging quality risks in aircraft manufacturing and auto-generates root-cause reports through an LLM multi-agent workflow."
+    "topic": "Forecasting + Causal Root-Cause Analysis + Automated Reporting",
+    "description": "Built an early-warning system that forecasts quality risks in aircraft manufacturing and traces their root causes with causal discovery, delivered through an automated reporting pipeline."
   },
 
   {
-    "title": "Modeling for BPED Process (LiOH Production)",
+    "title": "AI Modeling for BPED Process in LiOH Production",
     "url": "/projects/2-modeling-for-bped-process",
     "year": "2024",
     "track": "Industry",
-    "topic": "Process Optimization + Anomaly Detection + Smart Factory",
-    "description": "Developed real-time anomaly detection and an end-to-end modeling platform for POSCO's BPED lithium hydroxide production line as part of a smart factory rollout."
+    "topic": "Process Modeling + Real-Time Anomaly Detection + Smart Factory",
+    "description": "Modeled POSCO's BPED process for lithium hydroxide production with time-series models and built real-time anomaly detection, leading the project as data scientist and PM."
   },
 
   {
-    "title": "Predictive Model for Enhancing Factory Productivity",
+    "title": "Predictive Modeling for Productivity Enhancement",
     "url": "/projects/3-development-of-a-predicive-model-for-enhancing-productivity",
     "year": "2024",
     "track": "Industry",
     "topic": "Ensemble Modeling + Multi-Target Prediction",
-    "description": "Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline."
+    "description": "Built ensemble models (Huber regression, XGBoost, Extra Trees) for five productivity targets in steel manufacturing, reaching an accuracy of 84.7 against a project KPI of 80.8."
   },
 
   {
-    "title": "Developing Model Update Strategy in Steel Industry",
+    "title": "SHIFT: Self-Healing Model Maintenance under Concept Drift",
     "url": "/projects/4-developing-model-update-strategy",
     "year": "2023",
     "track": "Research",
-    "topic": "Concept Drift + MLOps + Adaptive Retraining",
-    "description": "Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline."
+    "topic": "Concept Drift + Feature/Data Store Updates + Adaptive Retraining",
+    "description": "Developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data; began as a POSCO DX PoC that raised accuracy from 15 to 85 (IEEE Access, 2026; KR patent)."
   },
 
   {
-    "title": "Smart Factory Capstone: Anomaly Detection with Injection Data",
+    "title": "Anomaly Detection with Injection Molding Data (Smart Factory Capstone)",
     "url": "/projects/5-injection-data-anomaly-detection",
     "year": "2023",
     "track": "Research",
     "topic": "Anomaly Detection + Automated Labeling + Quality Control",
-    "description": "Built a real-time anomaly detection and automated labeling system for injection molding quality control, earning two awards at SKKU capstone contests."
+    "description": "Detected defects in injection molding data in real time with Isolation Forest and automated data labeling with an industry partner, earning two 3rd prizes at SKKU design contests (2023)."
   }
 
 ]

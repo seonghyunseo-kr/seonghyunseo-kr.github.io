@@ -1,39 +1,36 @@
 ---
 layout: post
-title: "Predictive Model for Enhancing Factory Productivity"
+title: "Predictive Modeling for Productivity Enhancement"
 category: "Industry — POSCO / POSCO DX"
 track: "Industry"
 topic: "Ensemble Modeling + Multi-Target Prediction"
-description: "Built ensemble models (XGBoost, Extra Trees, Huber) that predict five production targets at once, lifting the KPI from 80.8 to 84.7 against the baseline."
+description: "Built ensemble models (Huber regression, XGBoost, Extra Trees) for five productivity targets in steel manufacturing, reaching an accuracy of 84.7 against a project KPI of 80.8."
 period: "Summer 2024"
 year: "2024"
 style: border
 color: info
 comments: false
 toc: true
-tools: [XGBoost, Extra Trees, Huber, Ensemble]
+tools: [Huber Regression, XGBoost, Extra Trees, Ensemble, Python]
 image:
 external_url:
 featured: true
-summary_en: "Built versatile ensemble models combining XGBoost, Extra Trees, and Huber regression to simultaneously predict five distinct production targets for POSCO and POSCO DX. The models lifted the key accuracy KPI from a baseline of 80.8 to 84.7 across all targets, and the work was recognized for clear stakeholder communication and effective teamwork during reviews."
-summary_kr: "POSCO 및 POSCO DX와 함께 진행한 프로젝트로, XGBoost·Extra Trees·Huber 회귀를 결합한 앙상블 모델을 구축해 5개의 생산 목표 변수를 동시에 예측했습니다. 그 결과 핵심 정확도 KPI를 기준치 80.8에서 84.7로 향상시켰으며, 명확한 커뮤니케이션과 협업 능력을 인정받았습니다."
-title_kr: "공장 생산성 향상을 위한 예측 모델"
+summary_en: "Built ensemble models combining Huber regression, XGBoost, and Extra Trees to predict five productivity targets in steel manufacturing with POSCO and POSCO DX. Customized implementations and tuned hyperparameters with plant engineers, achieving an accuracy of 84.7 against a project KPI of 80.8."
+summary_kr: "POSCO·POSCO DX와 함께 Huber 회귀, XGBoost, Extra Trees를 결합한 앙상블 모델로 철강 제조의 5개 생산성 목표를 예측했으며, 프로젝트 KPI 80.8을 넘는 정확도 84.7을 달성했습니다."
+title_kr: "생산성 향상을 위한 예측 모델링"
 ---
 
-#### Overview
-- **Context**: Predictive modeling project with POSCO and POSCO DX to enhance productivity in steel manufacturing by building accurate multi-target prediction models.
-- **Goal**: Develop ensemble models for five distinct production targets, surpassing a KPI accuracy threshold of 80.8.
-- **Outcome**: Achieved final accuracy of **84.7**, exceeding the KPI, across all five targets; recognized for clear communication, teamwork, and logical task management during stakeholder reviews.
+#### Problem
+- Predict five distinct productivity targets in steel manufacturing accurately enough to exceed a project KPI of **80.8**.
 
-#### My Contributions
-- Developed **versatile ensemble models** combining **Huber**, **XGBoost**, and **Extra Trees**, leveraging expertise in algorithm customization and hyperparameter optimization.
-- Built prediction models for **five distinct targets** simultaneously, coordinating model-specific tuning while maintaining a unified pipeline structure.
-- Collaborated closely with industry professionals throughout the project, translating domain knowledge into feature engineering decisions.
-- Recognized during reviews for strengths in **organizing and summarizing work outcomes**, fostering teamwork, and providing clear, logical communication.
+#### My Role
+- Developed the prediction models and worked with plant engineers to translate domain knowledge into modeling decisions.
+- TODO: team composition / your specific responsibilities within the team.
 
-#### Tech Stack
-- XGBoost
-- Extra Trees
-- Huber Regression
-- Ensemble methods (stacking / blending)
-- Python (scikit-learn)
+#### Approach
+- Built ensemble models combining **Huber regression**, **XGBoost**, and **Extra Trees** for the five targets, within a unified pipeline.
+- Customized implementations and tuned hyperparameters with plant engineers to fit plant-specific data.
+
+#### Outcome
+- Achieved an accuracy of **84.7**, exceeding the project KPI of 80.8.
+- Recognized in stakeholder reviews for clear communication and organized reporting of results.

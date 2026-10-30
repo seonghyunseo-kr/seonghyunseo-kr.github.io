@@ -1,39 +1,39 @@
 ---
 layout: post
-title: "Developing Model Update Strategy in Steel Industry"
-category: "Research — Technometrics / POSCO DX"
+title: "SHIFT: Self-Healing Model Maintenance under Concept Drift"
+category: "Research — Technometrics Lab / POSCO DX"
 track: "Research"
-topic: "Concept Drift + MLOps + Adaptive Retraining"
-description: "Designed and validated an adaptive retraining framework that detects concept drift in steel manufacturing, raising accuracy from 15 to 85 over the baseline."
+topic: "Concept Drift + Feature/Data Store Updates + Adaptive Retraining"
+description: "Developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data; began as a POSCO DX PoC that raised accuracy from 15 to 85 (IEEE Access, 2026; KR patent)."
 period: "Summer 2023"
 year: "2023"
 style: border
 color: warning
 comments: false
 toc: true
-tools: [Concept Drift Detection, Adaptive Retraining, MLOps, PoC]
+tools: [Concept Drift Detection, MDLP, mRMR, Adaptive Retraining, Python]
 image:
 external_url:
 featured: true
-summary_en: "Led an end-to-end Proof-of-Concept with POSCO DX to design and validate an adaptive retraining framework that detects concept drift in real-world steel manufacturing processes. The framework improved predictive accuracy from 15 to 85 against a 60-70 baseline, earned executive approval for full-scale implementation, and laid the foundation for the author's M.S. thesis and the SHIFT paper (IEEE Access, 2026)."
-summary_kr: "POSCO DX와 함께 진행한 PoC를 리드하여, 철강 제조 현장에서 발생하는 컨셉 드리프트를 감지하고 이에 적응적으로 재학습하는 프레임워크를 설계·검증했습니다. 그 결과 예측 정확도를 기존 60~70 수준에서 15→85로 크게 향상시켰고, 임원 승인을 받아 실제 시스템에 적용되었으며 이후 석사 학위논문과 SHIFT 논문(IEEE Access, 2026)의 토대가 되었습니다."
-title_kr: "철강 산업 모델 업데이트 전략 개발"
+summary_en: "Developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data. It began as a POSCO DX PoC on steel virtual metrology that raised accuracy from 15 to 85 and won approval for production use, and became the M.S. thesis, an IEEE Access paper (2026), and a Korean patent."
+summary_kr: "배포된 제조 모델의 컨셉 드리프트를 감지하고 피처와 학습 데이터를 업데이트하는 프레임워크 SHIFT를 개발했습니다. 철강 가상 계측 POSCO DX PoC에서 정확도를 15에서 85로 높여 실제 적용 승인을 받았고, 석사 학위논문·IEEE Access 논문(2026)·국내 특허로 이어졌습니다."
+title_kr: "SHIFT: 컨셉 드리프트 하 자가 치유형 모델 유지보수"
 ---
 
-#### Overview
-- **Context**: Proof-of-Concept (PoC) with POSCO DX validating an AI-driven model update strategy to detect and adapt to **Concept Drift** in real-world steel manufacturing processes.
-- **Goal**: Design and validate an adaptive retraining framework that maintains model accuracy as data distributions shift over time in production environments.
-- **Outcome**: Improved predictive accuracy from **15 → 85**, far exceeding the baseline of 60–70; secured executive approval for full-scale implementation and integration into the production system.
+#### Problem
+- A virtual metrology (VM) model deployed in a Korean steel sintering process had no post-deployment update policy, and its predictive accuracy degraded as process conditions shifted (concept drift).
+- Conventional retraining relies on fixed feature sets and accumulated data, so it cannot tell *when* and *how* the model should be updated.
 
-#### My Contributions
-- **Led the PoC end-to-end** — from research design through stakeholder presentation and executive sign-off.
-- Implemented and tested an **adaptive AI framework** for real-time concept drift detection and model retraining, demonstrating feasibility for production-scale deployment.
-- Validated the strategy against real steel manufacturing process data, achieving a dramatic accuracy improvement (15 → 85 vs. baseline 60–70).
-- Presented PoC findings to executives and engineering stakeholders, successfully securing approval for further implementation.
-- This project formed the foundation of the M.S. thesis and the SHIFT paper (IEEE Access, 2026).
+#### My Role
+- Led the POSCO DX Proof-of-Concept end-to-end, from research design to the executive presentation.
+- Developed SHIFT as my M.S. thesis (Technometrics Lab, SKKU); first author of the IEEE Access paper and co-inventor of the Korean patent.
 
-#### Tech Stack
-- Concept Drift Detection algorithms
-- Adaptive / online retraining methods
-- MLOps pipeline design
-- Python
+#### Approach
+- Classified real vs. virtual drift using long/short-window learners and a queue-based decision rule.
+- Updated the **features** (MDLP + mRMR) and the **training data** (buffer period, weighting), i.e., both the feature store and the data store.
+
+#### Outcome
+- PoC: raised accuracy from **15 to 85** (baseline 60–70) and won approval for production use.
+- Paper: recovered CTQ from 15% to 93% and outperformed 11 existing concept drift methods.
+- Publication: Seo, S., & Lim, D.-J. (2026). SHIFT: Self-Healing Intelligence in Feature store and data store Transitions. *IEEE Access*, 14, 16483–16502. [DOI: 10.1109/ACCESS.2026.3658719](https://doi.org/10.1109/ACCESS.2026.3658719)
+- Patent: KR Patent No. 10-2941200.

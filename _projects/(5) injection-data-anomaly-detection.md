@@ -1,38 +1,36 @@
 ---
 layout: post
-title: "Smart Factory Capstone: Anomaly Detection with Injection Data"
-category: "Research — On-Campus / Industry-Academia"
+title: "Anomaly Detection with Injection Molding Data (Smart Factory Capstone)"
+category: "Research — Industry–Academia Capstone"
 track: "Research"
 topic: "Anomaly Detection + Automated Labeling + Quality Control"
-description: "Built a real-time anomaly detection and automated labeling system for injection molding quality control, earning two awards at SKKU capstone contests."
+description: "Detected defects in injection molding data in real time with Isolation Forest and automated data labeling with an industry partner, earning two 3rd prizes at SKKU design contests (2023)."
 period: "Spring 2023"
 year: "2023"
 style: border
 color: secondary
 comments: false
 toc: true
-tools: [Anomaly Detection, Automated Labeling, Injection Molding Data]
+tools: [Isolation Forest, Z-score Normalization, Automated Labeling, Python]
 image:
 external_url:
 featured: false
-summary_en: "Developed a real-time anomaly detection system and an automated labeling framework for injection molding quality control as part of an industry-academia collaboration. Led the effort coordinating researchers and manufacturing engineers, improving production accuracy and process efficiency, and the project earned two awards at SKKU capstone design contests (2023)."
-summary_kr: "산학협력 캡스톤 프로젝트로 사출 성형 품질관리를 위한 실시간 이상 탐지 및 자동 라벨링 시스템을 개발했습니다. 연구자와 제조 엔지니어 간 협업을 주도하여 생산 정확도와 공정 효율을 높였으며, 그 결과 2023년 SKKU 종합설계대회와 DNA-Hero 캡스톤 디자인 대회에서 각각 3위를 수상했습니다."
-title_kr: "스마트팩토리 캡스톤: 사출 데이터 이상 탐지"
+summary_en: "Detected defects in injection molding data in real time using Isolation Forest on Z-score-normalized sensor data, built a quality evaluation framework, and automated data labeling with an industry partner. As team lead, the project earned 3rd Prize at the SKKU Engineering Design Contest and the SKKU Capstone Design Contest (2023)."
+summary_kr: "Z-score로 정규화한 사출 성형 센서 데이터에 Isolation Forest를 적용해 불량을 실시간으로 탐지하고, 산업체와 함께 데이터 라벨링을 자동화했으며, SKKU 설계 경진대회 두 곳에서 3위를 수상했습니다(2023)."
+title_kr: "사출 성형 데이터 이상 탐지 (스마트팩토리 캡스톤)"
 ---
 
-#### Overview
-- **Context**: Smart Factory capstone project focused on quality control in injection molding manufacturing, conducted as an industry-academia collaboration.
-- **Goal**: Build anomaly detection algorithms and a quality evaluation framework to identify defects in real time and automate the data labeling process.
-- **Outcome**: Delivered a working anomaly detection system with automated labeling, improving production accuracy and process efficiency; awarded **3rd Prize** at the SKKU Comprehensive Engineering Design Contest and **3rd Prize** at the SKKU DNA-Hero Capstone Design Contest (2023).
+#### Problem
+- Identify defects in injection molding production in real time, and reduce the manual effort of labeling injection molding data.
 
-#### My Contributions
-- Developed **anomaly detection algorithms** enabling real-time identification of defects in injection molding production lines.
-- Built a **quality evaluation framework** to systematically assess product quality based on sensor and process data.
-- **Led the industry-academia collaboration**, coordinating between academic researchers and manufacturing engineers to automate data labeling using injection molding datasets.
-- Focused on enhancing process efficiency and quality control through end-to-end pipeline design.
+#### My Role
+- Team lead of an industry–academia capstone project, coordinating between academic researchers and the industry partner's manufacturing engineers.
 
-#### Tech Stack
-- Anomaly Detection (statistical + ML-based)
-- Automated data labeling
-- Injection molding process data
-- Python
+#### Approach
+- Detected defects with **Isolation Forest** on **Z-score**-normalized sensor data for real-time identification.
+- Built a quality evaluation framework to assess detected defects against production standards.
+- Automated data labeling for injection molding data in collaboration with the industry partner.
+
+#### Outcome
+- 3rd Prize, SKKU Engineering Design Contest (2023); 3rd Prize, SKKU Capstone Design Contest, Team Lead (2023).
+- TODO: quantitative detection performance, if available.

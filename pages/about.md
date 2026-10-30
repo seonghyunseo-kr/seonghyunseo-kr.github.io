@@ -7,15 +7,15 @@ weight: 1
 
 # About
 
-Hi, I’m **{{ site.author.name }}**!
+I'm **{{ site.author.name }}**, a researcher at **LG Energy Solution** working on diagnostic algorithms for EV battery fleets. My research interest is forecasting and decision-making under uncertainty in real-world industrial systems: how to forecast the state of complex systems, how far to trust those forecasts, and how to turn them into decisions when failure labels are scarce and arrive late.
 
-Through multiple projects in the manufacturing sector, I’ve become deeply motivated by solving real-world problems with field-generated data. This has been the main driver of my professional growth.
+I received my B.S. in Data Science and Systems Management Engineering and my M.S. in Industrial Engineering from Sungkyunkwan University. My thesis developed SHIFT, a framework that detects concept drift in deployed manufacturing models and updates their features and training data ([IEEE Access, 2026](https://doi.org/10.1109/ACCESS.2026.3658719); Korean patent). At **Boeing AI (BKETC)**, I built an early-warning system that forecasts quality risks in aircraft manufacturing and traces their root causes with causal discovery.
 
-My current research interests focus on **reliable AI/ML for real-world operations**, including time-series forecasting, multimodal time series, control & planning, and post-deployment model maintenance (e.g., monitoring and retraining).
-
-I was an **AI/ML Researcher Intern at Boeing AI (BKETC, Seoul, South Korea)** where I focused on building sustainable and autonomous ML systems for industrial applications.
-
-Currently, I am seeking opportunities to contribute to the R&D journey within the industry.
+**Research Interests**
+- Uncertainty-aware time-series forecasting
+- Learning with scarce and delayed labels
+- Decision-making under uncertainty
+- Application domains: manufacturing, aerospace, and battery systems (prognostics and health management)
 
 
 Check out my latest [CV (PDF)](/assets/pdf/cv.pdf) ! 
